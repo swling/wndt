@@ -23,7 +23,7 @@ $tax_query = [
 	],
 ];
 
-echo '<div class="column">';
+echo '<div class="column is-paddingless">';
 
 $filter = new Wnd_Filter();
 $filter->add_post_type_filter(get_taxonomy($taxonomy)->object_type);
