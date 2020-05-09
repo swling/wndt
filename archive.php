@@ -2,16 +2,21 @@
 
 get_header();
 
-// 自定义 taxonomy
-if (is_tax()) {
-	get_template_part('template-parts/archive/taxonomy', $taxonomy);
+$taxonomy = get_queried_object()->taxonomy ?? false;
 
-// 文章类型归档
-} elseif (is_post_type_archive()) {
-	include TEMPLATEPATH . '/template-parts/archive/post-type-archive.php';
+// Term 归档
+if ($taxonomy) {
+	get_template_part('template-parts/archive/archive', $taxonomy);
+}
 
-//WordPress原生category、tag
-} else {
+// 自定义 post type 归档
+elseif (is_post_type_archive()) {
+	get_template_part('template-parts/archive/archive-postype', get_post_type());
+
+}
+
+// 默认 归档
+else {
 	get_template_part('template-parts/archive/archive');
 }
 
