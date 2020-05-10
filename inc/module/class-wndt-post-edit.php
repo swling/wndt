@@ -24,7 +24,7 @@ class Wndt_Post_Edit extends Wnd_Module {
 			$ppc->check_update();
 
 			// 主题定义的表单
-			$class = '\Wndt\Module\\Wndt_' . $edit_post->post_type . '_Form';
+			$class = '\Wndt\Module\\Wndt_Post_Form_' . $edit_post->post_type;
 			if (class_exists($class)) {
 				return $class::build($post_id);
 			}

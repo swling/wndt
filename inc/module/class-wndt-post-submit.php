@@ -18,7 +18,7 @@ class Wndt_Post_Submit extends Wnd_Module {
 			$ppc->check_insert();
 
 			// 主题定义的表单
-			$class = '\Wndt\Module\\Wndt_' . $post_type . '_Form';
+			$class = '\Wndt\Module\\Wndt_Post_Form_' . $post_type;
 			if (class_exists($class)) {
 				return $class::build();
 			}
