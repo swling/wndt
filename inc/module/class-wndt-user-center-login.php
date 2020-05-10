@@ -10,9 +10,9 @@ namespace Wndt\Module;
 class Wndt_User_Center_Login extends Wndt_User_Center {
 
 	public static function build() {
-		$html = '<main id="user-main" class="column">';
+		$html = '<div id="user-center">';
 		$html .= wnd_ajax_embed('wnd_user_center', ['do' => 'login']);
-		$html .= '</main>';
+		$html .= '</div>';
 		return $html;
 	}
 }
