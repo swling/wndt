@@ -33,12 +33,12 @@ class Wndt_User_Center extends Wnd_Module {
 
 	// 常规用户面板
 	protected static function build_user_center() {
-		$html = '<main id="user-main" class="column">';
+		$html = '<div id="user-center">';
 		$html .= static::build_user_panel_tabs();
 		$html .= '<div class="ajax-container">';
 		$html .= Wndt_User_Overview::build();
 		$html .= '</div>';
-		$html .= '</main>';
+		$html .= '</div>';
 		return $html;
 	}
 
