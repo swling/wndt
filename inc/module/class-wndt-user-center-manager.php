@@ -15,7 +15,7 @@ class Wndt_User_Center_Manager extends Wndt_User_Center {
 
 	// 导航Tabs
 	protected static function build_user_panel_tabs() {
-		$html = '<div id="user-panel-tabs" class="tabs is-fullwidth column">';
+		$html = '<div id="user-panel-tabs" class="tabs is-fullwidth column is-paddingless">';
 		$html .= '<ul>';
 		$html .= '<li class="wnd_user_center" class="is-active"><a href="">面板</a></li>';
 		$html .= '<li class="wnd_admin_posts_panel"><a href="#wnd_admin_posts_panel">审核</a></li>';

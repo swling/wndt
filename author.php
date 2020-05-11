@@ -1,30 +1,30 @@
 <?php
-$curauth    = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
-$user_id    = $curauth->ID;
-$user_data  = get_userdata($user_id);
-$user_roles = $user_data->roles[0];
-//array of roles the user is part of.
-// 当前主页
-$current_author_url = get_author_posts_url($user_id);
-// $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$user_data = get_queried_object()->data;
+$user_id   = $user_data->ID;
+
 get_header();
-
-echo '<div class="column">';
-$filter = new Wnd\View\Wnd_Filter(true);
-$filter->add_post_type_filter(['supply', 'demand']);
-$filter->add_query(['author' => $user_id]);
-$filter->set_post_template('wndt_post_list_tpl');
-$filter->set_ajax_container("#filter-results");
-$filter->query();
-
-echo $filter->get_tabs();
-
-echo '<div class="columns is-marginless">';
-echo '<div id="filter-results" class="column content">';
-echo $filter->get_results();
-echo '</div>';
-echo '</div>';
-
-echo '</div>';
-
+?>
+<main class="column has-text-centered" style="margin-top:1.5rem;">
+	<div class="columns">
+		<div class="column has-text-centered content">
+			<div id="user-avatar">
+				<?php echo get_avatar($user_id, '100'); ?>
+			</div>
+			<?php if (!empty($user_data->user_url)) { ?>
+				<h3 class="center">博客：<a href="<?php echo $user_data->user_url; ?>" target="_blank" rel="nofollow">@<?php wp_title(''); ?></a></h3>
+			<?php } ?>
+			<div id="user-description">
+				<?php echo get_user_meta($user_id, 'description', 1); ?>
+			</div>
+			<?php
+			if (wnd_is_manager()) {
+				echo '<h3>管理</h3>';
+				echo '<button class="button is-danger is-outlined is-small" onclick="wnd_ajax_modal(\'wnd_delete_user_form\',\'' . $user_id . '\')">删除用户</button>';
+				echo '&nbsp;<button class="button is-danger is-outlined is-small" onclick="wnd_ajax_modal(\'wnd_account_status_form\',\'' . $user_id . '\')">封禁用户</button>';
+			}
+			?>
+		</div>
+	</div>
+</main>
+<?php
 get_footer();

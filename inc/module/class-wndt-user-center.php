@@ -44,7 +44,7 @@ class Wndt_User_Center extends Wnd_Module {
 
 	// 导航Tabs
 	protected static function build_user_panel_tabs() {
-		$html = '<div id="user-panel-tabs" class="tabs is-fullwidth column">';
+		$html = '<div id="user-panel-tabs" class="tabs is-fullwidth column is-paddingless">';
 		$html .= '<ul>';
 		$html .= '<li class="wnd_user_center" class="is-active"><a href="">面板</a></li>';
 		$html .= '<li class="wnd_user_posts_panel"><a href="#wnd_user_posts_panel">商务</a></li>';
