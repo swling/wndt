@@ -21,33 +21,6 @@ function wndt_cert_icon($user_id, $space = '&nbsp;') {
 }
 
 /**
- *@since 2019.05.22
- *公司profile
- **/
-function wndt_company_profile($post_id, $avatar_size = 200, $with_contact = true) {
-	$post = get_post($post_id);
-	if (!$post) {
-		return;
-	}
-
-	// 如为管理员添加，则显示post_title，反之为注册用户，显示为用户display_name
-	$display_name = wnd_is_manager($post->post_author) ? $post->post_title : get_user_by('ID', $post->post_author)->display_name;
-
-	$html = '<div class="company-profile content">';
-	$html .= '<div class="avatar">';
-	$html .= wndt_post_thumbnail($post->ID, $avatar_size, $avatar_size);
-	$html .= '<h6><a href="' . get_permalink($post) . '">' . $display_name . '</a>' . wndt_cert_icon($post->post_author) . '</h6>';
-	$html .= '</div>';
-	if ($with_contact) {
-		$html .= '<a class="is-' . wnd_get_config('primary_color') . ' is-small button" onclick="wnd_ajax_modal(\'wndt_contact_info\',\'' . $post->ID . '\')">联系我们</a>&nbsp';
-		$html .= '<a class="is-' . wnd_get_config('primary_color') . ' is-small button is-outlined" target="_blank" href="' . esc_url(wnd_get_post_meta($post->ID, 'website')) . '">官方网站</a>';
-	}
-	$html .= '</div>';
-
-	return $html;
-}
-
-/**
  *@since 2019.06.05
  *名片profile
  **/
@@ -268,6 +241,28 @@ function get_post_type_tabs() {
 	unset($post_type);
 	$html .= '</ul>';
 	$html .= '</div>';
+
+	return $html;
+}
+
+/**
+ *
+ *@since 2019.09.18
+ *类型导航
+ */
+function wndt_category_nav_items($args = []) {
+	$defaults = ['taxonomy' => 'category', 'orderby' => 'count'];
+	$args     = wp_parse_args($args, $defaults);
+	$terms    = get_terms($args);
+
+	$html = '';
+	foreach ($terms as $term) {
+		$class = (is_tax($taxonomy, $term->term_id) or has_term($term->term_id, $taxonomy)) ? 'navbar-item is-active' : 'navbar-item';
+		$html .= '<a class="' . $class . '" href="' . get_term_link($term->term_id) . '">';
+		$html .= $term->name;
+		$html .= '</a>';
+	}
+	unset($term);
 
 	return $html;
 }

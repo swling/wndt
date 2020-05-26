@@ -11,7 +11,7 @@
  * @param   string      $search
  * @param   WP_Query    $wp_query
  */
-add_filter('posts_search', 'wndt_search_by_title', 11, 2);
+// add_filter('posts_search', 'wndt_search_by_title', 11, 2);
 function wndt_search_by_title($search, $wp_query) {
 	if (!empty($search) and !empty($wp_query->query_vars['search_terms'])) {
 		global $wpdb;

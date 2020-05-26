@@ -126,7 +126,7 @@ function wndt_clean_attached($post_ID, $post_after, $post_before) {
 
 ########################################### 文章写入后，对文章内容进行图片本地化保存
 // do_action( 'wp_insert_post', $post_ID, $post, $update );
-add_action('wp_insert_post', 'wndt_insert_post_action', 10, 3);
+// add_action('wp_insert_post', 'wndt_insert_post_action', 10, 3);
 function wndt_insert_post_action($post_ID, $post, $update) {
 
 	if ($post->post_status == 'trash') {

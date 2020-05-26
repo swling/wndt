@@ -1,6 +1,7 @@
 <?php
 namespace Wndt\Model;
 
+use Wndt\Component\AjaxComment\AjaxComment;
 use Wnd\Utility\Wnd_Singleton_Trait;
 
 /**
@@ -38,6 +39,9 @@ class Wndt_Init {
 		$this->enable_company = wndt_get_config('enable_company');
 
 		$this->init();
+
+		// Ajax评论
+		new AjaxComment;
 	}
 
 	/**
@@ -82,6 +86,7 @@ class Wndt_Init {
 		// functions
 		require TEMPLATEPATH . '/inc/function/inc-general.php'; //通用函数定义
 		require TEMPLATEPATH . '/inc/function/inc-optimization.php'; //优化
+		require TEMPLATEPATH . '/inc/function/inc-comment.php'; //评论
 
 		// temples
 		require TEMPLATEPATH . '/inc/function/tpl-general.php'; //通用模板

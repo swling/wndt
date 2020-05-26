@@ -10,7 +10,7 @@ namespace Wndt\Component\AjaxComment;
 class AjaxComment {
 
 	// 版本号
-	protected static $ver = 0.11;
+	protected static $ver = 0.12;
 
 	//your comment wrapprer
 	protected $wrapper = 'comment-list';

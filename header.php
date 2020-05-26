@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 
 <head>
-	<link rel="icon" href="<?php echo WNDT_THEME_URL; ?>/favicon.ico" />
+	<link rel="icon" href="<?php echo WNDT_URL; ?>/favicon.ico" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="referrer" content="always" />
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
@@ -32,6 +32,7 @@
 				</div>
 				<div class="navbar-menu">
 					<div class="navbar-start">
+						<?php echo wndt_category_nav_items(); ?>
 					</div>
 					<div class="navbar-end">
 						<a class="navbar-item" onclick="wnd_ajax_modal('wndt_search_form')">
@@ -62,7 +63,6 @@
 			</nav>
 		</div>
 	</div>
-	<?php include TEMPLATEPATH . '/template-parts/banner/banner.php'; ?>
 	<div id="wrap" class="container">
 		<?php echo wnd_breadcrumb(); ?>
 		<div class="columns is-desktop is-marginless">

@@ -16,10 +16,11 @@
 
 			// 在内容页放置按钮
 			echo wnd_paid_reading_button($post->ID);
+			// echo wnd_paid_download_button($post->ID);
 			?>
 			<?php comments_template(); ?>
 		</div>
 	</div>
 </main>
 <?php
-get_sidebar('right');
+// get_sidebar('right');

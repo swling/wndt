@@ -47,7 +47,7 @@ class Wndt_User_Center extends Wnd_Module {
 		$html = '<div id="user-panel-tabs" class="tabs is-fullwidth column is-paddingless">';
 		$html .= '<ul>';
 		$html .= '<li class="wnd_user_center" class="is-active"><a href="">面板</a></li>';
-		$html .= '<li class="wnd_user_posts_panel"><a href="#wnd_user_posts_panel">商务</a></li>';
+		$html .= '<li class="wnd_user_posts_panel"><a href="#wnd_user_posts_panel">内容</a></li>';
 		$html .= '<li class="wnd_user_finance_panel"><a href="#wnd_user_finance_panel">财务</a></li>';
 		$html .= '<li class="wnd_profile_form"><a href="#wnd_profile_form">资料</a></li>';
 		$html .= '<li class="wnd_account_form"><a href="#wnd_account_form">账户</a></li>';
