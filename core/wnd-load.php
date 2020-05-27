@@ -1,4 +1,8 @@
 <?php
+if (!defined('WND_PATH')) {
+	require 'wnd-frontend.php';
+}
+
 /**
  *@since 2019.07.31
  *自动加载类文件

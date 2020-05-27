@@ -25,7 +25,7 @@ define('WND_VER', '0.8.2');
 
 // 定义插件网址路径
 // define('WND_URL', plugin_dir_url(__FILE__));
-// define('WND_URL', get_option('home') . '/wp-content/themes/wndt/' . basename(dirname(__FILE__)));
+define('WND_URL', WNDT_URL);
 
 // 定义插件文件路径
 define('WND_PATH', __DIR__);
@@ -46,14 +46,14 @@ register_deactivation_hook(__FILE__, 'Wnd\Model\Wnd_Admin::uninstall');
  *加载静态资源
  */
 add_action('wp_enqueue_scripts', function () {
-	wp_enqueue_script('wnd-frontend', WND_URL . '/static/js/wnd-frontend.min.js', ['jquery'], WND_VER);
+	wp_enqueue_script('wnd-frontend', WND_URL . 'static/js/wnd-frontend.min.js', ['jquery'], WND_VER);
 
 	// bulma框架及fontawesome图标
 	$static_host = wnd_get_config('static_host');
 	if ('local' == $static_host) {
-		wp_enqueue_style('bulma', WND_URL . '/static/css/bulma.min.css', [], WND_VER);
-		wp_enqueue_style('bulma-extensions', WND_URL . '/static/css/bulma-extensions.min.css', [], WND_VER);
-		wp_enqueue_style('font-awesome', WND_URL . '/static/css/font-awesome-all.min.css', [], WND_VER);
+		wp_enqueue_style('bulma', WND_URL . 'static/css/bulma.min.css', [], WND_VER);
+		wp_enqueue_style('bulma-extensions', WND_URL . 'static/css/bulma-extensions.min.css', [], WND_VER);
+		wp_enqueue_style('font-awesome', WND_URL . 'static/css/font-awesome-all.min.css', [], WND_VER);
 	} elseif ('jsdeliver' == $static_host) {
 		wp_enqueue_style('bulma', '//cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css', [], null);
 		wp_enqueue_style('bulma-extensions', '//cdn.jsdelivr.net/npm/bulma-extensions@6.2.7/dist/css/bulma-extensions.min.css', [], null);
