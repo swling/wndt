@@ -48,7 +48,6 @@ spl_autoload_register(function ($class) {
 		$path  = substr($class, strlen($base_prefix));
 		$path  = str_replace('_', '-', $path);
 		$path  = str_replace('\\', DIRECTORY_SEPARATOR, $path);
-		$path  = str_replace('wnd-', 'class-wnd-', $path);
 
 		$file = $base_dir . DIRECTORY_SEPARATOR . $path . '.php';
 		if (file_exists($file)) {
