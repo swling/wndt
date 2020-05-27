@@ -12,8 +12,15 @@ if (!defined('WND_VER')) {
  *
  */
 spl_autoload_register(function ($class) {
-	$base_dir         = TEMPLATEPATH . DIRECTORY_SEPARATOR . 'inc';
-	$base_prefix      = 'Wndt\\';
+	// 常规
+	$base_dir    = TEMPLATEPATH . DIRECTORY_SEPARATOR . 'inc';
+	$base_prefix = 'Wndt\\';
+
+	// 拓展插件
+	$plugin_dir    = WP_PLUGIN_DIR;
+	$plugin_prefix = 'Wndt\Plugin\\';
+
+	// 第三方组件
 	$component_dir    = $base_dir . DIRECTORY_SEPARATOR . 'component';
 	$component_prefix = 'Wndt\Component\\';
 
@@ -38,20 +45,41 @@ spl_autoload_register(function ($class) {
 	}
 
 	/**
+	 *插件加载
+	 *实例
+	 *类名: Wndt\Plugin\Wndt_Demo\Wndt_Demo
+	 *路径: /wp-content/plugins/wndt-demo/wndt-demo.php
+	 */
+	if (0 === stripos($class, $plugin_prefix)) {
+		$class = strtolower($class);
+		$path  = substr($class, strlen($base_prefix));
+		$path  = str_replace('\\', DIRECTORY_SEPARATOR, $path);
+		$path  = str_replace('_', '-', $path);
+		$path  = str_replace('plugin\\', '', $path);
+		$file  = $plugin_dir . DIRECTORY_SEPARATOR . $path . '.php';
+		if (file_exists($file)) {
+			require $file;
+		}
+
+		return;
+	}
+
+	/**
 	 *实例
 	 *类名: Wndt\Module\Wndt_Bid_Form
-	 *路径: /inc/module/class-wnd-bid-form.php
+	 *路径: /inc/module/wndt-bid-form.php
 	 */
 	if (0 === stripos($class, $base_prefix)) {
 		$class = strtolower($class);
 		$path  = substr($class, strlen($base_prefix));
 		$path  = str_replace('\\', DIRECTORY_SEPARATOR, $path);
 		$path  = str_replace('_', '-', $path);
-		$path  = str_replace('wndt-', 'class-wndt-', $path);
 		$file  = $base_dir . DIRECTORY_SEPARATOR . $path . '.php';
 		if (file_exists($file)) {
 			require $file;
 		}
+
+		return;
 	}
 });
 

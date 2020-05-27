@@ -1,7 +1,6 @@
 <?php
 namespace Wndt\Module;
 
-use Wndt\Model\Wndt_Refresh;
 use Wnd\Module\Wnd_Module;
 
 /**
