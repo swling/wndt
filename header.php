@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 
 <head>
-	<link rel="icon" href="<?php echo WNDT_URL; ?>/favicon.ico" />
+	<link rel="icon" href="<?php echo WND_URL; ?>/favicon.ico" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="referrer" content="always" />
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />

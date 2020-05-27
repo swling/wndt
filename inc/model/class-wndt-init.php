@@ -1,7 +1,7 @@
 <?php
 namespace Wndt\Model;
 
-use Wndt\Component\AjaxComment\AjaxComment;
+// use Wndt\Component\AjaxComment\AjaxComment;
 use Wnd\Utility\Wnd_Singleton_Trait;
 
 /**
@@ -41,7 +41,7 @@ class Wndt_Init {
 		$this->init();
 
 		// Ajax评论
-		new AjaxComment;
+		// new AjaxComment;
 	}
 
 	/**

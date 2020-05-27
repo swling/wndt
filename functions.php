@@ -8,9 +8,7 @@
  *@since 2019.09重新将插件整合到主题：wnd-biz
  */
 
-if (!defined('WND_VER') and !is_admin()) {
-	wp_die('本主题必须依赖wnd-frontend插件');
-}
+use Wnd\Component\AjaxComment\AjaxComment;
 
 // 本地不显示错误奇怪故补充之
 if (WP_DEBUG) {
@@ -18,14 +16,20 @@ if (WP_DEBUG) {
 }
 
 // 定义当前主题 外网 url 取代 get_template_directory_uri ，因其会导致 options 不断自增：_site_transient_theme_roots
-define('WNDT_URL', get_option('home') . '/wp-content/themes/' . basename(dirname(__FILE__)));
+define('WND_URL', get_option('home') . '/wp-content/themes/' . basename(dirname(__FILE__)));
 
 $theme_ver = 0.01;
 
 /**
  *加载php模块
  */
+require TEMPLATEPATH . '/core/wnd-frontend.php';
 require TEMPLATEPATH . '/inc/wndt-load.php';
+
+// if (is_single()) {
+// Ajax评论
+new AjaxComment;
+// }
 
 // ###########################################################
 // 加载自定义js 并引入 wp-ajax.php处理脚本
@@ -42,13 +46,13 @@ function wndt_site_scripts() {
 	}
 
 	//################################### 加载……
-	wp_enqueue_script('wndt_functions', $src = WNDT_URL . '/static/js/functions.min.js', $deps = ['jquery'], $theme_ver, $in_footer = false);
+	wp_enqueue_script('wndt_functions', $src = WND_URL . '/static/js/functions.min.js', $deps = ['jquery'], $theme_ver, $in_footer = false);
 	if (is_singular() and comments_open() and get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
 
 	// wp_enqueue_style('bulma-extensions', '//cdn.jsdelivr.net/npm/bulma-extensions@6.2.4/dist/css/bulma-extensions.min.css');
-	wp_enqueue_style('style', WNDT_URL . '/style.css', [], $theme_ver);
+	wp_enqueue_style('style', WND_URL . '/style.css', [], $theme_ver);
 }
 
 add_action('wp_enqueue_scripts', 'wndt_site_scripts');

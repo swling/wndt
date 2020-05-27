@@ -44,7 +44,7 @@
 			}
 			if ($wangan) {
 				echo '<a target="_blank" rel="nofollow" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=' . $wangan . '">';
-				echo '<img src="' . WNDT_URL . '/static/images/ghs.png" alt="公安备案">网安备' . $wangan;
+				echo '<img src="' . WND_URL . '/static/images/ghs.png" alt="公安备案">网安备' . $wangan;
 				echo '</a>';
 			}
 			?>

@@ -5,7 +5,7 @@
  *文章列表
  */
 function wndt_post_list_tpl($post, $simple = false) {
-	return Wndt\Template\Wndt_List::build($post, $simple);
+	return Wnd\Template\Wnd_List::build($post, $simple);
 }
 
 /**
@@ -254,6 +254,7 @@ function wndt_category_nav_items($args = []) {
 	$defaults = ['taxonomy' => 'category', 'orderby' => 'count'];
 	$args     = wp_parse_args($args, $defaults);
 	$terms    = get_terms($args);
+	$taxonomy = $args['taxonomy'];
 
 	$html = '';
 	foreach ($terms as $term) {

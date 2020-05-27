@@ -1,0 +1,54 @@
+.tags-input {
+    width: 100%;
+    border-bottom: 1px solid #CCC;
+}
+
+.tags-input input {
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.tags-input input:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.tags-input .tag {
+    margin: 5px;
+}
+
+.tags-input .autocomplete {
+
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+}
+
+.tags-input .autocomplete-items {
+    position: absolute;    /*border: 1px solid #EEE;*/
+    box-shadow: 0 2px 10px #999;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+}
+
+.tags-input .autocomplete-items li {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #EEE;
+}
+
+.tags-input .autocomplete-items li:hover {
+
+    /*when hovering an item:*/
+    background-color: #EEE;
+}

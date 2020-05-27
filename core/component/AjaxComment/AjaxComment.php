@@ -1,6 +1,6 @@
 <?php
 
-namespace Wndt\Component\AjaxComment;
+namespace Wnd\Component\AjaxComment;
 
 /***
  *Ajax添加评论(Rest API)
@@ -33,7 +33,7 @@ class AjaxComment {
 			 *引入js文件
 			 */
 			wp_enqueue_script(
-				'ajax-comment', WNDT_URL . '/inc/component/AjaxComment/main.min.js',
+				'ajax-comment', WND_URL . '/core/component/AjaxComment/main.min.js',
 				['jquery'],
 				static::$ver
 			);
