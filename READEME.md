@@ -29,5 +29,20 @@ wndt_icp：icp备案
 wndt_wangan：网安备案
 wndt_statistical_code：流量统计代码
 
+# 主题配套插件开发
+主题配套插件开发与独立开发插件遵循同样的基本原则。具体详情参看WordPress官方文档。唯一的区别是，本主题预设了插件类自动加载方法详情查看：inc/wndt-load.php
+
+## 命名空间
+Wndt\Plugin 对应WordPress插件目录 wp-content/plugins
+
+## 插件class自动加载实例
+类名: Wndt\Plugin\Wndt_Demo\Wndt_Demo
+路径: /wp-content/plugins/wndt-demo/wndt-demo.php
+
+component文件夹存储第三方组件，按通用驼峰命名规则
+new Wndt\Plugin\Wndt_Demo\Component\AjaxComment;
+/wp-content/plugins/wndt-demo/component/AjaxComment.php
+*注意：第三方组件文件及文件目录需要区分大小写*
+
 # 备注
 
