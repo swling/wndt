@@ -2,7 +2,7 @@
 namespace Wnd\Model;
 
 use Exception;
-use Wnd\Model\Wnd_Sms;
+use Wndt\Plugin\Wndt_Sms\Wndt_Sms;
 
 /**
  *@since 2019.12.19
@@ -20,6 +20,10 @@ class Wnd_Auth_phone extends Wnd_Auth {
 
 	public function __construct($auth_object) {
 		parent::__construct($auth_object);
+
+		if (class_exists('Wndt_Sms')) {
+			throw new Exception(__('短信组件不可用', 'wnd'));
+		}
 
 		$this->template = wnd_get_config('sms_template_v');
 	}
@@ -56,7 +60,7 @@ class Wnd_Auth_phone extends Wnd_Auth {
 		}
 
 		// 发送短信
-		$sms = Wnd_Sms::get_instance();
+		$sms = Wndt_Sms::get_instance();
 		$sms->set_phone($this->auth_object);
 		$sms->set_code($this->auth_code);
 		$sms->set_valid_time($this->valid_time / 60);

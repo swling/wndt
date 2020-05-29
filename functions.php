@@ -54,13 +54,13 @@ function wndt_site_scripts() {
 	}
 
 	//################################### 加载……
-	wp_enqueue_script('wndt_functions', $src = WND_URL . '/static/js/functions.min.js', $deps = ['jquery'], $theme_ver, $in_footer = false);
+	wp_enqueue_script('wndt_functions', $src = WNDT_URL . 'static/js/functions.min.js', $deps = ['jquery'], $theme_ver, $in_footer = false);
 	if (is_singular() and comments_open() and get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
 
 	// wp_enqueue_style('bulma-extensions', '//cdn.jsdelivr.net/npm/bulma-extensions@6.2.4/dist/css/bulma-extensions.min.css');
-	wp_enqueue_style('style', WND_URL . '/style.css', [], $theme_ver);
+	wp_enqueue_style('style', WNDT_URL . 'style.css', [], $theme_ver);
 }
 
 add_action('wp_enqueue_scripts', 'wndt_site_scripts');
