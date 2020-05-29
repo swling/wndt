@@ -34,7 +34,7 @@ spl_autoload_register(function ($class) {
 	 * (注意：第三方组件文件及文件目录需要区分大小写)
 	 */
 	if (0 === stripos($class, $plugin_prefix)) {
-		$path = explode('\\Component\\', $class);
+		$path = explode('\\Component\\', $class, 2);
 		if ($path[1] ?? false) {
 			$path = strtolower($path[0]) . DIRECTORY_SEPARATOR . 'component' . DIRECTORY_SEPARATOR . $path[1];
 		} else {
@@ -66,7 +66,7 @@ spl_autoload_register(function ($class) {
 	 * (注意：第三方组件文件及文件目录需要区分大小写)
 	 */
 	if (0 === stripos($class, $base_prefix)) {
-		$path = explode($base_component_prefix, $class);
+		$path = explode($base_component_prefix, $class, 2);
 		if ($path[1] ?? false) {
 			$path = strtolower($base_component_prefix) . $path[1];
 		} else {

@@ -27,7 +27,7 @@ spl_autoload_register(function ($class) {
 	}
 
 	// component文件夹中加载第三方组件
-	$path = explode($component_prefix, $class);
+	$path = explode($component_prefix, $class, 2);
 	if ($path[1] ?? false) {
 		$path = strtolower($component_prefix) . $path[1];
 	} else {
