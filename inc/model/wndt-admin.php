@@ -20,21 +20,9 @@ class Wndt_Admin {
 			// 供需角色
 			'wndt_enable_user_role'      => '0',
 
-			// 刷新设置
-			'wndt_free_refresh_limit'    => '24',
-			'wndt_paid_refresh_limit'    => '1',
-			'wndt_paid_refresh_price'    => '10',
-
 			// 内容设置
-			'wndt_paid_supply_price'     => '10',
-			'wndt_free_supply_limit'     => '5',
-			'wndt_max_supply_limit'      => '20',
 			'wndt_gallery_picture_limit' => '5',
 			'wndt_max_cat_limit'         => '1',
-
-			// 竞标设置
-			'wndt_bid_limit'             => '5',
-			'wndt_bid_price'             => '10',
 		];
 
 		update_option('wndt', $default_option);
