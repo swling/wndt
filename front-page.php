@@ -1,10 +1,4 @@
-<?php
-
-use Wnd\Template\Wnd_Term_Tpl;
-
-$primary_post_type = 'post';
-get_header();
-?>
+<?php get_header();?>
 <div id="main" class="column columns content is-multiline">
 	<div class="column">
 		<?php

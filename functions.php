@@ -49,6 +49,12 @@ function wndt_site_scripts() {
 
 	// wp_enqueue_style('bulma-extensions', '//cdn.jsdelivr.net/npm/bulma-extensions@6.2.4/dist/css/bulma-extensions.min.css');
 	wp_enqueue_style('style', WNDT_URL . 'style.css', [], $theme_ver);
+
+	// 代码高亮
+	if (is_singular()) {
+		wp_enqueue_script('prism-script', WNDT_URL . '/static/prism/prism.js', $theme_ver);
+		wp_enqueue_style('prism-style', WNDT_URL . '/static/prism/prism.css', $theme_ver);
+	}
 }
 
 add_action('wp_enqueue_scripts', 'wndt_site_scripts');
