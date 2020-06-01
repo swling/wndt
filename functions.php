@@ -8,6 +8,10 @@
  *@since 2019.09重新将插件整合到主题：wnd-biz
  */
 
+if (!defined('WND_VER') and !is_admin()) {
+	exit('本主题依赖wnd-frontend插件');
+}
+
 // 本地不显示错误奇怪故补充之
 if (WP_DEBUG) {
 	ini_set("display_errors", "On");
@@ -21,23 +25,7 @@ $theme_ver = 0.01;
 /**
  *加载php模块
  */
-require TEMPLATEPATH . '/core/wnd-load.php';
 require TEMPLATEPATH . '/inc/wndt-load.php';
-
-// 安装主题时
-add_action('after_switch_theme', function () {
-	Wnd\Model\Wnd_Admin::install();
-});
-
-// 切换其他主题时
-add_action('switch_theme', function () {
-	Wnd\Model\Wnd_Admin::uninstall();
-});
-
-// 加载语言
-add_action('after_setup_theme', function () {
-	load_theme_textdomain('wnd', get_template_directory() . '/languages');
-});
 
 // ###########################################################
 // 加载自定义js 并引入 wp-ajax.php处理脚本

@@ -5,7 +5,7 @@
  *文章列表
  */
 function wndt_post_list_tpl($post, $simple = false) {
-	return Wnd\Template\Wnd_List::build($post, $simple);
+	return Wndt\Template\Wndt_List::build($post, $simple);
 }
 
 /**

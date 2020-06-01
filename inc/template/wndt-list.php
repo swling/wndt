@@ -1,10 +1,10 @@
 <?php
-namespace Wnd\Template;
+namespace Wndt\Template;
 
 /**
  *列表模板
  */
-class Wnd_List {
+class Wndt_List {
 
 	/**
 	 *构建列表输出模板
