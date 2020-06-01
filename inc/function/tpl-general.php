@@ -251,7 +251,7 @@ function get_post_type_tabs() {
  *类型导航
  */
 function wndt_category_nav_items($args = []) {
-	$defaults = ['taxonomy' => 'category', 'orderby' => 'count'];
+	$defaults = ['taxonomy' => 'category', 'orderby' => 'count', 'parent' => 0];
 	$args     = wp_parse_args($args, $defaults);
 	$terms    = get_terms($args);
 	$taxonomy = $args['taxonomy'];
