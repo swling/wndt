@@ -1,27 +1,34 @@
-<main class="column">
+<main class="column is-9">
 	<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-		<h1 class="title"><?php the_title(); ?></h1>
 		<div class="content">
+			<h1><?php the_title(); ?></h1>
 			<p class="post-meta">发布于：<time><?php the_time('Y.m.d - G:i'); ?></time></p>
 			<?php
-			// 在内容页面判断当前用户是否已付费
+			/**
+			 * 在内容页面判断当前用户是否已付费
+			 * 采用wp editor <!--more--> 标记区分免费部分与付费部分
+			 */
 			if (wnd_get_post_price($post->ID)) {
-				if (wnd_user_has_paid(get_current_user_id(), $post->ID)) {
-					the_content();
+				$user_id = get_current_user_id();
+				if (wnd_user_has_paid($user_id, $post->ID) or $post->post_author == $user_id) {
+					the_content();;
 				} else {
-					the_excerpt();
+					$content = wndt_explode_post_by_more($post->post_content);
+					echo $content[0];
+					if (isset($content[1])) {
+						echo wnd_paid_reading_button($post->ID);
+					}
 				}
 			} else {
 				the_content();
 			}
 
 			// 在内容页放置按钮
-			echo wnd_paid_reading_button($post->ID);
 			echo wnd_paid_download_button($post->ID);
 			?>
-			<?php comments_template(); ?>
 		</div>
 	</div>
+	<?php comments_template(); ?>
 </main>
 <?php
-// get_sidebar('right');
+get_sidebar('right');

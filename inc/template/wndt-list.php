@@ -31,7 +31,7 @@ class Wndt_List {
 		$html .= '</div>';
 
 		$html .= '<div class="column is-narrow is-marginless">';
-		$html .= wndt_post_thumbnail($post->ID, '100', '100');
+		$html .= wndt_post_thumbnail($post->ID, '100', '160');
 		$html .= '</div>';
 
 		$html .= '<div class="column is-hidden-mobile">' . wp_trim_words($post->post_excerpt ?: $post->post_content, 160) . '</div>';

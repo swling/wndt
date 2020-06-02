@@ -5,8 +5,8 @@ Author URI: https://wndwp.com
 Description: Wnd Theme Based On Wnd-Frontend
 */
 html { height: 100%; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif; background: #EFEFEF; color: #333; font-size: 15px; word-wrap: break-word; word-break: break-all; }
-#site-title a { font-weight: bold; color: #333; }
+body { font-family: PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif; background: #EFEFEF; color: #333; font-size: 16px; word-wrap: break-word; word-break: break-all; }
+#site-title a { font-weight: bold; color: #222; }
 #top { border-bottom: 0px solid #333; background: #FFF; box-shadow: 0 0 8px 0 rgba(0, 0, 0, .3); }
 .home #top{margin-bottom: 1rem;}
 #top-bar { padding: 0.5rem 0; border-bottom: 1px solid #EEE; }
@@ -25,10 +25,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-s
 body { display: flex; flex-direction: column; min-height: 100%; }
 
 .breadcrumb-wrap.columns { margin: 0.5rem auto 0; }
-main.column { background: #FFF; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); padding: 50px; }
+main.column { background: #FFF; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); padding: 50px;}
 .sidebar { min-width: 250px; }
 .sidebar a { color: #333 }
-#right-sidebar { border-left: 0px solid #EEE; margin-left: 0.75rem; width: 350px; padding-left: 20px; }
+#right-sidebar { border-left: 0px solid #EEE; margin-left: 0.75rem; width: 320px; padding-left: 20px; }
 #left-sidebar { border-right: 0px solid #EEE; margin-right: 0.75rem; padding-right: 20px; }
 
 /*侧边栏*/
@@ -112,7 +112,7 @@ margin-bottom: 20px; padding: 1.25rem;    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 
 .tags a { line-height: 1.6em; color: #F14668; border-radius: 3px; border: 0px solid #333; margin: 0 5px 0 0; }
 
 /* post list */
-.post-list.columns, .post-list.column { border: 1px solid #EEE; margin-bottom: 2rem; border-radius: 5px; padding: 20px; background: #FFF; }
+.post-list.columns, .post-list.column { font-size:0.95rem; border: 1px solid #EEE; margin-bottom: 2rem; border-radius: 5px; padding: 20px; background: #FFF; }
 .post-list a:hover { text-decoration: underline; }
 .post-list h3 { font-size: 1.1rem; line-height: 1.8em; }
 .post-list:hover { box-shadow: 0 0px 10px 0 #DDD; }
@@ -128,7 +128,7 @@ label.checkbox { margin: 0 1rem 0 0.2rem; }
 /* ------------------------------
 comment list
 ------------------------------ */
-#comments { overflow: hidden; clear: both; }
+#comments { overflow: hidden; clear: both; font-size: 0.95rem;}
 #comments a { color: #FF552E; }
 #comments li{list-style-type:none;}
 #comments ol{margin:0;}
