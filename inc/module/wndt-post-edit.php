@@ -35,7 +35,7 @@ class Wndt_Post_Edit extends Wnd_Module {
 			}
 
 			// Post编辑表单
-			return \Wnd\Module\Wnd_Default_Post_Form::build(
+			return \Wndt\Module\Wndt_Post_Form::build(
 				[
 					'post_id'     => $post_id,
 					'post_parent' => $edit_post->post_parent,

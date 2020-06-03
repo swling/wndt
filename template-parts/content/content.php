@@ -15,15 +15,13 @@
 				} else {
 					$content = wndt_explode_post_by_more($post->post_content);
 					echo $content[0];
-					if (isset($content[1])) {
-						echo wnd_paid_reading_button($post->ID);
-					}
 				}
 			} else {
 				the_content();
 			}
 
 			// 在内容页放置按钮
+			echo wnd_paid_reading_button($post->ID);
 			echo wnd_paid_download_button($post->ID);
 			?>
 		</div>

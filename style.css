@@ -5,9 +5,12 @@ Author URI: https://wndwp.com
 Description: Wnd Theme Based On Wnd-Frontend
 */
 html { height: 100%; }
-body { font-family: PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif; background: #EFEFEF; color: #333; font-size: 16px; word-wrap: break-word; word-break: break-all; }
+body { 
+	font-family: PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif; 
+	background: #F4F4F4; color: #333; font-size: 16px; word-wrap: break-word; word-break: break-all; 
+}
 #site-title a { font-weight: bold; color: #222; }
-#top { border-bottom: 0px solid #333; background: #FFF; box-shadow: 0 0 8px 0 rgba(0, 0, 0, .3); }
+#top { border-bottom: 1px solid #EEE; background: #FFF; box-shadow: 0 2px 10px 0 rgba(215,220,233,.5),0 0 7px 0 rgba(199,206,223,.1);}
 .home #top{margin-bottom: 1rem;}
 #top-bar { padding: 0.5rem 0; border-bottom: 1px solid #EEE; }
 
@@ -25,8 +28,8 @@ body { font-family: PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-seri
 body { display: flex; flex-direction: column; min-height: 100%; }
 
 .breadcrumb-wrap.columns { margin: 0.5rem auto 0; }
-main.column { background: #FFF; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); padding: 50px;}
-.sidebar { min-width: 250px; }
+main.column { background: #FFF; box-shadow: 0 1px 30px rgba(100,100,100,0.1); padding: 50px;}
+.sidebar { min-width: 250px; background: #FFF;}
 .sidebar a { color: #333 }
 #right-sidebar { border-left: 0px solid #EEE; margin-left: 0.75rem; width: 320px; padding-left: 20px; }
 #left-sidebar { border-right: 0px solid #EEE; margin-right: 0.75rem; padding-right: 20px; }
@@ -37,7 +40,7 @@ main.column { background: #FFF; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); paddin
 #sidebar-menu .menu-list li ul { display: flex; flex-wrap: wrap; }
 #sidebar-menu .menu-list li ul li { width: 50%; }
 #modal-background { z-index: 31 }
-#footer { margin-top: 30px; color: #999; padding: 2rem 0 0.5rem; font-size: 0.9rem; border-top: 1px solid #EEE; line-height: 1.6rem; background: transparent; }
+#footer { margin-top: 30px; color: #999; padding: 2rem 0 0.5rem; font-size: 0.9rem; line-height: 1.6rem; background: transparent; }
 #footer .content ul { list-style: none; }
 #footer a { color: #777; }
 #footer .bookmarks .column { padding-top: 0 }
@@ -58,7 +61,7 @@ a:hover, .breadcrumb a:hover { color: #0AA2E0; text-decoration: none; }
 .navbar-burger span { height: 2px; width: 20px; left: calc(50% - 10px); }
 .container { padding: 0 10px; margin: 0 auto; width: 100%; max-width: 1200px }
 .select:not(.is-multiple):not(.is-loading)::after { border-color: #333; }
-.navbar { min-height: 4.0rem; }
+.navbar { min-height: 5.0rem; }
 .navbar.is-transparent { background: none; }
 
 /*.navbar-dropdown{z-index: 99;}*/
@@ -73,8 +76,22 @@ a.navbar-item.is-active { color: #F14668; border-bottom: 0px #F14668 solid; }
 .menu-list a.is-active { background-color: #F14668; color: #fff; }
 .box { box-shadow: none; border-radius: 0; }
 .content { line-height: 1.8em; }
+.content p:not(:last-child){margin-bottom: 1.6rem}
+.content h1 {
+    font-size: 1.6em;
+    margin-bottom: .5em;
+}
 
 /*.content .box { padding: 50px; }*/
+code .number {
+    background: transparent;
+    border:none;
+    font-size: inherit;
+    height:auto;
+    margin:0;
+    min-width: auto;
+    padding: 0;
+}
 
 /*标题*/
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { font-family: Palatino, "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif; font-weight: normal; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -91,6 +108,11 @@ a.navbar-item.is-active { color: #F14668; border-bottom: 0px #F14668 solid; }
 .control.has-icons-left .icon, .control.has-icons-right .icon { color: #999; }
 .input::placeholder, .textarea::placeholder { color: #999; }
 .has-background-light { background: #F9F9F9 !important; }
+
+/**
+*
+********************************************
+*/
 
 /* ################### filter ###################*/
 .wnd-filter-tabs { background: #FFF; }
@@ -112,7 +134,8 @@ margin-bottom: 20px; padding: 1.25rem;    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 
 .tags a { line-height: 1.6em; color: #F14668; border-radius: 3px; border: 0px solid #333; margin: 0 5px 0 0; }
 
 /* post list */
-.post-list.columns, .post-list.column { font-size:0.95rem; border: 1px solid #EEE; margin-bottom: 2rem; border-radius: 5px; padding: 20px; background: #FFF; }
+.post-list.columns, .post-list.column { font-size:0.95rem; border: 1px solid #EEE; border-radius: 5px; padding: 20px; background: #FFF; }
+.post-list.columns:not(:last-child){margin-bottom: 2rem;}
 .post-list a:hover { text-decoration: underline; }
 .post-list h3 { font-size: 1.1rem; line-height: 1.8em; }
 .post-list:hover { box-shadow: 0 0px 10px 0 #DDD; }
@@ -125,6 +148,10 @@ article.entry { border-top: 1px solid #EEE; padding-top: 20px; }
 .profile-category-checkbox { flex-wrap: wrap; display: flex; }
 label.checkbox { margin: 0 1rem 0 0.2rem; }
 
+/*边栏分类下拉*/
+.column.is-narrow .select{width: 100%;}
+
+form .is-grouped-centered .button{min-width: 200px;}
 /* ------------------------------
 comment list
 ------------------------------ */
