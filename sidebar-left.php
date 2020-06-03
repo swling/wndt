@@ -1,6 +1,6 @@
 <!-- is-hidden-touch -->
 <aside id="left-sidebar" class="column is-2 sidebar">
-	<div class="menu box">
+	<div class="menu">
 		<p class="menu-label">
 			导航栏
 		</p>

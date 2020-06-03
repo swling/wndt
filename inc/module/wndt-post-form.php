@@ -26,7 +26,7 @@ class Wndt_Post_Form extends Wnd_Module {
 		 */
 		$form = new Wnd_Form_Post('post', $post_id);
 		$form->set_post_parent($post_parent);
-		$form->add_html('<div class="columns">');
+		$form->add_html('<div class="columns post-form">');
 		$form->add_html('<div class="column">');
 		$form->add_post_title('');
 		$form->add_post_excerpt();
@@ -47,7 +47,7 @@ class Wndt_Post_Form extends Wnd_Module {
 		$form->add_post_status_select();
 		$form->add_html('</div>');
 
-		$form->add_html('<div class="column is-narrow">');
+		$form->add_html('<div class="column is-3">');
 		// 分类
 		$form->add_post_term_select(['taxonomy' => 'category'], '', true, true);
 		$form->add_dynamic_sub_term_select('category', 1, '', __('二级分类', 'wnd'));

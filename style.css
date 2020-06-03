@@ -74,7 +74,7 @@ a.navbar-item.is-active { color: #F14668; border-bottom: 0px #F14668 solid; }
 .tabs:not(.is-boxed .is-toggle) ul:first-child a { padding-left: 0; }
 .tabs.is-boxed li.is-active .icon { color: #FFF; }
 .menu-list a.is-active { background-color: #F14668; color: #fff; }
-.box { box-shadow: none; border-radius: 0; }
+/*.box { box-shadow: none; border-radius: 0; }*/
 .content { line-height: 1.8em; }
 .content p:not(:last-child){margin-bottom: 1.6rem}
 .content h1 {
@@ -149,20 +149,26 @@ article.entry { border-top: 1px solid #EEE; padding-top: 20px; }
 label.checkbox { margin: 0 1rem 0 0.2rem; }
 
 /*边栏分类下拉*/
-.column.is-narrow .select{width: 100%;}
+.post-form .column .select{width: 100%;}
 
 form .is-grouped-centered .button{min-width: 200px;}
+
+/*code{font-size: 0.9rem;}*/
+code span{font-size: 0.9rem;}
+
+.modal-entry {
+    transition: all 0.15s;
+}
 /* ------------------------------
 comment list
 ------------------------------ */
-#comments { overflow: hidden; clear: both; font-size: 0.95rem;}
-#comments a { color: #FF552E; }
+#comments { overflow: hidden; clear: both; font-size: 0.95rem;margin-top: 2rem;border-top: 1px solid #DDD;padding-top: 1rem;}
 #comments li{list-style-type:none;}
 #comments ol{margin:0;}
 ol.commentList li { clear: both; margin: 0 0 20px; list-style-type: none; }
 .commentList li .avatar { float: left; width: auto; border: 1px solid #CCC; padding: 3px; margin: 5px 5px 0 0; }
 .comment-body p { margin: 5px 0; }
-#comments input#author, #comments input#email, #comments input#url { width: 60%; padding: 0 5px; border: none; border-bottom: 1px #FF552E solid; background: transparent; font-size: 14px; }
+#comments input#author, #comments input#email, #comments input#url { width: 60%; padding: 0 5px; border: none; border-bottom: 1px #F14668 solid; background: transparent; font-size: 14px; }
 #comments textarea#comment { width: 100%; height: 100px; padding: 5px; border: 1px #CCC solid; }
 #commentform label { max-width: 100px; display: block; float: left; text-align: right; }
 .comment-form-comment label { clear: both; }
@@ -175,17 +181,17 @@ padding: 10px; background: #FFF; border: 1px solid #EEE; }
 #comments li { border-radius: 3px; }
 p.input { margin: 10px 0; }
 #comments .avatar { float: left; margin-right: 10px; border-radius: 50%; }
-.bypostauthor>div .fn:after { content: "作者"; background-color: #FF552E; color: #FFF; padding: 1px 5px; border-radius: 3px; font-size: 13px; margin: 0 3px; }
-cite.fn { color: #600; margin-right: 5px; color: #FF552E; font-weight: 700; }
+.bypostauthor>div .fn:after { content: "作者"; background-color: #F14668; color: #FFF; padding: 1px 5px; border-radius: 3px; font-size: 13px; margin: 0 3px; }
+cite.fn { color: #600; margin-right: 5px; color: #F14668; font-weight: 700; }
 
 /*评论插件定义CSS文件部分*/
 
 /*回复*/
-#comments .children { border-left: 2px solid #FF552E; border-bottom: 1px solid #EEE; margin: 10px 0; padding: 10px; background-color: #FFF;    /*回复颜色2*/ }
+#comments .children { border-left: 2px solid #F14668; border-bottom: 1px solid #EEE; margin: 10px 0; padding: 10px; background-color: #FFF;    /*回复颜色2*/ }
 #comments ol>li>ol>li { margin: 0; }
 #newcomment { border: 1px dashed #333; width: 99%; }
 .comments-header { position: relative; text-align: center; overflow: hidden; }
-.comments-heading { position: relative; display: inline-block; }
+.comments-heading { position: relative; display: inline-block; font-size: 1.3rem;font-weight: bold;}
 .comments-heading:before { content: ''; width: 40px; height: 2px; background-color: #e0e0e0; position: absolute; top: 50%; margin-right: 2rem; right: 100%; margin-top: -1px; }
 .comments-heading:after { content: ''; width: 40px; height: 2px; background-color: #e0e0e0; position: absolute; top: 50%; left: 100%; margin-left: 2rem; margin-top: -1px; }
 
@@ -207,10 +213,6 @@ cite.fn { color: #600; margin-right: 5px; color: #FF552E; font-weight: 700; }
     display:inline-block;
     font-size:14px;
     margin-bottom:0;padding:12px 25px;color:#FFF;
-}
-
-.modal-entry {
-    transition: all 0.15s;
 }
 
 /*上传*/

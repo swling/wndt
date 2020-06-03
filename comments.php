@@ -56,9 +56,9 @@ $user_identity = $user->exists() ? $user->display_name : '';
 	</header>
 	<?php
 	if ($post_type != 'topic') {
-		$comment_field = '<textarea id="comment" name="comment" maxlength="1000" required="required" placeholder="' . __('评论', 'wndt') . '"></textarea>';
+		$comment_field = '<textarea class="textarea" id="comment" name="comment" maxlength="1000" required="required" placeholder="' . __('评论', 'wndt') . '"></textarea>';
 	} else {
-		$comment_field = '<textarea id="comment" name="comment" maxlength="1000" required="required" placeholder="' . __('回帖', 'wndt') . '"></textarea>';
+		$comment_field = '<textarea class="textarea" id="comment" name="comment" maxlength="1000" required="required" placeholder="' . __('回帖', 'wndt') . '"></textarea>';
 	}
 
 	$comments_args = [

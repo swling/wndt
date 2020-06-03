@@ -19,7 +19,7 @@ class Wndt_User_Overview extends Wnd_Module {
 		$html .= static::build_financial_overview($user_id);
 
 		// 退出按钮
-		$html .= '<div class="box has-text-centered is-size-3">';
+		$html .= '<div class="has-text-centered is-size-3">';
 		$html .= '<a href="' . wp_logout_url(home_url()) . '" title="退出"><i class="fas fa-power-off"></i></a>';
 		$html .= '</div>';
 

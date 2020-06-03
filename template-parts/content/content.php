@@ -11,7 +11,7 @@
 			if (wnd_get_post_price($post->ID)) {
 				$user_id = get_current_user_id();
 				if (wnd_user_has_paid($user_id, $post->ID) or $post->post_author == $user_id) {
-					the_content();;
+					the_content();
 				} else {
 					$content = wndt_explode_post_by_more($post->post_content);
 					echo $content[0];

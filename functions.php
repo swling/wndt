@@ -14,7 +14,7 @@ if (!defined('WND_VER') and !is_admin()) {
 
 // 本地不显示错误奇怪故补充之
 if (WP_DEBUG) {
-	ini_set("display_errors", "On");
+	ini_set('display_errors', 'On');
 }
 
 // 定义当前主题 外网 url 取代 get_template_directory_uri ，因其会导致 options 不断自增：_site_transient_theme_roots
