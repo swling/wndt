@@ -267,3 +267,65 @@ function wndt_category_nav_items($args = []) {
 
 	return $html;
 }
+
+// Intented to use with locations, like 'primary'
+// clean_custom_menu("primary");
+
+#add in your theme functions.php file
+
+function wndt_menu($theme_location) {
+	$locations = get_nav_menu_locations();
+	if (!isset($locations[$theme_location])) {
+		return '';
+	}
+
+	$menu       = get_term($locations[$theme_location], 'nav_menu');
+	$menu_items = wp_get_nav_menu_items($menu->term_id);
+
+	$menu_list = '';
+	$submenu   = false;
+	$parent_id = 0;
+	$count     = 0;
+	foreach ($menu_items as $menu_item) {
+		$link        = $menu_item->url;
+		$title       = $menu_item->title;
+		$parent      = $menu_item->menu_item_parent ?? 0;
+		$next_parent = $menu_items[$count + 1]->menu_item_parent ?? 0;
+
+		// 一级菜单
+		if (!$parent) {
+			$parent_id = $menu_item->ID;
+			if ($next_parent == $menu_item->ID) {
+				// 开启下拉菜单容器
+				$menu_list .= '<div class="navbar-item has-dropdown is-hoverable">';
+				$menu_list .= '<a href="' . $link . '" class="navbar-link">' . $title . '</a>' . "\n";
+			} else {
+				$menu_list .= '<a href="' . $link . '" class="navbar-item">' . $title . '</a>' . "\n";
+			}
+		}
+
+		// 匹配二级菜单
+		if ($parent_id == $parent) {
+			if (!$submenu) {
+				$submenu = true;
+				$menu_list .= '<div class="navbar-dropdown">' . "\n";
+			}
+			$menu_list .= '<a href="' . $link . '" class="navbar-item">' . $title . '</a>' . "\n";
+
+			// 最后一个子菜单
+			if ($next_parent != $parent_id && $submenu) {
+
+				// 闭合子菜单div容器
+				$menu_list .= '</div>' . "\n";
+
+				// 闭合下拉菜单DIV容器
+				$menu_list .= '</div>' . "\n";
+				$submenu = false;
+			}
+		}
+
+		$count++;
+	}
+
+	return $menu_list;
+}

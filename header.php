@@ -32,7 +32,7 @@
 				</div>
 				<div class="navbar-menu">
 					<div class="navbar-start">
-						<?php echo wndt_category_nav_items(); ?>
+						<?php echo wndt_menu('primary_menu'); ?>
 					</div>
 					<div class="navbar-end">
 						<a class="navbar-item" onclick="wnd_ajax_modal('wndt_search_form')">

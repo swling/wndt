@@ -17,3 +17,13 @@ function appthemes_add_quicktags() {
 }
 add_action('admin_print_footer_scripts', 'appthemes_add_quicktags');
 add_action('wp_print_footer_scripts', 'appthemes_add_quicktags');
+
+/**
+ *注册菜单
+ */
+add_action('after_setup_theme', function () {
+	register_nav_menus(array(
+		'primary_menu' => __('顶部菜单', 'wndt'),
+		'footer_menu'  => __('底部菜单', 'wndt'),
+	));
+});

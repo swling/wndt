@@ -12,5 +12,5 @@
 	</div>
 </div>
 <?php
-// get_sidebar('right');
+get_sidebar('right');
 get_footer();
