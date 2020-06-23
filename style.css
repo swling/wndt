@@ -39,7 +39,7 @@ body { display: flex; flex-direction: column; min-height: 100%; }
 }
 
 .breadcrumb-wrap.columns { margin: 0.5rem auto 0; }
-main.column { background: #FFF; box-shadow: 0 1px 30px rgba(100,100,100,0.1); padding: 50px;}
+.main.box{ padding: 50px;}
 .sidebar { min-width: 250px; background: #FFF;}
 .sidebar a { color: #333 }
 /*#right-sidebar { border-left: 0px solid #EEE; margin-left: 0.75rem; width: 320px; padding-left: 20px; }*/
@@ -147,7 +147,7 @@ margin-bottom: 20px; padding: 1.25rem;    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 
 
 /* post list */
 .post-list.columns, .post-list.column { font-size:0.95rem; border: 1px solid #EEE; border-radius: 5px; padding: 20px; background: #FFF; }
-.post-list.columns:not(:last-child){margin-bottom: 2rem;}
+.post-list.columns:not(:last-child){margin-bottom: 1rem;margin-top: 0;}
 .post-list a:hover { text-decoration: underline; }
 .post-list h3 { font-size: 1.1rem; line-height: 1.8em; }
 .post-list:hover { box-shadow: 0 0px 10px 0 #DDD; }
@@ -163,7 +163,7 @@ label.checkbox { margin: 0 1rem 0 0.2rem; }
 /*边栏分类下拉*/
 .post-form .column .select{width: 100%;}
 
-.is-grouped-centered .button{min-width: 200px;}
+.is-grouped-centered .button,.comments .button{min-width: 200px;}
 
 /*code{font-size: 0.9rem;}*/
 code span{font-size: 0.9rem;}
@@ -186,7 +186,7 @@ code span{font-size: 0.9rem;}
 /* ------------------------------
 comment list
 ------------------------------ */
-#comments { overflow: hidden; clear: both; font-size: 0.95rem;margin-top: 2rem;border-top: 1px solid #DDD;padding-top: 1rem;}
+#comments { overflow: hidden; clear: both; font-size: 0.95rem;margin-top: 2rem;}
 #comments li{list-style-type:none;}
 #comments ol{margin:0;}
 ol.commentList li { clear: both; margin: 0 0 20px; list-style-type: none; }

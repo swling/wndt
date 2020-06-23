@@ -19,6 +19,7 @@ if ($state) {
 
 get_header();
 echo '<main class="column">';
+echo '<div class="main box">';
 if ('submit' == $action) {
 	echo Wndt\Module\Wndt_Post_Submit::build($post_type);
 } elseif ('edit' == $action) {
@@ -26,6 +27,7 @@ if ('submit' == $action) {
 } else {
 	echo Wndt\Module\Wndt_User_Center::build();
 }
+echo '</div>';
 echo '</main>';
 ?>
 <script type="text/javascript">
