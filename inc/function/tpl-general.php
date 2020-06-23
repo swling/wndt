@@ -297,7 +297,7 @@ function wndt_menu($theme_location) {
 			$parent_id = $menu_item->ID;
 			if ($next_parent == $menu_item->ID) {
 				// 开启下拉菜单容器
-				$menu_list .= '<div class="navbar-item has-dropdown is-hoverable">';
+				$menu_list .= '<div class="navbar-item has-dropdown is-hoverable is-mega">';
 				$menu_list .= '<a href="' . $link . '" class="navbar-link">' . $title . '</a>' . "\n";
 			} else {
 				$menu_list .= '<a href="' . $link . '" class="navbar-item">' . $title . '</a>' . "\n";
@@ -309,13 +309,17 @@ function wndt_menu($theme_location) {
 			if (!$submenu) {
 				$submenu = true;
 				$menu_list .= '<div class="navbar-dropdown">' . "\n";
+				$menu_list .= '<div class="container is-fluid">';
+				$menu_list .= '<div class="columns is-marginless is-multiline">';
 			}
-			$menu_list .= '<a href="' . $link . '" class="navbar-item">' . $title . '</a>' . "\n";
+			$menu_list .= '<div class="column is-3"><a href="' . $link . '" class="navbar-item">' . $title . '</a></div>' . "\n";
 
 			// 最后一个子菜单
 			if ($next_parent != $parent_id && $submenu) {
 
 				// 闭合子菜单div容器
+				$menu_list .= '</div>' . "\n";
+				$menu_list .= '</div>' . "\n";
 				$menu_list .= '</div>' . "\n";
 
 				// 闭合下拉菜单DIV容器

@@ -7,11 +7,10 @@ Description: Wnd Theme Based On Wnd-Frontend
 html { height: 100%; }
 body { 
 	font-family: PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif; 
-	background: #F4F4F4; color: #333; font-size: 16px; word-wrap: break-word; word-break: break-all; 
+	background: #F4F4F4; color: #333; font-size: 15px; word-wrap: break-word; word-break: break-all; 
 }
 #site-title a { font-weight: bold; color: #222; }
 #top { border-bottom: 1px solid #EEE; background: #FFF; box-shadow: 0 2px 10px 0 rgba(215,220,233,.5),0 0 7px 0 rgba(199,206,223,.1);}
-.home #top{margin-bottom: 1rem;}
 #top-bar { padding: 0.5rem 0; border-bottom: 1px solid #EEE; }
 
 /*#top .post-type-tabs {font-weight: 600;}*/
@@ -27,12 +26,24 @@ body {
 #wrap { flex: 1; width: 100%; }
 body { display: flex; flex-direction: column; min-height: 100%; }
 
+/*.home #top{margin-bottom: 1rem;}*/
+.home #banner{
+    background: #F9F9F9
+    url('static/images/banner-3.jpg')
+    no-repeat center center;
+    background-size: cover;
+    /*url('https://img1.wsimg.com/Sitecore/3/D/marq-photo-godaddy-hosting-products-mrq-440-r6-7-8.jpg') no-repeat top center;*/
+    /*url('http://127.0.0.1/wordpress/wp-content/uploads/2019/10/file5daeb6081f066.jpg') no-repeat top center;*/
+    height: 500px;
+    margin-bottom: 1rem;
+}
+
 .breadcrumb-wrap.columns { margin: 0.5rem auto 0; }
 main.column { background: #FFF; box-shadow: 0 1px 30px rgba(100,100,100,0.1); padding: 50px;}
 .sidebar { min-width: 250px; background: #FFF;}
 .sidebar a { color: #333 }
-#right-sidebar { border-left: 0px solid #EEE; margin-left: 0.75rem; width: 320px; padding-left: 20px; }
-#left-sidebar { border-right: 0px solid #EEE; margin-right: 0.75rem; padding-right: 20px; }
+/*#right-sidebar { border-left: 0px solid #EEE; margin-left: 0.75rem; width: 320px; padding-left: 20px; }*/
+/*#left-sidebar { border-right: 0px solid #EEE; margin-right: 0.75rem; padding-right: 20px; }*/
 
 /*侧边栏*/
 #sidebar-menu { max-width: 100%; width: 380px; position: fixed; top: 0; left: -380px; background: #FFF; height: 100%; overflow: auto; z-index: 32; padding-bottom: 2rem; }
@@ -51,7 +62,7 @@ main.column { background: #FFF; box-shadow: 0 1px 30px rgba(100,100,100,0.1); pa
 */
 a, .breadcrumb a { color: #333; }
 table a { color: #0AA2E0; }
-a { color: #0AA2E0; }
+/*a { color: #0AA2E0; }*/
 a:focus { outline: none; }
 a::-moz-focus-inner { border: 0; }
 .breadcrumb a { color: #333; }
@@ -64,11 +75,12 @@ a:hover, .breadcrumb a:hover { color: #0AA2E0; text-decoration: none; }
 .navbar { min-height: 5.0rem; }
 .navbar.is-transparent { background: none; }
 
-/*.navbar-dropdown{z-index: 99;}*/
+.navbar-dropdown{border-top:none;}
 .navbar-link:not(.is-arrowless)::after { border-color: #333; }
 a.navbar-item:hover, .navbar-item a.navbar-link:hover { background: transparent !important; color: #F14668; }
 a.navbar-item.is-active { color: #F14668; border-bottom: 0px #F14668 solid; }
 .container .navbar .navbar-brand, .container .navbar .navbar-menu { margin: 0; }
+
 .tabs ul { flex-wrap: wrap; }
 .tabs li.is-active a { color: #F14668; border-color: #F14668; }
 .tabs:not(.is-boxed .is-toggle) ul:first-child a { padding-left: 0; }
@@ -101,8 +113,8 @@ code .number {
 /*.content h3{font-size: 1.1rem;}*/
 
 /* 导航 */
-.navbar-start .navbar-dropdown { min-width: 300px; }
-.navbar-start .navbar-dropdown a { display: inline-block; width: 49%; }
+/*.navbar-start .navbar-dropdown { min-width: 300px; }*/
+/*.navbar-start .navbar-dropdown a { display: inline-block; width: 49%; }*/
 
 /*表单图标、占位文字颜色*/
 .control.has-icons-left .icon, .control.has-icons-right .icon { color: #999; }
@@ -151,13 +163,25 @@ label.checkbox { margin: 0 1rem 0 0.2rem; }
 /*边栏分类下拉*/
 .post-form .column .select{width: 100%;}
 
-form .is-grouped-centered .button{min-width: 200px;}
+.is-grouped-centered .button{min-width: 200px;}
 
 /*code{font-size: 0.9rem;}*/
 code span{font-size: 0.9rem;}
 
 .modal-entry {
     transition: all 0.15s;
+}
+
+.user-form,.min-modal { max-width: 400px; margin: 0 auto; }
+
+.box ul{padding:0;margin: 0 ;}
+.box li{    
+    /*padding: 0;*/
+    /*margin: 0;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /*width:80%;*/
 }
 /* ------------------------------
 comment list
@@ -242,4 +266,15 @@ cite.fn { color: #600; margin-right: 5px; color: #F14668; font-weight: 700; }
 
     /* Tabs */
     .list-posts .tabs ul { flex-wrap: nowrap; flex-shrink: 1; }
+}
+
+
+/* bulma 拓展*/
+.navbar-item.is-mega {
+  position: static;
+}
+
+.is-mega-menu-title {
+    margin-bottom: 0;
+    padding: .375rem 1rem;
 }

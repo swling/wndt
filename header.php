@@ -63,6 +63,7 @@
 			</nav>
 		</div>
 	</div>
+	<?php include TEMPLATEPATH . '/template-parts/banner/banner.php'; ?>
 	<div id="wrap" class="container">
 		<?php echo wnd_breadcrumb(); ?>
 		<div class="columns is-desktop is-marginless">
