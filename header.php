@@ -46,11 +46,12 @@
 						<?php } else { ?>
 							<div class="navbar-item has-dropdown is-hoverable">
 								<a class="navbar-link" href="<?php echo home_url('ucenter') ?>">
-									<span class="icon is-small"><i class="fa fa-user"></i></span>
-									<span <?php echo wnd_get_mail_count() ? 'data-badge="' . wnd_get_mail_count() . '"' : 0; ?>>管理</span>
+									<span class="icon is-small"><i class="fa fa-cog"></i></span>
+									<span <?php echo wnd_get_mail_count() ? 'data-badge="' . wnd_get_mail_count() . '"' : 0; ?>>&nbsp;管理</span>
 								</a>
 								<div class="navbar-dropdown is-right">
 									<a class="navbar-item" href="<?php echo home_url('ucenter'); ?>">用户中心</a>
+									<a class="navbar-item" href="<?php echo home_url('ucenter?action=admin'); ?>">控制面板</a>
 									<?php if (is_super_admin()) { ?>
 										<a class="navbar-item" href="<?php echo home_url('ucenter/?action=submit&type=post'); ?>">发布文章</a>
 									<?php } ?>

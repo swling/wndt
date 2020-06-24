@@ -20,12 +20,22 @@ if ($state) {
 get_header();
 echo '<main class="column">';
 echo '<div class="main box">';
-if ('submit' == $action) {
+switch ($action) {
+case 'submit':
 	echo Wndt\Module\Wndt_Post_Submit::build($post_type);
-} elseif ('edit' == $action) {
+	break;
+
+case 'submit':
 	echo Wndt\Module\Wndt_Post_Edit::build($post_id);
-} else {
+	break;
+
+case 'admin':
+	echo Wndt\Module\Wndt_Admin::build($post_id);
+	break;
+
+default:
 	echo Wndt\Module\Wndt_User_Center::build();
+	break;
 }
 echo '</div>';
 echo '</main>';

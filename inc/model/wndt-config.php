@@ -17,5 +17,5 @@ class Wndt_Config extends Wnd_Config {
 	/**
 	 *option数组键名统一前缀
 	 */
-	protected static $config_key_prefix = 'wndt_';
+	protected static $config_key_prefix = '';
 }

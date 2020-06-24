@@ -66,11 +66,11 @@ table a { color: #0AA2E0; }
 a:focus { outline: none; }
 a::-moz-focus-inner { border: 0; }
 .breadcrumb a { color: #333; }
-a:hover, .breadcrumb a:hover { color: #0AA2E0; text-decoration: none; }
+a:hover, .breadcrumb a:hover { color: #777; text-decoration: underline; }
 .navbar-burger { display: block; height: auto; }
 .navbar-burger:hover { background: transparent; }
 .navbar-burger span { height: 2px; width: 20px; left: calc(50% - 10px); }
-.container { padding: 0 10px; margin: 0 auto; width: 100%; max-width: 1200px }
+.container {margin: 0 auto; width: 100%; max-width: 1200px }
 .select:not(.is-multiple):not(.is-loading)::after { border-color: #333; }
 .navbar { min-height: 5.0rem; }
 .navbar.is-transparent { background: none; }
@@ -183,6 +183,10 @@ code span{font-size: 0.9rem;}
     white-space: nowrap;
     /*width:80%;*/
 }
+
+
+.wnd-pay-button.box{box-shadow: 0  -10px  50px  0px #DDD;border-radius: 0;margin-top: 3rem}
+/*.wnd-pay-button{}*/
 /* ------------------------------
 comment list
 ------------------------------ */
@@ -201,7 +205,7 @@ ol.commentList li { clear: both; margin: 0 0 20px; list-style-type: none; }
 padding: 10px; background: #FAFAFAFA; border: 1px solid #EEE; }
 #comments li.thread-odd {    /**偶数评论**/
 padding: 10px; background: #FFF; border: 1px solid #EEE; }
-#comments ol>li { margin: 20px 0; }
+#comments ol>li { margin: 2rem 0; box-shadow: 0 0 20px 0px #EEE;}
 #comments li { border-radius: 3px; }
 p.input { margin: 10px 0; }
 #comments .avatar { float: left; margin-right: 10px; border-radius: 50%; }
@@ -260,9 +264,9 @@ cite.fn { color: #600; margin-right: 5px; color: #F14668; font-weight: 700; }
 /* 移动 */
 @media screen and (max-width:1023px) {
     .sidebar { max-width: 100%; }
-    .content .box { padding: 20px; }
+    .main.box { padding: 20px; }
     .navbar { min-height: 3rem; }
-    main.column { padding: 20px; }
+    /*main.column { padding: 20px; }*/
 
     /* Tabs */
     .list-posts .tabs ul { flex-wrap: nowrap; flex-shrink: 1; }

@@ -31,6 +31,7 @@ $filter->add_query(['tax_query' => $tax_query]);
 if ($taxonomy == $filter->category_taxonomy) {
 	$filter->add_related_tags_filter();
 }
+// $filter->add_taxonomy_filter(['taxonomy' => $taxonomy, 'parent' => $term_id, 'orderby' => 'count', 'order' => 'DESC', 'hide_empty' => false]);
 $filter->set_post_template('wndt_post_list_tpl');
 $filter->set_ajax_container("#filter-results");
 $filter->query();

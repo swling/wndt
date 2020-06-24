@@ -20,7 +20,7 @@ if (WP_DEBUG) {
 // 定义当前主题 外网 url 取代 get_template_directory_uri ，因其会导致 options 不断自增：_site_transient_theme_roots
 define('WNDT_URL', get_option('home') . '/wp-content/themes/' . basename(dirname(__FILE__)));
 
-$theme_ver = 0.01;
+$theme_ver = 0.03;
 
 /**
  *加载php模块
