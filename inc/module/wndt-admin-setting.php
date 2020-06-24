@@ -57,9 +57,9 @@ class Wndt_Admin_Setting extends Wndt_Admin {
 		);
 
 		$form->add_html('<div class="field is-horizontal"><div class="field-body">');
-		$form->add_url(
+		$form->add_text(
 			[
-				'name'     => 'social_redirect_url',
+				'name'     => 'icp',
 				'label'    => 'ICP备案号',
 				'required' => false,
 			]
