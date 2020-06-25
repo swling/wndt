@@ -25,7 +25,7 @@ case 'submit':
 	echo Wndt\Module\Wndt_Post_Submit::build($post_type);
 	break;
 
-case 'submit':
+case 'edit':
 	echo Wndt\Module\Wndt_Post_Edit::build($post_id);
 	break;
 

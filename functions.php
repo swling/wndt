@@ -25,7 +25,8 @@ $theme_ver = 0.03;
 /**
  *加载php模块
  */
-require TEMPLATEPATH . '/inc/wndt-load.php';
+// require TEMPLATEPATH . '/inc/wndt-load.php';
+Wndt\Model\Wndt_Init::instance();
 
 // ###########################################################
 // 加载自定义js 并引入 wp-ajax.php处理脚本
