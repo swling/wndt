@@ -33,7 +33,7 @@ class AjaxComment {
 			 *引入js文件
 			 */
 			wp_enqueue_script(
-				'ajax-comment', WNDT_URL . '/inc/component/AjaxComment/main.min.js',
+				'ajax-comment', WNDT_URL . '/includes/component/AjaxComment/main.min.js',
 				['jquery'],
 				static::$ver
 			);
