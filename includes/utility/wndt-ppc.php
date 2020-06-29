@@ -1,5 +1,5 @@
 <?php
-namespace Wndt\Model;
+namespace Wndt\Utility;
 
 use Exception;
 

@@ -1,5 +1,5 @@
 <?php
-namespace Wndt\Model;
+namespace Wndt\Utility;
 
 /**
  *@since 2019.09.25

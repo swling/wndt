@@ -1,6 +1,6 @@
 <?php
 use Wndt\Model\Wndt_FSC;
-use Wndt\Model\Wndt_PPC;
+use Wndt\Utility\Wndt_PPC;
 
 /**
  *@see wndwp/READEME.md
