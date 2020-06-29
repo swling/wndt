@@ -145,7 +145,7 @@ add_filter('Wnd\Module\Wnd_Login_Form', 'wndt_filter_login_form', 12, 1);
 function wndt_filter_login_form($input_fiels) {
 	$form = new Wnd\View\Wnd_Form_WP();
 	try {
-		$form->add_html(Wndt\Model\Wndt_Login_QQ::build_oauth_link('QQ登录'));
+		$form->add_html(Wndt\Utility\Wndt_Login_QQ::build_oauth_link('QQ登录'));
 	} catch (Exception $e) {
 		$form->set_message($e->getMessage());
 	}
@@ -159,7 +159,7 @@ add_filter('Wnd\Module\Wnd_Reg_Form', 'wndt_filter_reg_form', 12, 1);
 function wndt_filter_reg_form($input_fiels) {
 	$form = new Wnd\View\Wnd_Form_WP();
 	try {
-		$form->add_html(Wndt\Model\Wndt_Login_QQ::build_oauth_link('QQ注册'));
+		$form->add_html(Wndt\Utility\Wndt_Login_QQ::build_oauth_link('QQ注册'));
 	} catch (Exception $e) {
 		$form->set_message($e->getMessage());
 	}
@@ -173,7 +173,7 @@ add_filter('Wnd\Module\Wnd_Account_Form', 'wndt_filter_account_form', 12, 1);
 function wndt_filter_account_form($input_fiels) {
 	$form = new Wnd\View\Wnd_Form_WP();
 	try {
-		$form->add_html(Wndt\Model\Wndt_Login_QQ::build_oauth_link('绑定QQ'));
+		$form->add_html(Wndt\Utility\Wndt_Login_QQ::build_oauth_link('绑定QQ'));
 	} catch (Exception $e) {
 		$form->set_message($e->getMessage());
 	}

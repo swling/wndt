@@ -1,8 +1,8 @@
 <?php
-namespace Wndt\Model;
+namespace Wndt\Utility;
 
 use Exception;
-use Wnd\Model\Wnd_Login_Social;
+use Wnd\Utility\Wnd_Login_Social;
 
 /**
  *@since 2020.03.24

@@ -13,7 +13,7 @@ $state     = $_GET['state'] ?? false;
 
 //监听社交登录 可能有跳转，因此需要在header之前
 if ($state) {
-	$Wndt_Login_Social = Wndt\Model\Wndt_Login_Social::get_instance($state);
+	$Wndt_Login_Social = Wndt\Utility\Wndt_Login_Social::get_instance($state);
 	$Wndt_Login_Social::login();
 }
 

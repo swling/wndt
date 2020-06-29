@@ -1,7 +1,7 @@
 <?php
-namespace Wndt\Model;
+namespace Wndt\Utility;
 
-use Wnd\Model\Wnd_Config;
+use Wnd\Utility\Wnd_Config;
 
 /**
  *@since 2020.04.13

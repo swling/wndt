@@ -1,12 +1,10 @@
 <?php
-use Wndt\Model\Wndt_Config;
-
 /**
  *@since 2020.4.13
  *获取配置选项
  */
 function wndt_get_config($config_key) {
-	return Wndt_Config::get($config_key);
+	return Wndt\Utility\Wndt_Config::get($config_key);
 }
 
 //############################################################################ 根据用户id和文章类型统计文章数量 #已发布 #待审 #草稿
