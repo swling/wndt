@@ -16,7 +16,7 @@ function wndt_cert_icon($user_id, $space = '&nbsp;') {
 	if (wndt_is_cert($user_id)) {
 		return $space . '<span class="icon"><i class="fab fa-vimeo-square"></i></span>';
 	} else {
-		return null;
+		return '';
 	}
 }
 
