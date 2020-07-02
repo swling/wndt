@@ -90,11 +90,6 @@ class Wndt_Init {
 
 		// temples
 		require TEMPLATEPATH . '/includes/function/tpl-general.php'; //通用模板
-
-		//选项配置
-		if (is_admin()) {
-			require TEMPLATEPATH . '/includes/wndt-options.php';
-		}
 	}
 
 	################################################################################ 自定义文章类型
