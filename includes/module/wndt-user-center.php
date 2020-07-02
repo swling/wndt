@@ -39,6 +39,25 @@ class Wndt_User_Center extends Wnd_Module {
 		$html .= Wndt_User_Overview::build();
 		$html .= '</div>';
 		$html .= '</div>';
+		$html .= '
+<script type="text/javascript">
+	function user_center_hash() {
+		var hash = location.hash;
+		if (!hash) {
+			wnd_ajax_embed("#user-center .ajax-container", "wndt_user_overview");
+			return;
+		}
+
+		var element = hash.replace("#", "")
+		$("#user-panel-tabs li").removeClass("is-active");
+		$("li." + element).addClass("is-active");
+		wnd_ajax_embed("#user-center .ajax-container", element);
+	}
+
+	// 用户中心Tabs
+	user_center_hash();
+	window.onhashchange = user_center_hash;
+</script>';
 		return $html;
 	}
 
