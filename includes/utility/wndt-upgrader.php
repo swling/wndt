@@ -15,10 +15,10 @@ class Wndt_Upgrader {
 
 	// 更新包信息
 	protected $upgrade_info = [
-		'theme'   => '', //主题名称
-		'version' => '', //版本号
-		'url'     => '', //介绍页面
-		'package' => '', //下载地址
+		'theme'       => '', //主题名称
+		'new_version' => '', //版本号
+		'url'         => '', //介绍页面
+		'package'     => '', //下载地址
 	];
 
 	// 远程版本
@@ -72,10 +72,10 @@ class Wndt_Upgrader {
 		$this->remote_version = $response['tag_name'];
 
 		// 构造安装包信息
-		$this->upgrade_info['url']     = $response['html_url'];
-		$this->upgrade_info['package'] = $response['zipball_url'];
-		$this->upgrade_info['theme']   = $this->directory_name;
-		$this->upgrade_info['version'] = $this->remote_version;
+		$this->upgrade_info['url']         = $response['html_url'];
+		$this->upgrade_info['package']     = $response['zipball_url'];
+		$this->upgrade_info['theme']       = $this->directory_name;
+		$this->upgrade_info['new_version'] = $this->remote_version;
 	}
 
 	/* -------------------------------------------------------------------
