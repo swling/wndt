@@ -22,6 +22,9 @@ define('WNDT_URL', get_option('home') . '/wp-content/themes/' . basename(dirname
 
 $theme_ver = 0.03;
 
+// TEMP: Enable update check on every request. Normally you don't need this! This is for testing only!
+set_site_transient('update_themes', null);
+
 /**
  *加载php模块
  */

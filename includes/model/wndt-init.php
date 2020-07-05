@@ -2,6 +2,7 @@
 namespace Wndt\Model;
 
 use Wndt\Component\AjaxComment\AjaxComment;
+use Wndt\Utility\Wndt_Upgrader;
 use Wnd\Utility\Wnd_Singleton_Trait;
 
 /**
@@ -42,6 +43,11 @@ class Wndt_Init {
 
 		// Ajax评论
 		new AjaxComment;
+
+		// 自定义升级
+		if (is_admin()) {
+			new Wndt_Upgrader;
+		}
 	}
 
 	/**
