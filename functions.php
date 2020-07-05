@@ -8,8 +8,12 @@
  *@since 2019.09重新将插件整合到主题：wnd-biz
  */
 
-if (!defined('WND_VER') and !is_admin()) {
-	exit('本主题依赖wnd-frontend插件');
+if (!defined('WND_VER')) {
+	if (is_admin()) {
+		return false;
+	} else {
+		exit('本主题依赖wnd-frontend插件');
+	}
 }
 
 // 本地不显示错误奇怪故补充之
