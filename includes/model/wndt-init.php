@@ -2,6 +2,7 @@
 namespace Wndt\Model;
 
 use Wndt\Component\AjaxComment\AjaxComment;
+use Wndt\Controller\Wndt_API;
 use Wndt\Utility\Wndt_Upgrader;
 use Wnd\Utility\Wnd_Singleton_Trait;
 
@@ -41,6 +42,9 @@ class Wndt_Init {
 
 		$this->init();
 
+		// API
+		new Wndt_API;
+
 		// Ajax评论
 		new AjaxComment;
 
@@ -55,8 +59,8 @@ class Wndt_Init {
 	 */
 	private function init() {
 		// 注册类型
-		// add_action('init', [$this, 'register_post_type']);
-		// add_action('init', [$this, 'register_taxonomy']);
+		add_action('init', [$this, 'register_post_type']);
+		add_action('init', [$this, 'register_taxonomy']);
 
 		// 固定连接
 		add_filter('post_type_link', [$this, 'filter_post_link'], 11, 2);
@@ -99,8 +103,46 @@ class Wndt_Init {
 	}
 
 	################################################################################ 自定义文章类型
+	public function register_post_type() {
+
+		//项目
+		$labels = [
+			'name'              => __('项目', 'wndt'),
+			'singular_name'     => __('项目', 'wndt'),
+			'add_new'           => __('新建项目', 'wndt'),
+			'add_new_item'      => __('新建一个项目', 'wndt'),
+			'parent_item_colon' => '',
+			'menu_name'         => __('项目', 'wndt'),
+		];
+		$args = [
+			'labels'       => $labels,
+			'description'  => '项目',
+			'public'       => true,
+
+			'rewrite'      => ['slug' => 'project', 'with_front' => false],
+			'supports'     => ['title', 'author', 'editor', 'thumbnail', 'excerpt', 'comments', 'custom-fields'],
+			'show_in_rest' => false,
+			'has_archive'  => true,
+			'menu_icon'    => 'dashicons-playlist-audio',
+		];
+		register_post_type('project', $args);
+	}
 
 	################################################################################ 定义类型分类
+	public function register_taxonomy() {
+		// 项目分类
+		$labels = [
+			'name'          => _x('项目分类', 'taxonomy 名称'),
+			'singular_name' => _x('项目分类', 'taxonomy 单数名称'),
+			'menu_name'     => __('项目分类'),
+		];
+		$args = [
+			'labels'       => $labels,
+			'hierarchical' => true,
+			'rewrite'      => ['slug' => 'project-cat', 'with_front' => false],
+		];
+		register_taxonomy('project_cat', 'project', $args);
+	}
 
 	/**
 	 *@since 2019
