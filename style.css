@@ -126,7 +126,11 @@ code .number {
 *
 ********************************************
 */
-
+.button.is-warning.is-outlined {
+    background-color: transparent;
+    border-color: #FDAB0E;
+    color: #FDAB0E;
+}
 /* ################### filter ###################*/
 .wnd-filter-tabs { background: #FFF; }
 .wnd-filter-tabs .tabs:not(.is-boxed) ul { border: none; }
@@ -175,7 +179,7 @@ code span{font-size: 0.9rem;}
 
 .user-form,.min-modal { max-width: 400px; margin: 0 auto; }
 
-.box ul{padding:0;margin: 0 ;}
+/*.box ul{padding:0;margin: 0 ;}*/
 .box li{    
     /*padding: 0;*/
     /*margin: 0;*/
