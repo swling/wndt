@@ -23,7 +23,7 @@ class Wndt_Home extends Wnd_Module {
 		// 循环输出分类
 		foreach ($terms as $term) {
 			$posts = get_posts(array('cat' => $term->term_id, 'post_type' => 'post'));
-			$html .= '<div class="column is-4">';
+			$html .= '<div class="home-list column is-4">';
 			$html .= '<div class="box">';
 			$html .= '<h3 class="is-size-5"><a href="' . get_term_link($term) . '">' . $term->name . '</a></h3>';
 			$html .= '<ul>';
@@ -31,8 +31,8 @@ class Wndt_Home extends Wnd_Module {
 			 *@循环输出文章列表
 			 */
 			foreach ($posts as $post) {
-				$html .= '<li class="col-lg-3 col-md-3 col-sm-4 col-xs-6">';
-				$html .= '<a class="navbar-item" href="' . get_permalink($post->ID) . '">' . $post->post_title . '</a>';
+				$html .= '<li class="mb-2 mt-1">';
+				$html .= '<a href="' . get_permalink($post->ID) . '">' . $post->post_title . '</a>';
 				$html .= '</li>';
 			}
 			$html .= '</ul>';

@@ -94,6 +94,8 @@ a.navbar-item.is-active { color: #F14668; border-bottom: 0px #F14668 solid; }
     font-size: 1.6em;
     margin-bottom: .5em;
 }
+.content a{text-decoration: underline;}
+.content a:hover {color:#F14668;}
 
 /*.content .box { padding: 50px; }*/
 code .number {

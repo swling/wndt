@@ -38,7 +38,7 @@ $filter->query();
 
 echo $filter->get_tabs();
 
-echo '<div class="columns is-marginless">';
+echo '<div class="columns">';
 echo '<div id="filter-results" class="column">';
 echo $filter->get_results();
 echo '</div>';
