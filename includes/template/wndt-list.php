@@ -26,7 +26,7 @@ class Wndt_List {
 	 */
 	protected static function build_post_list($post) {
 		$html = '<div class="post-list box">';
-		$html .= '<div class="columns is-multiline is-tablet">';
+		$html .= '<div class="columns is-multiline is-tablet is-marginless">';
 
 		$html .= '<div class="column is-full is-marginless is-paddingless">';
 		$html .= '<h3><a href="' . get_permalink($post) . '">' . $post->post_title . '</a></h3>';
@@ -53,7 +53,7 @@ class Wndt_List {
 		// $display_name = wnd_is_manager($post->post_author) ? $post->post_title : get_user_by('ID', $post->post_author)->display_name;
 
 		$html = '<div class="post-list is-size-7-mobile box">';
-		$html .= '<div class="columns is-multiline is-tablet">';
+		$html .= '<div class="columns is-multiline is-tablet is-marginless">';
 
 		$html .= '<div class="column is-narrow is-hidden-mobile">';
 		$html .= wndt_post_thumbnail($post->ID, '100', '100');
