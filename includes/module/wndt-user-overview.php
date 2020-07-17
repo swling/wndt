@@ -37,14 +37,14 @@ class Wndt_User_Overview extends Wnd_Module {
 		$html .= '<div class="level-item">';
 		$html .= '<div>';
 		$html .= '<p class="heading">余额</p>';
-		$html .= '<p>' . wnd_get_user_money($user_id) . '</p>';
+		$html .= '<p>' . wnd_get_user_money($user_id, true) . '</p>';
 		$html .= '</div>';
 		$html .= '</div>';
 
 		$html .= '<div class="level-item">';
 		$html .= '<div>';
 		$html .= '<p class="heading">消费</p>';
-		$html .= '<p>' . wnd_get_user_expense($user_id) . '</p>';
+		$html .= '<p>' . wnd_get_user_expense($user_id, true) . '</p>';
 		$html .= '</div>';
 		$html .= '</div>';
 

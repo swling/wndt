@@ -10,6 +10,9 @@ namespace Wndt\Module;
 class Wndt_Search_Form {
 
 	public static function build() {
+		// 色调
+		$primary_color = wnd_get_config('primary_color');
+
 		$html = '<form role="search" method="get" id="searchform" action="' . home_url() . '">';
 		$html .= '<div class="field has-addons has-addons-right">';
 		$html .= '<p class="control">';
@@ -26,7 +29,7 @@ class Wndt_Search_Form {
 		$html .= '<input class="input" type="text" name="s" placeholder="搜索关键词" required="required">';
 		$html .= '</p>';
 		$html .= '<p class="control">';
-		$html .= '<input type="submit" class="button is-danger" value="搜索" />';
+		$html .= '<input type="submit" class="button is-' . $primary_color . '" value="搜索" />';
 		$html .= '</p>';
 		$html .= '</div>';
 		$html .= '</form>';
