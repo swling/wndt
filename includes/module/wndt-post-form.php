@@ -50,8 +50,8 @@ class Wndt_Post_Form extends Wnd_Module {
 		$form->add_html('<div class="column is-3">');
 		// 分类
 		$form->add_post_term_select(['taxonomy' => 'category'], '', true, true);
-		$form->add_dynamic_sub_term_select('category', 1, '', __('二级分类', 'wnd'));
-		$form->add_dynamic_sub_term_select('category', 2, '', __('三级分类', 'wnd'));
+		$form->add_dynamic_sub_term_select('category', 1, '', false, __('二级分类', 'wnd'));
+		$form->add_dynamic_sub_term_select('category', 2, '', false, __('三级分类', 'wnd'));
 
 		// 缩略图
 		$form->set_thumbnail_size(200, 150);

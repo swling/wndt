@@ -19,7 +19,7 @@ class Wndt_Upgrader_Github extends Wnd_Upgrader_Theme {
 	 */
 	protected function get_remote_info() {
 		$url      = 'https://api.github.com/repos/swling/wndt/releases';
-		$response = wp_remote_get($url);
+		$response = wp_remote_get($url, ['headers' => ['Authorization' => 'token xxx']]);
 		if (is_wp_error($response)) {
 			return $response;
 		}
