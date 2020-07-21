@@ -10,7 +10,7 @@
 			 */
 			$with_paid_content = false;
 			if (wnd_get_post_price($post->ID)) {
-				$content           = wndt_explode_post_by_more($post->post_content);
+				$content           = wnd_explode_post_by_more($post->post_content);
 				$with_paid_content = $content[1] ?? false;
 				$user_id           = get_current_user_id();
 				if (wnd_user_has_paid($user_id, $post->ID) or $post->post_author == $user_id) {

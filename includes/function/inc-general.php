@@ -52,23 +52,3 @@ function wndt_get_sub_title($sep = '') {
 
 	return false;
 }
-
-/**
- *按more标签，切割内容
- *字符串处理代码取自wp官方函数：get_the_content
- *@see get_the_content
- */
-function wndt_explode_post_by_more(string $content): array{
-	if (preg_match('/<!--more(.*?)?-->/', $content, $matches)) {
-		if (has_block('more', $content)) {
-			// Remove the core/more block delimiters. They will be left over after $content is split up.
-			$content = preg_replace('/<!-- \/?wp:more(.*?) -->/', '', $content);
-		}
-
-		$content = explode($matches[0], $content, 2);
-	} else {
-		$content = array($content);
-	}
-
-	return $content;
-}
