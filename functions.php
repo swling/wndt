@@ -120,6 +120,8 @@ function wndt_post_filter($query) {
 		}
 	}
 
+	// 禁止查询 SQL_CALC_FOUND_ROWS
+	$query->set('no_found_rows', true);
 }
 
 // ################################# 移除规范链接 新增手动添加：page页面启用了动态查询 since 2018.10.25
