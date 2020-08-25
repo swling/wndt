@@ -19,8 +19,9 @@ class Wndt_API {
 			'wndt',
 			'project/(?P<ID>[\d]+)',
 			[
-				'methods'  => 'GET',
-				'callback' => __CLASS__ . '::handle_project_api',
+				'methods'             => 'GET',
+				'callback'            => __CLASS__ . '::handle_project_api',
+				'permission_callback' => '__return_true',
 			]
 		);
 	}

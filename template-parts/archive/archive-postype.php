@@ -30,8 +30,8 @@ if ($queried_object->name == 'supply') {
 }
 
 if ($queried_object->name == 'demand') {
-	$filter->add_query(['post_status' => ['publish', 'close']]);
-	$filter->add_post_status_filter(['进行中' => 'publish', '已结束' => 'close']);
+	$filter->add_query(['post_status' => ['publish', 'wnd-closed']]);
+	$filter->add_post_status_filter(['进行中' => 'publish', '已结束' => 'wnd-closed']);
 } else {
 	$filter->add_query(['post_status' => 'publish']);
 }
