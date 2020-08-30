@@ -34,7 +34,7 @@ $theme_ver = wp_get_theme(basename(dirname(__FILE__)))->get('Version');
  *加载php模块
  */
 // require TEMPLATEPATH . '/includes/wndt-load.php';
-Wndt\Model\Wndt_Init::instance();
+Wndt\Model\Wndt_Init::get_instance();
 
 // ###########################################################
 // 加载自定义js 并引入 wp-ajax.php处理脚本
