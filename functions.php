@@ -105,21 +105,6 @@ function wndt_post_filter($query) {
 		return $query;
 	}
 
-	// 默认排序
-	// if (!isset($_GET['orderby'])) {
-	//     $query->set('orderby', 'modified');
-	// }
-
-	// 指定搜索类型
-	if ($query->is_search()) {
-		if (isset($_GET['post_type'])) {
-			if ($_GET['post_type'] != 'all') {
-				$query->set('post_type', $_GET['post_type']);
-			}
-
-		}
-	}
-
 	// 禁止查询 SQL_CALC_FOUND_ROWS
 	$query->set('no_found_rows', true);
 }
@@ -127,10 +112,8 @@ function wndt_post_filter($query) {
 // ################################# 移除规范链接 新增手动添加：page页面启用了动态查询 since 2018.10.25
 remove_action('wp_head', 'rel_canonical');
 function wndt_rel_canonical() {
-
 	if (is_single()) {
 		echo '<link rel="canonical" href="' . get_the_permalink() . '"/>' . PHP_EOL;
 	}
-
 }
 add_action('wp_head', 'wndt_rel_canonical');
