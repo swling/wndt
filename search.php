@@ -2,7 +2,7 @@
 <div id="main" class="column">
 	<div class="columns">
 		<div class="box column">
-			<?php echo Wndt\Module\Wndt_Search_Form::build(); ?>
+			<?php echo Wnd\Module\Wnd_Search_Form::build(); ?>
 		</div>
 	</div>
 	<hr>

@@ -35,7 +35,7 @@
 						<?php echo wndt_menu('primary_menu'); ?>
 					</div>
 					<div class="navbar-end">
-						<a class="navbar-item" onclick="wnd_ajax_modal('wndt_search_form')">
+						<a class="navbar-item" onclick="wnd_ajax_modal('wnd_search_form')">
 							<span class="icon"><i class="fas fa-search"></i></span>&nbsp;搜索
 						</a>
 						<a class="navbar-item" href="<?php echo home_url('ucenter/?action=submit&type=post'); ?>">
