@@ -12,7 +12,7 @@ use Wnd\Module\Wnd_Module;
  */
 class Wndt_Post_Submit extends Wnd_Module {
 
-	protected static function build($post_type = 'supply') {
+	protected static function build($post_type = 'supply'): string {
 		// 将GET参数自动作为传参
 		$args = $_GET;
 

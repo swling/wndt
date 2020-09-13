@@ -12,7 +12,7 @@ use Wnd\Module\Wnd_Module;
  */
 class Wndt_Post_Edit extends Wnd_Module {
 
-	protected static function build($post_id = 0) {
+	protected static function build($post_id = 0): string {
 		$edit_post = $post_id ? get_post($post_id) : false;
 		if (!$edit_post) {
 			return static::build_error_message('ID无效');

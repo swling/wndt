@@ -12,7 +12,7 @@ use Wnd\Module\Wnd_Module;
  */
 class Wndt_User_Center extends Wnd_Module {
 
-	protected static function build() {
+	protected static function build(): string {
 		// 用户属性
 		$user    = wp_get_current_user();
 		$user_id = $user->ID;

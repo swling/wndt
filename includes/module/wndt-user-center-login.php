@@ -9,7 +9,7 @@ namespace Wndt\Module;
  */
 class Wndt_User_Center_Login extends Wndt_User_Center {
 
-	protected static function build() {
+	protected static function build(): string {
 		$html = '<div id="user-center">';
 		$html .= wnd_ajax_embed('wnd_user_center', ['do' => $_GET['do'] ?? 'register']);
 		$html .= '</div>';
