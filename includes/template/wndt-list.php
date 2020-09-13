@@ -10,7 +10,7 @@ class Wndt_List {
 	 *构建列表输出模板
 	 *
 	 */
-	public static function build(object $post, $simple = false) {
+	public static function render(object $post, $simple = false) {
 		$method = 'build_' . ($simple ? $post->post_type . '_list_simple' : $post->post_type . '_list_thumbnail');
 		if (method_exists(__CLASS__, $method)) {
 			return static::$method($post);

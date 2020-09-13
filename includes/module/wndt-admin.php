@@ -9,11 +9,11 @@ use Wnd\Module\Wnd_Module;
 class Wndt_Admin extends Wnd_Module {
 
 	// 管理面板
-	public static function build() {
+	protected static function build() {
 		$html = '<div id="user-center">';
 		$html .= static::build_user_panel_tabs();
 		$html .= '<div class="ajax-container">';
-		$html .= Wndt_Admin_Setting::build();
+		$html .= Wndt_Admin_Setting::render();
 		$html .= '</div>';
 		$html .= '</div>';
 		return $html;

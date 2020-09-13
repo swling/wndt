@@ -12,7 +12,7 @@ use Wnd\Module\Wnd_Module;
  */
 class Wndt_Post_Edit extends Wnd_Module {
 
-	public static function build($post_id = 0) {
+	protected static function build($post_id = 0) {
 		$edit_post = $post_id ? get_post($post_id) : false;
 		if (!$edit_post) {
 			return static::build_error_message('ID无效');
@@ -26,16 +26,16 @@ class Wndt_Post_Edit extends Wnd_Module {
 			// 主题定义的表单
 			$class = '\Wndt\Module\\Wndt_Post_Form_' . $edit_post->post_type;
 			if (class_exists($class)) {
-				return $class::build($post_id);
+				return $class::render($post_id);
 			}
 
 			// 附件编辑表单
 			if ('attachment' == $edit_post->post_type) {
-				return \Wnd\Module\Wnd_Attachment_Form::build(['attachment_id' => $post_id]);
+				return \Wnd\Module\Wnd_Attachment_Form::render(['attachment_id' => $post_id]);
 			}
 
 			// Post编辑表单
-			return \Wndt\Module\Wndt_Post_Form::build(
+			return \Wndt\Module\Wndt_Post_Form::render(
 				[
 					'post_id'     => $post_id,
 					'post_parent' => $edit_post->post_parent,

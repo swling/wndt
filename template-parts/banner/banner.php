@@ -5,7 +5,7 @@
  *大横幅
  */
 
-echo Wndt\Module\Wndt_Notification::build();
+echo Wndt\Module\Wndt_Notification::render();
 
 //1、 home
 if (is_home()) {

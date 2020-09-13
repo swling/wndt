@@ -8,7 +8,7 @@ use Wnd\Module\Wnd_Module;
  */
 class Wndt_Home extends Wnd_Module {
 
-	public static function build() {
+	protected static function build() {
 		return '';
 	}
 	/**

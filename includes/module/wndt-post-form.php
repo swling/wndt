@@ -9,7 +9,7 @@ use Wnd\View\Wnd_Form_Post;
  */
 class Wndt_Post_Form extends Wnd_Module {
 
-	public static function build($args = []) {
+	protected static function build($args = []) {
 		$defaults = [
 			'post_id'     => 0,
 			'post_parent' => 0,

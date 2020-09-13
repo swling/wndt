@@ -12,7 +12,7 @@ use Wnd\Module\Wnd_Module;
  */
 class Wndt_User_Center extends Wnd_Module {
 
-	public static function build() {
+	protected static function build() {
 		// 用户属性
 		$user    = wp_get_current_user();
 		$user_id = $user->ID;
@@ -20,12 +20,12 @@ class Wndt_User_Center extends Wnd_Module {
 
 		// 未登录用户
 		if (!is_user_logged_in()) {
-			return Wndt_User_Center_Login::build();
+			return Wndt_User_Center_Login::render();
 		}
 
 		// 管理员
 		if (wnd_is_manager()) {
-			return Wndt_User_Center_Manager::build();
+			return Wndt_User_Center_Manager::render();
 		}
 
 		return static::build_user_center();
@@ -36,7 +36,7 @@ class Wndt_User_Center extends Wnd_Module {
 		$html = '<div id="user-center">';
 		$html .= static::build_user_panel_tabs();
 		$html .= '<div class="ajax-container">';
-		$html .= Wndt_User_Overview::build();
+		$html .= Wndt_User_Overview::render();
 		$html .= '</div>';
 		$html .= '</div>';
 		$html .= '

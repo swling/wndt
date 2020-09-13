@@ -12,7 +12,7 @@ use Wnd\Module\Wnd_Module;
  */
 class Wndt_Post_Submit extends Wnd_Module {
 
-	public static function build($post_type = 'supply') {
+	protected static function build($post_type = 'supply') {
 		// 将GET参数自动作为传参
 		$args = $_GET;
 
@@ -23,16 +23,16 @@ class Wndt_Post_Submit extends Wnd_Module {
 			// 主题定义的表单
 			$class = '\Wndt\Module\\Wndt_Post_Form_' . $post_type;
 			if (class_exists($class)) {
-				return $class::build($args);
+				return $class::render($args);
 			}
 
 			// 附件编辑表单
 			if ('attachment' == $post_type) {
-				return \Wnd\Module\Wnd_Attachment_Form::build();
+				return \Wnd\Module\Wnd_Attachment_Form::render();
 			}
 
 			// 默认Post表单
-			return \Wndt\Module\Wndt_Post_Form::build($args);
+			return \Wndt\Module\Wndt_Post_Form::render($args);
 		} catch (Exception $e) {
 			return static::build_error_message($e->getMessage());
 		}

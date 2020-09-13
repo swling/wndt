@@ -21,19 +21,19 @@ echo '<main class="column">';
 echo '<div class="main box">';
 switch ($action) {
 case 'submit':
-	echo Wndt\Module\Wndt_Post_Submit::build($post_type);
+	echo Wndt\Module\Wndt_Post_Submit::render($post_type);
 	break;
 
 case 'edit':
-	echo Wndt\Module\Wndt_Post_Edit::build($post_id);
+	echo Wndt\Module\Wndt_Post_Edit::render($post_id);
 	break;
 
 case 'admin':
-	echo Wndt\Module\Wndt_Admin::build($post_id);
+	echo Wndt\Module\Wndt_Admin::render($post_id);
 	break;
 
 default:
-	echo Wndt\Module\Wndt_User_Center::build();
+	echo Wndt\Module\Wndt_User_Center::render();
 	break;
 }
 echo '</div>';

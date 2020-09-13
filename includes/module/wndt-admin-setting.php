@@ -8,7 +8,7 @@ use Wnd\View\Wnd_Form_Option;
  */
 class Wndt_Admin_Setting extends Wndt_Admin {
 
-	public static function build() {
+	protected static function build() {
 		$form = new Wnd_Form_Option('wndt', false);
 		$form->add_image_upload('banner', 0, 0, 'Banner');
 

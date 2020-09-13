@@ -14,7 +14,7 @@ use Wnd\Module\Wnd_Module;
  */
 class Wndt_Notification extends Wnd_Module {
 
-	public static function build() {
+	protected static function build() {
 		$user_id      = get_current_user_id();
 		$icon         = '<span class="icon"><i class="fa fa-exclamation-triangle"></i></span>';
 		$notification = '';
