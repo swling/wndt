@@ -15,7 +15,7 @@ class Wndt_Config extends Wnd_Config {
 	protected static $wp_option_name = 'wndt';
 
 	/**
-	 *option数组键名统一前缀
+	 *filter_prefix
 	 */
-	protected static $config_key_prefix = '';
+	protected static $filter_prefix = 'wndt_option_';
 }
