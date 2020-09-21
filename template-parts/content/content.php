@@ -23,7 +23,7 @@
 			}
 
 			// 在内容页放置付费按钮，将自动检测是否包含付费文件
-			echo wnd_pay_button($post->ID, $with_paid_content);
+			echo wnd_pay_button($post, $with_paid_content);
 			?>
 		</div>
 	</div>
