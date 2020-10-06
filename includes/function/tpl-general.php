@@ -37,7 +37,7 @@ function wndt_people_profile($post_id, $avatar_size = 200, $with_contact = true)
 	$html .= wndt_cert_icon($post->post_author);
 	$html .= '</p>';
 	if ($with_contact) {
-		$html .= '<a class="is-' . wnd_get_config('primary_color') . ' is-small button" onclick="wnd_ajax_modal(\'wndt_contact_info\',\'' . $post->ID . '\')">联系我</a>&nbsp';
+		$html .= wnd_modal_link('联系我', 'wndt_contact_info', ['post_id' => $post->ID]) . '&nbsp';
 	}
 	$html .= '</div>';
 

@@ -12,9 +12,8 @@ use Wnd\Module\Wnd_Module;
  */
 class Wndt_Post_Submit extends Wnd_Module {
 
-	protected static function build($post_type = 'supply'): string {
-		// 将GET参数自动作为传参
-		$args = $_GET;
+	protected static function build(): string{
+		$post_type = static::$args['type'] ?? 'post';
 
 		try {
 			$ppc = Wndt_PPC::get_instance($post_type);
@@ -23,7 +22,7 @@ class Wndt_Post_Submit extends Wnd_Module {
 			// 主题定义的表单
 			$class = '\Wndt\Module\\Wndt_Post_Form_' . $post_type;
 			if (class_exists($class)) {
-				return $class::render($args);
+				return $class::render();
 			}
 
 			// 附件编辑表单
@@ -32,7 +31,7 @@ class Wndt_Post_Submit extends Wnd_Module {
 			}
 
 			// 默认Post表单
-			return \Wndt\Module\Wndt_Post_Form::render($args);
+			return \Wnd\Module\Wnd_Default_Post_Form::render();
 		} catch (Exception $e) {
 			return static::build_error_message($e->getMessage());
 		}

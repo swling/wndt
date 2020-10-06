@@ -21,10 +21,6 @@ if (is_home()) {
 					<a class="button is-black" onclick="wnd_ajax_modal('wnd_user_center')">免费注册</a>
 					<a class="button is-danger is-outlined" onclick="wnd_ajax_modal('wnd_login_form')">立即登录</a>
 				</div>
-				<div class="column is-narrow">
-					<!-- <a class="button is-black is-large" onclick="wnd_ajax_modal('wnd_user_center')">免费注册</a> -->
-					<!-- <a class="button is-danger is-large is-outlined" onclick="wnd_ajax_modal('wnd_login_form')">立即登录</a> -->
-				</div>
 			</div>
 		</div>
 	</section>
@@ -66,9 +62,7 @@ if (is_home()) {
 									?>
 								</div>
 								<div class="column is-narrow has-text-centered">
-									<?php
-									echo '<button class="is-' . wnd_get_config('primary_color') . ' is-outlined button is-small" onclick="wnd_ajax_modal(\'wndt_contact_info\',\'' . $post->ID . '\')">联系我们</button>';
-									?>
+									<?php echo wnd_modal_button('联系我', 'wndt_contact_info', ['post_id' => $post->ID], 'is-outlined is-small is-' . wnd_get_config('primary_color')); ?>
 								</div>
 							</div>
 						</div>
@@ -106,8 +100,7 @@ if (is_home()) {
 								get_the_term_list($post->ID, 'region', $before = '', $sep = '', $after = ' ') .
 								wndt_get_user_company_name($post->post_author) . '</div>';
 							$html .= '<div class="tags">' . get_the_term_list($post->ID, $post->post_type . '_tag', '', '', '') . '</div>';
-							$html .= '<div><button class="button is-' . wnd_get_config('primary_color') .
-								' is-outlined" onclick="wnd_ajax_modal(\'wndt_contact_info\',\'' . $post->ID . '\')">联系我</button></div>';
+							$html .= '<div>' . wnd_modal_button('联系我', 'wndt_contact_info', ['post_id' => $post->ID], 'is-outlined is-' . wnd_get_config('primary_color')) . '</div>';
 							$html .= '</div>';
 
 							echo $html;

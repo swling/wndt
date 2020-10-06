@@ -19,8 +19,8 @@ get_header();
 			<?php
 			if (wnd_is_manager()) {
 				echo '<h3>管理</h3>';
-				echo '<button class="button is-danger is-outlined is-small" onclick="wnd_ajax_modal(\'wnd_delete_user_form\',\'' . $user_id . '\')">删除用户</button>';
-				echo '&nbsp;<button class="button is-danger is-outlined is-small" onclick="wnd_ajax_modal(\'wnd_account_status_form\',\'' . $user_id . '\')">封禁用户</button>';
+				echo wnd_modal_button('删除用户', 'wnd_delete_user_form', ['user_id' => $user_id], 'is-danger is-outlined is-small');
+				echo '&nbsp;' . wnd_modal_button('封禁用户', 'wnd_account_status_form', ['user_id' => $user_id], 'is-danger is-outlined is-small');
 			}
 			?>
 		</div>

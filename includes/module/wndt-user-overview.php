@@ -1,4 +1,5 @@
 <?php
+
 namespace Wndt\Module;
 
 use Wnd\Module\Wnd_Module;
@@ -10,7 +11,7 @@ use Wnd\Module\Wnd_Module;
  */
 class Wndt_User_Overview extends Wnd_Module {
 
-	protected static function build(): string {
+	protected static function build(): string{
 		$user_id = get_current_user_id();
 		$html    = '';
 
@@ -58,12 +59,12 @@ class Wndt_User_Overview extends Wnd_Module {
 
 		$html .= '<div class="level is-mobile">';
 		$html .= '<div class="level-item">';
-		$html .= '<button class="button is-outlined" onclick="wnd_ajax_modal(\'wnd_user_recharge_form\')">' . __('余额充值', 'wnd') . '</button>';
+		$html .= wnd_modal_button('余额充值', 'wnd_user_recharge_form', [], 'is-outlined');
 		$html .= '</div>';
 
 		if (is_super_admin()) {
 			$html .= '<div class="level-item">';
-			$html .= '<button class="button is-outlined" onclick="wnd_ajax_modal(\'wnd_admin_recharge_form\')">' . __('人工充值', 'wnd') . '</button>';
+			$html .= wnd_modal_button('人工充值', 'wnd_admin_recharge_form', [], 'is-outlined');
 			$html .= '</div>';
 		}
 		$html .= '</div>';

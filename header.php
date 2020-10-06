@@ -42,7 +42,7 @@
 							<span class="icon"><i class="fas fa-plus"></i></span>&nbsp;发布
 						</a>
 						<?php if (!is_user_logged_in()) { ?>
-							<a class="navbar-item" onclick="wnd_ajax_modal('wnd_user_center','do=login')"><span class="icon"><i class="fa fa-user"></i></span> 登录 / 注册</a>
+							<a class="navbar-item" onclick="wnd_ajax_modal('wnd_user_center',{'do':'login'})"><span class="icon"><i class="fa fa-user"></i></span> 登录 / 注册</a>
 						<?php } else { ?>
 							<div class="navbar-item has-dropdown is-hoverable">
 								<a class="navbar-link" href="<?php echo home_url('ucenter') ?>">

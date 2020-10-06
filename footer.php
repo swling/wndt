@@ -60,20 +60,6 @@
 		</p>
 	</div>
 </footer>
-<!-- 移动悬浮导航栏 -->
-<div class="navbar is-fixed-bottom is-hidden">
-	<div class="columns has-text-centered is-mobile is-size-7 is-marginless is-paddingless">
-		<div class="column is-marginless" onclick="wnd_ajax_modal('wndt_user_favorite_list','')">
-			<span class="icon"><i class="fas fa-heart"></i></span>收藏
-		</div>
-		<div class="column is-marginless play-button" onclick="wndt_play('#audio-player')">
-			<span class="icon"><i class="fas fa-play"></i></span>
-		</div>
-		<div class="column is-marginless" onclick="wnd_ajax_modal('wndt_join_vip','')">
-			<span class="icon"><i class="fab fa-vimeo-v"></i></span>VIP
-		</div>
-	</div>
-</div>
 <?php wp_footer(); ?>
 <?php echo Wndt\Module\Wndt_Sidebar_Menu::render(); ?>
 <div class="is-hidden"><?php echo stripslashes(wndt_get_config('statistical_code')); ?></div>

@@ -62,14 +62,14 @@ $user_identity = $user->exists() ? $user->display_name : '';
 	}
 
 	$comments_args = [
-		'must_log_in'   => '<div class="has-text-centered"><a onclick="wnd_ajax_modal(\'wnd_user_center\')">' . __('登录', 'wndt') . '</a></div>',
+		'must_log_in'   => '<div class="has-text-centered">' . wnd_modal_link(__('登录', 'wndt'), 'wnd_user_center') . '</div>',
 		'comment_field' => $comment_field,
 		'logged_in_as'  => '<p class="logged-in-as mb-3">logged is as：' . $user_identity . '</p>',
 		'submit_button' => '<button type="submit" class="button is-' . wnd_get_config('primary_color') . '">提交</button>',
 	];
 	if (is_user_logged_in() and !$user->user_email) {
 		echo '<div class="has-text-centered content">';
-		echo wnd_modal_button(__('请绑定邮箱后评论', 'wndt'), 'wnd_bind_email_form', '', 'is-danger');
+		echo wnd_modal_button(__('请绑定邮箱后评论', 'wndt'), 'wnd_bind_email_form', [], 'is-danger');
 		echo '</div>';
 	} else {
 		comment_form($comments_args);

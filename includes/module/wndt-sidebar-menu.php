@@ -20,8 +20,8 @@ class Wndt_Sidebar_Menu extends Wnd_Module {
 			$html .= '</div>';
 
 			$html .= '<div class="has-text-centered">';
-			$html .= '<a class="button is-black" onclick="wnd_ajax_modal(\'wnd_user_center\')">免费注册</a>';
-			$html .= '&nbsp;<a class="button is-danger is-outlined" onclick="wnd_ajax_modal(\'wnd_login_form\')">立即登录</a>';
+			$html .= wnd_modal_button('免费注册', 'wnd_user_center', [], 'is-black');
+			$html .= '&nbsp;' . wnd_modal_button('立即登录', 'wnd_login_form', [], 'is-danger is-outlined');
 			$html .= '</div>';
 			$html .= '</aside>';
 			return $html;
