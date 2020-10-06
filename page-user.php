@@ -29,17 +29,17 @@ if ($module) {
 	echo $class::render();
 } else {
 	switch ($action) {
-		case 'submit':
-			echo Wndt\Module\Wndt_Post_Submit::render(['post_type' => $post_type]);
-			break;
+	case 'submit':
+		echo Wndt\Module\Wndt_Post_Submit::render(['post_type' => $post_type]);
+		break;
 
-		case 'edit':
-			echo Wndt\Module\Wndt_Post_Edit::render(['post_id' => $post_id]);
-			break;
+	case 'edit':
+		echo Wndt\Module\Wndt_Post_Edit::render(['post_id' => $post_id]);
+		break;
 
-		default:
-			echo Wndt\Module\Wndt_User_Center::render();
-			break;
+	default:
+		echo Wndt\Module\Wndt_User_Center::render();
+		break;
 	}
 }
 
