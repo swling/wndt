@@ -21,7 +21,7 @@ class Wndt_Sidebar_Menu extends Wnd_Module {
 
 			$html .= '<div class="has-text-centered">';
 			$html .= wnd_modal_button('免费注册', 'wnd_user_center', [], 'is-black');
-			$html .= '&nbsp;' . wnd_modal_button('立即登录', 'wnd_login_form', [], 'is-danger is-outlined');
+			$html .= '&nbsp;' . wnd_modal_button('立即登录', 'wnd_user_center', ['do' => 'login'], 'is-danger is-outlined');
 			$html .= '</div>';
 			$html .= '</aside>';
 			return $html;
