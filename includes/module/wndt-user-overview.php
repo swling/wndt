@@ -11,7 +11,7 @@ use Wnd\Module\Wnd_Module;
  */
 class Wndt_User_Overview extends Wnd_Module {
 
-	protected static function build(): string{
+	protected static function build($args = []): string{
 		$user_id = get_current_user_id();
 		$html    = '';
 

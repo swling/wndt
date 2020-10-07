@@ -11,7 +11,7 @@ use Wnd\Module\Wnd_Module;
  */
 class Wndt_Sidebar_Menu extends Wnd_Module {
 
-	protected static function build(): string {
+	protected static function build($args = []): string {
 		//未登录用户
 		if (!is_user_logged_in()) {
 			$html = '<aside id="sidebar-menu">';

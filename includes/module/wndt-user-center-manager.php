@@ -9,7 +9,7 @@ namespace Wndt\Module;
  */
 class Wndt_User_Center_Manager extends Wndt_User_Center {
 
-	protected static function build(): string {
+	protected static function build($args = []): string {
 		return static::build_user_center();
 	}
 

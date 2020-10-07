@@ -12,8 +12,8 @@ use Wnd\Module\Wnd_Module;
  */
 class Wndt_Post_Submit extends Wnd_Module {
 
-	protected static function build(): string{
-		$post_type = static::$args['type'] ?? 'post';
+	protected static function build($args = []): string{
+		$post_type = $args['type'] ?? 'post';
 
 		try {
 			$ppc = Wndt_PPC::get_instance($post_type);
