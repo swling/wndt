@@ -1,5 +1,4 @@
 <?php
-
 /**
  *Template Name: 用户中心
  *层级：一级
@@ -7,12 +6,8 @@
  */
 
 $module = $_GET['module'] ?? false;
-
-$action    = $_GET['action'] ?? false;
-$post_type = $_GET['type'] ?? 'supply';
-$post_id   = $_GET['post_id'] ?? 0;
-
-$state = $_GET['state'] ?? false;
+$action = $_GET['action'] ?? false;
+$state  = $_GET['state'] ?? false;
 
 //监听社交登录 可能有跳转，因此需要在header之前
 if ($state) {
@@ -30,11 +25,11 @@ if ($module) {
 } else {
 	switch ($action) {
 	case 'submit':
-		echo Wndt\Module\Wndt_Post_Submit::render(['post_type' => $post_type]);
+		echo Wndt\Module\Wndt_Post_Submit::render();
 		break;
 
 	case 'edit':
-		echo Wndt\Module\Wndt_Post_Edit::render(['post_id' => $post_id]);
+		echo Wndt\Module\Wndt_Post_Edit::render();
 		break;
 
 	default:
