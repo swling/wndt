@@ -25,13 +25,15 @@ class Wndt_Post_Submit extends Wnd_Module {
 				return $class::render();
 			}
 
-			// 附件编辑表单
-			if ('attachment' == $post_type) {
-				return \Wnd\Module\Wnd_Attachment_Form::render();
+			// 插件默认表单
+			$class = '\Wnd\Module\\Wnd_Post_Form_' . $post_type;
+			if (class_exists($class)) {
+				return $class::render();
 			}
 
-			// 默认Post表单
-			return \Wnd\Module\Wnd_Default_Post_Form::render();
+			// 未找到匹配表单
+			return static::build_error_message(__('当前 Post Type 未定义编辑表单', 'wndt'));
+
 		} catch (Exception $e) {
 			return static::build_error_message($e->getMessage());
 		}

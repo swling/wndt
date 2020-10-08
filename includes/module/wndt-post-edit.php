@@ -35,14 +35,21 @@ class Wndt_Post_Edit extends Wnd_Module {
 				return \Wnd\Module\Wnd_Attachment_Form::render(['attachment_id' => $post_id]);
 			}
 
-			// Post编辑表单
-			return \Wndt\Module\Wndt_Post_Form::render(
-				[
-					'post_id'     => $post_id,
-					'post_parent' => $edit_post->post_parent,
-					'is_free'     => false,
-				]
-			);
+			// 插件默认表单
+			$class = '\Wnd\Module\\Wnd_Post_Form_' . $edit_post->post_type;
+			if (class_exists($class)) {
+				return $class::render(
+					[
+						'post_id'     => $post_id,
+						'post_parent' => $edit_post->post_parent,
+						'is_free'     => false,
+					]
+				);
+			}
+
+			// 未找到匹配表单
+			return static::build_error_message(__('当前 Post Type 未定义编辑表单', 'wndt'));
+
 		} catch (Exception $e) {
 			return static::build_error_message($e->getMessage());
 		}
