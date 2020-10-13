@@ -51,7 +51,7 @@
 								</a>
 								<div class="navbar-dropdown is-right">
 									<a class="navbar-item" href="<?php echo home_url('ucenter'); ?>">用户中心</a>
-									<a class="navbar-item" href="<?php echo home_url('ucenter?action=admin'); ?>">控制面板</a>
+									<a class="navbar-item" href="<?php echo home_url('ucenter?module=wndt_admin_setting'); ?>">控制面板</a>
 									<?php if (is_super_admin()) { ?>
 										<a class="navbar-item" href="<?php echo home_url('ucenter/?action=submit&type=post'); ?>">发布文章</a>
 									<?php } ?>

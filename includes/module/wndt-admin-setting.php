@@ -33,32 +33,6 @@ class Wndt_Admin_Setting extends Wndt_Admin {
 		$form->add_html('<div class="field is-horizontal"><div class="field-body">');
 		$form->add_text(
 			[
-				'name'     => 'qq_appid',
-				'label'    => 'QQ登录APP ID',
-				'required' => false,
-			]
-		);
-
-		$form->add_text(
-			[
-				'name'     => 'qq_appkey',
-				'label'    => 'QQ登录APP KEY',
-				'required' => false,
-			]
-		);
-		$form->add_html('</div></div>');
-
-		$form->add_url(
-			[
-				'name'     => 'social_redirect_url',
-				'label'    => '社交登录回调地址',
-				'required' => false,
-			]
-		);
-
-		$form->add_html('<div class="field is-horizontal"><div class="field-body">');
-		$form->add_text(
-			[
 				'name'     => 'icp',
 				'label'    => 'ICP备案号',
 				'required' => false,
