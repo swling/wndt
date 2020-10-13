@@ -1,4 +1,6 @@
 <?php
+use Wnd\Utility\Wnd_Login_Social;
+
 /**
  *Template Name: 用户中心
  *层级：一级
@@ -11,8 +13,9 @@ $state  = $_GET['state'] ?? false;
 
 //监听社交登录 可能有跳转，因此需要在header之前
 if ($state) {
-	$Wndt_Login_Social = Wndt\Utility\Wndt_Login_Social::get_instance($state);
-	$Wndt_Login_Social::login();
+	$domain       = Wnd_Login_Social::parse_state($state)['domain'];
+	$Login_Social = Wnd_Login_Social::get_instance($domain);
+	$Login_Social->login();
 }
 
 get_header();

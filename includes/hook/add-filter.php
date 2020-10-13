@@ -143,13 +143,18 @@ function wndt_filter_upload_file($can_array, $post_parent, $meta_key) {
  **/
 add_filter('Wnd\Module\Wnd_Login_Form', 'wndt_filter_login_form', 12, 1);
 function wndt_filter_login_form($input_fiels) {
-	$form = new Wnd\View\Wnd_Form_WP();
 	try {
-		$form->add_html(Wndt\Utility\Wndt_Login_QQ::build_oauth_link('QQ登录'));
+		$oauth_url = Wnd\Utility\Wnd_Login_Social::get_instance('QQ')->build_oauth_url();
+		$html      = '<div class="has-text-centered field is-size-5">';
+		$html .= '<a class="qq" href="' . $oauth_url . '"><i class="fab fa-qq"></i>&nbsp;QQ 登录</a>';
+		$html .= '</div>';
+
+		$form = new Wnd\View\Wnd_Form_WP();
+		$form->add_html($html);
+		return array_merge($input_fiels, $form->get_input_values());
 	} catch (Exception $e) {
-		$form->set_message($e->getMessage());
+		return $input_fiels;
 	}
-	return array_merge($input_fiels, $form->get_input_values());
 }
 
 /**
@@ -157,13 +162,18 @@ function wndt_filter_login_form($input_fiels) {
  **/
 add_filter('Wnd\Module\Wnd_Reg_Form', 'wndt_filter_reg_form', 12, 1);
 function wndt_filter_reg_form($input_fiels) {
-	$form = new Wnd\View\Wnd_Form_WP();
 	try {
-		$form->add_html(Wndt\Utility\Wndt_Login_QQ::build_oauth_link('QQ注册'));
+		$oauth_url = Wnd\Utility\Wnd_Login_Social::get_instance('QQ')->build_oauth_url();
+		$html      = '<div class="has-text-centered field is-size-5">';
+		$html .= '<a class="qq" href="' . $oauth_url . '"><i class="fab fa-qq"></i>&nbsp;QQ 注册</a>';
+		$html .= '</div>';
+
+		$form = new Wnd\View\Wnd_Form_WP();
+		$form->add_html($html);
+		return array_merge($input_fiels, $form->get_input_values());
 	} catch (Exception $e) {
-		$form->set_message($e->getMessage());
+		return $input_fiels;
 	}
-	return array_merge($input_fiels, $form->get_input_values());
 }
 
 /**
@@ -171,11 +181,16 @@ function wndt_filter_reg_form($input_fiels) {
  **/
 add_filter('Wnd\Module\Wnd_Account_Form', 'wndt_filter_account_form', 12, 1);
 function wndt_filter_account_form($input_fiels) {
-	$form = new Wnd\View\Wnd_Form_WP();
 	try {
-		$form->add_html(Wndt\Utility\Wndt_Login_QQ::build_oauth_link('绑定QQ'));
+		$oauth_url = Wnd\Utility\Wnd_Login_Social::get_instance('QQ')->build_oauth_url();
+		$html      = '<div class="has-text-centered field is-size-5">';
+		$html .= '<a class="qq" href="' . $oauth_url . '"><i class="fab fa-qq"></i>&nbsp;绑定 QQ</a>';
+		$html .= '</div>';
+
+		$form = new Wnd\View\Wnd_Form_WP();
+		$form->add_html($html);
+		return array_merge($input_fiels, $form->get_input_values());
 	} catch (Exception $e) {
-		$form->set_message($e->getMessage());
+		return $input_fiels;
 	}
-	return array_merge($input_fiels, $form->get_input_values());
 }
