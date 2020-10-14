@@ -32,7 +32,7 @@ class Wndt_Post_Edit extends Wnd_Module {
 
 			// 附件编辑表单
 			if ('attachment' == $edit_post->post_type) {
-				return \Wnd\Module\Wnd_Attachment_Form::render(['attachment_id' => $post_id]);
+				return \Wnd\Module\Wnd_Post_Form_Attachment::render(['attachment_id' => $post_id]);
 			}
 
 			// 插件默认表单
