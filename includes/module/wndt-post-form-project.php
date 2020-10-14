@@ -1,15 +1,14 @@
 <?php
 namespace Wndt\Module;
 
-use Wnd\Module\Wnd_Module;
 use Wnd\View\Wnd_Form_Post;
 
 /**
- *@since 2019.01.31 发布/编辑文章通用模板
+ *@since 2019.01.31 项目内容表单
  */
-class Wndt_Post_Form extends Wnd_Module {
+class Wndt_Post_Form_Project extends Wndt_Post_Form {
 
-	protected static function build($args = []): string {
+	protected static function build($args = []): string{
 		$defaults = [
 			'post_id'     => 0,
 			'post_parent' => 0,

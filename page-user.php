@@ -1,8 +1,16 @@
 <?php
-use Wnd\Utility\Wnd_Login_Social;
-
 /**
  *Template Name: 用户中心
+ *
+ */
+
+use Wnd\Module\Wnd_User_Page;
+
+/**
+ * 获取 URL 参数并按格式组合传递给 Wnd_User_Page
+ * 事实上，Wnd Frontend Module 相关模块默认会自动获取 $_GET 参数。如果 $_GET 参数格式完整契合如下参数，可不用传递参数
+ * 此处多此一举，意在帮助主题开发者快速理解用户中心和 $_GET 参数的关系
+ * （WP 环境中 $_GET 参数无法直接传递 ['post_type'] 统一为 ['type']）
  *
  * 页面功能：
  * - 根据 URL 参数 $_GET['state'] 处理社交登录（绝大部分社交登录均支持在回调 URL 中添加 $_GET['state']，如有例外后续补充处理）
@@ -10,46 +18,12 @@ use Wnd\Utility\Wnd_Login_Social;
  * - 根据 URL 参数 $_GET['action'] = （submit/edit） 调用对应内容发布/编辑表单模块
  * - 默认为用户中心：注册、登录、账户管理，内容管理，财务管理等
  */
+$args = [
+	'state'     => $_GET['state'] ?? '',
+	'module'    => $_GET['module'] ?? '',
+	'action'    => $_GET['action'] ?? '',
+	'post_type' => $_GET['type'] ?? '',
+	'post_id'   => $_GET['post_id'] ?? 0,
+];
 
-$module = $_GET['module'] ?? false;
-$action = $_GET['action'] ?? false;
-$state  = $_GET['state'] ?? false;
-
-//监听社交登录 可能有跳转，因此需要在header之前
-if ($state) {
-	$domain       = Wnd_Login_Social::parse_state($state)['domain'];
-	$Login_Social = Wnd_Login_Social::get_instance($domain);
-	$Login_Social->login();
-}
-
-get_header();
-
-echo '<main class="column">';
-echo '<div class="main box">';
-
-// 根据 URL 参数 $_GET['module'] 呈现对应 UI 模块
-if ($module) {
-	$class = Wnd\Controller\Wnd_API::parse_class($module, 'Module');
-	echo $class::render();
-} else {
-	// 根据 URL 参数 $_GET['action'] = （submit/edit） 调用对应内容发布/编辑表单模块
-	switch ($action) {
-	case 'submit':
-		echo Wndt\Module\Wndt_Post_Submit::render();
-		break;
-
-	case 'edit':
-		echo Wndt\Module\Wndt_Post_Edit::render();
-		break;
-
-	// 默认用户中心：注册、登录、账户管理，内容管理，财务管理等
-	default:
-		echo Wndt\Module\Wndt_User_Center::render();
-		break;
-	}
-}
-
-echo '</div>';
-echo '</main>';
-
-get_footer();
+echo Wnd_User_Page::render($args, true);
