@@ -22,10 +22,10 @@
 </main>
 <?php
 // 更新阅读状态
-if ($post->post_status == 'pending') {
+if ('wnd-unread' == $post->post_status) {
 	$post_array = [
-		'ID' => $post->ID,
-		'post_status' => 'private'
+		'ID'          => $post->ID,
+		'post_status' => 'wnd-read',
 	];
 	wp_update_post($post_array);
 }
