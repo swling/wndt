@@ -53,7 +53,7 @@ function wndt_filter_can_insert_post($can_array, $post_type, $update_id) {
  *@since 12.22
  *表单提交控制
  */
-add_filter('wnd_can_submit_form', 'wndt_filter_can_submit_form', 11, 2);
+add_filter('wnd_request_controller', 'wndt_filter_can_submit_form', 11, 2);
 function wndt_filter_can_submit_form($can_array, $form_data) {
 	try {
 		Wndt_FSC::check($form_data);
@@ -105,7 +105,7 @@ function wndt_filter_user_panel_post_types($post_types) {
  *过滤表单提交数据
  *
  */
-add_filter('wnd_form_data', 'wndt_filter_form_data', 11, 1);
+add_filter('wnd_request', 'wndt_filter_form_data', 11, 1);
 function wndt_filter_form_data($form_data) {
 	// 需求自动设置title
 	if (isset($form_data['_post_post_type']) and $form_data['_post_post_type'] == 'demand') {
