@@ -54,9 +54,9 @@ function wndt_filter_can_insert_post($can_array, $post_type, $update_id) {
  *表单提交控制
  */
 add_filter('wnd_request_controller', 'wndt_filter_can_submit_form', 11, 2);
-function wndt_filter_can_submit_form($can_array, $form_data) {
+function wndt_filter_can_submit_form($can_array, $request) {
 	try {
-		Wndt_FSC::check($form_data);
+		Wndt_FSC::check($request);
 	} catch (Exception $e) {
 		return ['status' => 0, 'msg' => $e->getMessage()];
 	}
@@ -105,22 +105,22 @@ function wndt_filter_user_panel_post_types($post_types) {
  *过滤表单提交数据
  *
  */
-add_filter('wnd_request', 'wndt_filter_form_data', 11, 1);
-function wndt_filter_form_data($form_data) {
+add_filter('wnd_request', 'wndt_filter_request', 11, 1);
+function wndt_filter_request($request) {
 	// 需求自动设置title
-	if (isset($form_data['_post_post_type']) and $form_data['_post_post_type'] == 'demand') {
-		$cat_name                      = get_term($form_data['_term_demand_cat'])->name;
-		$form_data['_post_post_title'] = '需求：' . $cat_name . ' [' . ($form_data['_post_ID'] ?: '匿名用户') . ']';
+	if (isset($request['_post_post_type']) and $request['_post_post_type'] == 'demand') {
+		$cat_name                    = get_term($request['_term_demand_cat'])->name;
+		$request['_post_post_title'] = '需求：' . $cat_name . ' [' . ($request['_post_ID'] ?: '匿名用户') . ']';
 	}
 
 	// 替换标签设置中的中文逗号
-	if (isset($form_data['_term_company_tag'])) {
-		$form_data['_term_company_tag'] = str_replace('，', ',', $form_data['_term_company_tag']);
-	} elseif (isset($form_data['_term_people_tag'])) {
-		$form_data['_term_people_tag'] = str_replace('，', ',', $form_data['_term_people_tag']);
+	if (isset($request['_term_company_tag'])) {
+		$request['_term_company_tag'] = str_replace('，', ',', $request['_term_company_tag']);
+	} elseif (isset($request['_term_people_tag'])) {
+		$request['_term_people_tag'] = str_replace('，', ',', $request['_term_people_tag']);
 	}
 
-	return $form_data;
+	return $request;
 }
 
 /**

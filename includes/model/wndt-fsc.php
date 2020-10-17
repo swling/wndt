@@ -12,7 +12,7 @@ class Wndt_FSC {
 	 *@since 2019.12.30
 	 *控制表单提交
 	 */
-	public static function check(array $form_data) {
+	public static function check(array $request) {
 		return;
 	}
 }
