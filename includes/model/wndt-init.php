@@ -126,15 +126,37 @@ class Wndt_Init {
 			'menu_icon'    => 'dashicons-playlist-audio',
 		];
 		register_post_type('project', $args);
+
+		//项目
+		$labels = [
+			'name'              => __('产品', 'wndt'),
+			'singular_name'     => __('产品', 'wndt'),
+			'add_new'           => __('新建产品', 'wndt'),
+			'add_new_item'      => __('新建一个产品', 'wndt'),
+			'parent_item_colon' => '',
+			'menu_name'         => __('产品', 'wndt'),
+		];
+		$args = [
+			'labels'       => $labels,
+			'description'  => '产品',
+			'public'       => true,
+
+			'rewrite'      => ['slug' => 'product', 'with_front' => false],
+			'supports'     => ['title', 'author', 'editor', 'thumbnail', 'excerpt', 'comments', 'custom-fields'],
+			'show_in_rest' => false,
+			'has_archive'  => true,
+			'menu_icon'    => 'dashicons-playlist-audio',
+		];
+		register_post_type('product', $args);
 	}
 
 	################################################################################ 定义类型分类
 	public function register_taxonomy() {
 		// 项目分类
 		$labels = [
-			'name'          => _x('项目分类', 'taxonomy 名称'),
-			'singular_name' => _x('项目分类', 'taxonomy 单数名称'),
-			'menu_name'     => __('项目分类'),
+			'name'          => __('项目分类', 'wndt'),
+			'singular_name' => __('项目分类', 'wndt'),
+			'menu_name'     => __('项目分类', 'wndt'),
 		];
 		$args = [
 			'labels'       => $labels,
@@ -142,6 +164,38 @@ class Wndt_Init {
 			'rewrite'      => ['slug' => 'project-cat', 'with_front' => false],
 		];
 		register_taxonomy('project_cat', 'project', $args);
+
+		/**
+		 *@since 2018.12.30
+		 *定义供应类文章分类
+		 */
+		$labels = [
+			'name'          => _x('产品分类', 'wndt'),
+			'singular_name' => _x('产品分类', 'wndt'),
+			'menu_name'     => __('产品分类', 'wndt'),
+		];
+		$args = [
+			'labels'       => $labels,
+			'hierarchical' => true,
+			'rewrite'      => ['slug' => 'product-category', 'with_front' => false],
+		];
+		register_taxonomy('product_cat', 'product', $args);
+
+		/**
+		 * @since 2018.12.30
+		 *定义供应类文章标签
+		 */
+		$labels = [
+			'name'          => __('产品标签', 'wndt'),
+			'singular_name' => __('产品标签', 'wndt'),
+			'menu_name'     => __('产品标签'),
+		];
+		$args = [
+			'labels'       => $labels,
+			'hierarchical' => false,
+			'rewrite'      => ['slug' => 'product-tag', 'with_front' => false],
+		];
+		register_taxonomy('product_tag', 'product', $args);
 	}
 
 	/**

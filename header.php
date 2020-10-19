@@ -38,9 +38,19 @@
 						<a class="navbar-item" onclick="wnd_ajax_modal('wnd_search_form')">
 							<span class="icon"><i class="fas fa-search"></i></span>&nbsp;搜索
 						</a>
-						<a class="navbar-item" href="<?php echo home_url('ucenter/?action=submit&type=post'); ?>">
-							<span class="icon"><i class="fas fa-plus"></i></span>&nbsp;发布
-						</a>
+
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link" href="<?php echo home_url('ucenter') ?>">
+								<span class="icon is-small"><i class="fa fa-cog"></i></span>
+								<span <?php echo wnd_get_mail_count() ? 'data-badge="' . wnd_get_mail_count() . '"' : 0; ?>>&nbsp;发布</span>
+							</a>
+							<div class="navbar-dropdown is-right">
+								<a class="navbar-item" href="<?php echo home_url('ucenter/?action=submit&type=post'); ?>">发布文章</a>
+								<?php if (is_super_admin()) { ?>
+									<a class="navbar-item" href="<?php echo home_url('ucenter/?action=submit&type=product'); ?>">发布产品</a>
+								<?php } ?>
+							</div>
+						</div>
 						<?php if (!is_user_logged_in()) { ?>
 							<a class="navbar-item" onclick="wnd_ajax_modal('wnd_user_center',{'do':'login'})"><span class="icon"><i class="fa fa-user"></i></span> 登录 / 注册</a>
 						<?php } else { ?>
