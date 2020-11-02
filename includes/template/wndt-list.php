@@ -64,7 +64,7 @@ class Wndt_List {
 		$html .= '</h3>';
 
 		$html .= '<div class="category">';
-		$html .= '&nbsp;' . get_the_term_list($post->ID, 'category');
+		$html .= '&nbsp;' . get_the_term_list($post->ID, 'category', '', ',&nbsp;', '');
 		$html .= '</div>';
 
 		$html .= get_the_term_list(
