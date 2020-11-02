@@ -1,8 +1,8 @@
 <?php
 namespace Wndt\Module;
 
-use Wndt\Module\Wndt_User_Overview;
 use Wnd\Module\Wnd_Module;
+use Wnd\Module\Wnd_User_Overview;
 
 /**
  *@since 2020.03.23
@@ -60,7 +60,7 @@ class Wndt_Sidebar_Menu extends Wnd_Module {
 
 		$html .= '</ul>';
 		$html .= '</div>';
-		$html .= Wndt_User_Overview::render();
+		$html .= Wnd_User_Overview::render();
 		$html .= '</aside>';
 
 		return $html;

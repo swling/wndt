@@ -194,3 +194,27 @@ function wndt_filter_account_form($input_fiels) {
 		return $input_fiels;
 	}
 }
+
+// /**
+//  *自定义用户中心页面菜单
+//  *
+//  */
+// add_filter('wnd_user_page_menus', function ($menus) {
+// 	return \Wndt\Module\Wndt_User_Menus::render();
+// }, 12, 1);
+
+// /**
+//  *用户中心默认模块
+//  *
+//  */
+// add_filter('wnd_user_page_default_module', function ($module_name) {
+// 	return 'Wndt_User_Overview';
+// }, 12, 1);
+
+// /**
+//  *自定义用户中心页面
+//  *
+//  */
+// add_filter('wnd_user_page', function ($html) {
+// 	return \Wnd\Module\Wnd_Bind_Phone_Form::render();
+// }, 12, 1);
