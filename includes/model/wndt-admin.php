@@ -18,11 +18,11 @@ class Wndt_Admin {
 		// 默认option数据
 		$default_option = [
 			// 供需角色
-			'wndt_enable_user_role'      => '0',
+			'enable_user_role'      => '0',
 
 			// 内容设置
-			'wndt_gallery_picture_limit' => '5',
-			'wndt_max_cat_limit'         => '1',
+			'gallery_picture_limit' => '5',
+			'max_cat_limit'         => '1',
 		];
 
 		update_option('wndt', $default_option);
