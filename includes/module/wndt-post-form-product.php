@@ -40,7 +40,7 @@ class Wndt_Post_Form_product extends Wndt_Post_Form {
 		$form->add_html('</div>');
 
 		$form->add_html('<div class="column is-3">');
-		$form->add_html('<div class="field">' . wnd_modal_button(__('产品属性', 'wnd'), 'wnd_product_props_form', ['post_id' => $form->get_post()->ID ?? 0]) . '</div>');
+		$form->add_html('<div class="field">' . wnd_modal_button(__('产品属性', 'wnd'), 'wnd_sku_form', ['post_id' => $form->get_post()->ID ?? 0]) . '</div>');
 
 		// 分类
 		$form->add_post_term_select(['taxonomy' => 'product_cat'], '', true, true);
