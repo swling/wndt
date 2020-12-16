@@ -1,5 +1,5 @@
 <?php
-namespace Wndt\Model;
+namespace Wndt\Permission;
 
 /**
  *@since 2019.12.22

@@ -2,7 +2,7 @@
 namespace Wndt\Module;
 
 use Exception;
-use Wndt\Utility\Wndt_PPC;
+use Wndt\Permission\Wndt_PPC;
 use Wnd\Module\Wnd_Module;
 
 /**

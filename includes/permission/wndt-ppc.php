@@ -1,5 +1,5 @@
 <?php
-namespace Wndt\Utility;
+namespace Wndt\Permission;
 
 use Exception;
 

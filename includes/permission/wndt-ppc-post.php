@@ -1,5 +1,5 @@
 <?php
-namespace Wndt\Utility;
+namespace Wndt\Permission;
 
 /**
  *@since 2019.09.25
