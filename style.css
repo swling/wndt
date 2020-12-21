@@ -3,7 +3,7 @@ Theme Name:Wndt
 Author: swling
 Author URI: https://wndwp.com
 Description: Wnd Theme Based On Wnd-Frontend
-Version: 0.12
+Version: 0.13
 */
 html { height: 100%; }
 body { 
@@ -179,14 +179,14 @@ code span{font-size: 0.9rem;}
     transition: all 0.15s;
 }
 
-.user-form,.min-modal { max-width: 400px; margin: 0 auto; }
+.user-form{ max-width: 400px; margin: 0 auto; }
 
 /*.box ul{padding:0;margin: 0 ;}*/
 .box li{    
     /*padding: 0;*/
     /*margin: 0;*/
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
     white-space: nowrap;
     /*width:80%;*/
 }
