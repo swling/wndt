@@ -3,7 +3,7 @@ Theme Name:Wndt
 Author: swling
 Author URI: https://wndwp.com
 Description: Wnd Theme Based On Wnd-Frontend
-Version: 0.13
+Version: 0.14
 */
 html { height: 100%; }
 body { 
@@ -84,7 +84,7 @@ a.navbar-item.is-active { color: #F14668; border-bottom: 0px #F14668 solid; }
 
 .tabs ul { flex-wrap: wrap; }
 .tabs li.is-active a { color: #F14668; border-color: #F14668; }
-.tabs:not(.is-boxed .is-toggle) ul:first-child a { padding-left: 0; }
+/* .tabs:not(.is-boxed .is-toggle) ul:first-child a { padding-left: 0; } */
 .tabs.is-boxed li.is-active .icon { color: #FFF; }
 .menu-list a.is-active { background-color: #F14668; color: #fff; }
 /*.box { box-shadow: none; border-radius: 0; }*/
