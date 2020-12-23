@@ -264,10 +264,6 @@ cite.fn { color: #600; margin-right: 5px; color: #F14668; font-weight: 700; }
 .media-frame-menu { display: none; }
 #mceu_52 { display: none; }
 
-/* 上标提示 */
-[data-badge] { position: relative; }
-[data-badge]::after { display: inline-block; position: absolute; min-width: 1rem; min-height: 1rem; font-size: .75rem; top: 0; right: 0; bottom: auto; left: auto; -webkit-transform: translate(50%, -50%); transform: translate(50%, -50%); margin: 0; padding: .1rem .25rem; text-align: center; white-space: nowrap; line-height: 1; background: #333; background-clip: padding-box; border-radius: 5px; box-shadow: 0 0 0 1px #fff; color: #fff; content: attr(data-badge); z-index: 9; background: #ff3860; color: #fff; }
-
 /* 移动 */
 @media screen and (max-width:1023px) {
     .sidebar { max-width: 100%; }
@@ -280,7 +276,10 @@ cite.fn { color: #600; margin-right: 5px; color: #F14668; font-weight: 700; }
 }
 
 
-/* bulma 拓展*/
+/**
+************************************************ bulma 拓展 *************************************************
+*/
+/*悬停下拉导航菜单*/
 .navbar-item.is-mega {
   position: static;
 }
@@ -288,4 +287,34 @@ cite.fn { color: #600; margin-right: 5px; color: #F14668; font-weight: 700; }
 .is-mega-menu-title {
     margin-bottom: 0;
     padding: .375rem 1rem;
+}
+
+/* 上标提示 */
+[data-badge] { position: relative; }
+[data-badge]::after { 
+    display: inline-block; 
+    position: absolute; 
+    min-width: 1rem;
+    min-height: 1rem; 
+    font-size: .75rem; 
+    top: 0; 
+    right: 0; 
+    bottom: auto; 
+    left: auto; 
+    -webkit-transform: translate(50%, -50%); 
+    transform: translate(50%, -50%); 
+    margin: 0; 
+    padding: .1rem .25rem; 
+    text-align: center; 
+    white-space: nowrap; 
+    line-height: 1; 
+    background: #333; 
+    background-clip: padding-box; 
+    border-radius: 5px; 
+    box-shadow: 0 0 0 1px #fff; 
+    color: #fff; 
+    content: attr(data-badge); 
+    z-index: 9; 
+    background: #ff3860; 
+    color: #fff; 
 }
