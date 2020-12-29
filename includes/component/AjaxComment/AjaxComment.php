@@ -63,8 +63,9 @@ class AjaxComment {
 			'wndt',
 			'comment',
 			[
-				'methods'  => ['POST', 'GET'],
-				'callback' => __CLASS__ . '::add_comment',
+				'methods'             => ['POST', 'GET'],
+				'callback'            => __CLASS__ . '::add_comment',
+				'permission_callback' => '__return_true',
 			]
 		);
 	}
