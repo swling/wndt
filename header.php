@@ -24,7 +24,7 @@
 						<a href="<?php echo home_url(); ?>"><span class="is-size-6-mobile is-size-5"><?php bloginfo('name'); ?></span></a>
 						<span class="is-size-6 is-size-6-mobile"><?php print_r(wndt_get_sub_title('&nbsp;|&nbsp;')); ?></span>
 					</div>
-					<div class="navbar-burger">
+					<div class="navbar-burger wnd-side-burger" style="display:block;">
 						<span></span>
 						<span></span>
 						<span></span>

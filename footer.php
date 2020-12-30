@@ -61,7 +61,6 @@
 	</div>
 </footer>
 <?php wp_footer(); ?>
-<?php echo Wndt\Module\Wndt_Sidebar_Menu::render(); ?>
 <div class="is-hidden"><?php echo stripslashes(wndt_get_config('statistical_code')); ?></div>
 </body>
 

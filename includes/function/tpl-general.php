@@ -157,46 +157,42 @@ function wndt_post_thumbnail($post_id, $width, $height) {
 
 /**
  *@since 2019.10.11
- *自定义侧边栏导航
+ *自定义类型顶部导航
  */
 function wndt_get_post_type_menu() {
 
-	$html = '<ul class="menu-list">';
-	$html .= '<li>导航</li>';
-	$html .= '<li>';
+	// 获取所有公开的，有存档的自定义类型
+	$all_post_types = get_post_types(
+		[
+			'public'      => true,
+			'show_ui'     => true,
+			// '_builtin'    => false,
+			'has_archive' => true,
+		],
+		'names',
+		'and'
+	);
+
+	$html = '<li>';
+	$html .= '<a>站点导航&nbsp;<i class="fas fa-chevron-down"></i></a>';
 	$html .= '<ul>';
-	foreach (wndt_get_post_type() as $post_type) {
+	foreach ($all_post_types as $post_type) {
 		switch ($post_type) {
-		case 'company':
-			$icon = '<span class="icon"><i class="fa fa-building"></i></span>';
-			break;
-		case 'supply':
-			$icon = '<span class="icon"><i class="fa fa-bullhorn"></i></span>';
-			break;
-
-		case 'demand':
-			$icon = '<span class="icon"><i class="fa fa-file-alt"></i></span>';
-			break;
-
-		case 'people':
-			$icon = '<span class="icon"><i class="fa fa-address-card"></i></span>';
-			break;
-
 		default:
 			$icon = '';
 			break;
 		}
 
 		$class = (is_post_type_archive($post_type) or is_singular($post_type)) ? ' is-active' : '';
+
 		$html .= '<li><a class="' . $class . '" href="' . get_post_type_archive_link($post_type) . '">';
 		$html .= $icon . '&nbsp;';
 		$html .= get_post_type_object($post_type)->label;
 		$html .= '</a></li>';
 	}
-	unset($post_type);
 	$html .= '</ul>';
 	$html .= '</li>';
-	$html .= '</ul>';
+	unset($post_type);
 
 	return $html;
 }
