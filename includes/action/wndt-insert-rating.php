@@ -3,13 +3,13 @@ namespace Wndt\Action;
 
 use Exception;
 use Wndt\Model\Wndt_Rating;
-use Wnd\Action\Wnd_Action_Ajax;
+use Wnd\Action\Wnd_Action;
 
 /**
  *点评
  *
  */
-class Wndt_Insert_Rating extends Wnd_Action_Ajax {
+class Wndt_Insert_Rating extends Wnd_Action {
 
 	public static function execute(): array{
 		// 获取数据
