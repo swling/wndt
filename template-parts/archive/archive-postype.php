@@ -5,12 +5,12 @@ use Wnd\View\Wnd_Filter;
 $queried_object = get_queried_object();
 
 echo '<div class="column is-paddingless">';
-$filter = new Wnd_Filter(false, false);
+$filter = new Wnd_Filter(false);
 $filter->add_post_type_filter([$queried_object->name]);
 
 $filter->add_taxonomy_filter(['taxonomy' => $filter->category_taxonomy, 'orderby' => 'count', 'order' => 'DESC', 'hide_empty' => false]);
 $filter->add_taxonomy_filter(['taxonomy' => 'region', 'orderby' => 'count', 'order' => 'DESC']);
-$filter->add_related_tags_filter();
+$filter->add_tags_filter();
 
 if ($queried_object->name == 'supply') {
 	$filter->add_taxonomy_filter(['taxonomy' => 'attribute', 'orderby' => 'name', 'order' => 'DESC']);
@@ -25,7 +25,7 @@ if ($queried_object->name == 'demand') {
 
 $filter->set_post_template('wndt_post_list_tpl');
 $filter->set_posts_per_page(get_option('posts_per_page'));
-$filter->set_ajax_container("#filter-results");
+// $filter->set_ajax_container("#filter-results");
 $filter->query();
 
 echo $filter->get_tabs();
