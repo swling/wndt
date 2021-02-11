@@ -1,21 +1,21 @@
 <?php
 namespace Wndt\Module;
 
-use Wnd\Module\Wnd_Module;
+use Wnd\Module\Wnd_Module_Html;
 
 /**
  *列表模板
  */
-class Wndt_Home extends Wnd_Module {
+class Wndt_Home extends Wnd_Module_Html {
 
 	protected static function build($args = []): string {
 		return '';
 	}
+
 	/**
 	 *构建列表输出模板
 	 *
 	 */
-
 	public static function list() {
 		$html  = '';
 		$terms = get_terms($args = array('taxonomy' => 'category', 'hide_empty' => true, 'orderby' => 'count', 'order' => 'DESC'));

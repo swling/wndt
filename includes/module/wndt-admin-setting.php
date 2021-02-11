@@ -1,14 +1,15 @@
 <?php
 namespace Wndt\Module;
 
+use Wnd\Module\Wnd_Module_Form;
 use Wnd\View\Wnd_Form_Option;
 
 /**
  *列表模板
  */
-class Wndt_Admin_Setting extends Wndt_Admin {
+class Wndt_Admin_Setting extends Wnd_Module_Form {
 
-	protected static function build($args = []): string{
+	protected static function configure_form(): object{
 		$form = new Wnd_Form_Option('wndt', false);
 		$form->add_image_upload('banner', 0, 0, 'Banner');
 
@@ -57,8 +58,7 @@ class Wndt_Admin_Setting extends Wndt_Admin {
 		);
 
 		$form->set_submit_button('保存', 'is-danger');
-		$form->build();
 
-		return $form->html;
+		return $form;
 	}
 }

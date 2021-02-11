@@ -3,14 +3,14 @@ namespace Wndt\Module;
 
 use Exception;
 use Wndt\Permission\Wndt_PPC;
-use Wnd\Module\Wnd_Module;
+use Wnd\Module\Wnd_Module_Form;
 
 /**
  *@since 2020.10.14
  *
  *内容编辑表抽象类：权限检测
  */
-abstract class Wndt_Post_Form extends Wnd_Module {
+abstract class Wndt_Post_Form extends Wnd_Module_Form {
 
 	/**
 	 *权限核查

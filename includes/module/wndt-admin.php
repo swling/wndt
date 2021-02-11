@@ -1,12 +1,12 @@
 <?php
 namespace Wndt\Module;
 
-use Wnd\Module\Wnd_Module;
+use Wnd\Module\Wnd_Module_Html;
 
 /**
  *列表模板
  */
-class Wndt_Admin extends Wnd_Module {
+class Wndt_Admin extends Wnd_Module_Html {
 
 	// 管理面板
 	protected static function build($args = []): string{

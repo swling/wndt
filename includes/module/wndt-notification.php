@@ -1,7 +1,7 @@
 <?php
 namespace Wndt\Module;
 
-use Wnd\Module\Wnd_Module;
+use Wnd\Module\Wnd_Module_Html;
 
 /**
  *@since 2020.03.21
@@ -12,7 +12,7 @@ use Wnd\Module\Wnd_Module;
  *根据当前用户信息，引导用户完成推荐的操作建议
  *
  */
-class Wndt_Notification extends Wnd_Module {
+class Wndt_Notification extends Wnd_Module_Html {
 
 	protected static function build($args = []): string{
 		$user_id      = get_current_user_id();

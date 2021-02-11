@@ -8,7 +8,7 @@ use Wnd\View\Wnd_Form_Post;
  */
 class Wndt_Post_Form_product extends Wndt_Post_Form {
 
-	protected static function build($args = []): string{
+	protected static function configure_form(array $args = []): object{
 		$defaults = [
 			'post_id'     => 0,
 			'post_parent' => 0,
@@ -57,8 +57,7 @@ class Wndt_Post_Form_product extends Wndt_Post_Form {
 		$form->set_submit_button(__('保存', 'wnd'));
 		// 以当前函数名设置filter hook
 		$form->set_filter(__CLASS__);
-		$form->build();
 
-		return $form->html;
+		return $form;
 	}
 }
