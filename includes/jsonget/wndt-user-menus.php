@@ -19,6 +19,8 @@ class Wndt_User_Menus extends Wnd_Menus {
 			$user_menus = static::build_user_menus();
 		}
 
+		// $user_menus['expand'] = true;
+
 		if ($args['in_side']) {
 			return [static::post_type_menus(), $user_menus];
 		} else {
@@ -50,7 +52,7 @@ class Wndt_User_Menus extends Wnd_Menus {
 		unset($post_type);
 
 		$menus = [
-			'label'  => '站点导航&nbsp;<i class="fas fa-chevron-down"></i>',
+			'label'  => '站点导航',
 			'expand' => false,
 			'items'  => $items,
 		];
