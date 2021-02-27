@@ -157,48 +157,6 @@ function wndt_post_thumbnail($post_id, $width, $height) {
 
 /**
  *@since 2019.10.11
- *自定义类型顶部导航
- */
-function wndt_get_post_type_menu() {
-
-	// 获取所有公开的，有存档的自定义类型
-	$all_post_types = get_post_types(
-		[
-			'public'      => true,
-			'show_ui'     => true,
-			// '_builtin'    => false,
-			'has_archive' => true,
-		],
-		'names',
-		'and'
-	);
-
-	$html = '<li>';
-	$html .= '<a>站点导航&nbsp;<i class="fas fa-chevron-down"></i></a>';
-	$html .= '<ul>';
-	foreach ($all_post_types as $post_type) {
-		switch ($post_type) {
-		default:
-			$icon = '';
-			break;
-		}
-
-		$class = (is_post_type_archive($post_type) or is_singular($post_type)) ? ' is-active' : '';
-
-		$html .= '<li><a class="' . $class . '" href="' . get_post_type_archive_link($post_type) . '">';
-		$html .= $icon . '&nbsp;';
-		$html .= get_post_type_object($post_type)->label;
-		$html .= '</a></li>';
-	}
-	$html .= '</ul>';
-	$html .= '</li>';
-	unset($post_type);
-
-	return $html;
-}
-
-/**
- *@since 2019.10.11
  *自定义类型顶部Tabs
  */
 function get_post_type_tabs() {
