@@ -1,7 +1,6 @@
 <?php
 namespace Wndt\Model;
 
-use Wndt\Component\AjaxComment\AjaxComment;
 use Wndt\Controller\Wndt_API;
 use Wndt\Utility\Wndt_Upgrader;
 use Wnd\Utility\Wnd_Singleton_Trait;
@@ -44,9 +43,6 @@ class Wndt_Init {
 
 		// API
 		new Wndt_API;
-
-		// Ajax评论
-		new AjaxComment;
 
 		// 自定义升级
 		if (is_admin()) {

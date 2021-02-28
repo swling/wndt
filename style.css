@@ -257,8 +257,8 @@ cite.fn { color: #600; margin-right: 5px; color: #F14668; font-weight: 700; }
 .pagination ul li { display: inline-block; margin: 0 10px; }
 
 /* 相册 */
-.wnd-gallery .modal-content { width: auto; max-width: 1024px; text-align: center; }
-.field .gallery { border: 2px dashed #DDD; min-height: 100px; margin: 10px auto; background: #F5F5F5; }
+/*.wnd-gallery .modal-content { width: auto; max-width: 1024px; text-align: center; }*/
+/*.field .gallery { border: 2px dashed #DDD; min-height: 100px; margin: 10px auto; background: #F5F5F5; }*/
 
 /*wp editor前端*/
 .media-frame-menu { display: none; }
@@ -323,7 +323,7 @@ cite.fn { color: #600; margin-right: 5px; color: #F14668; font-weight: 700; }
 */
 .spinner {
     margin: 0px auto 0;
-    padding: 50px  0;
+    padding: 10px  0;
     width: 150px;
     text-align: center;
 }
@@ -373,3 +373,8 @@ cite.fn { color: #600; margin-right: 5px; color: #F14668; font-weight: 700; }
 }
 
 /**************88*/
+
+#ajax-module{
+    /*min-height: calc(100vh/2);*/
+     min-height: 200px; 
+}

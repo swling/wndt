@@ -42,21 +42,11 @@ function wndt_site_scripts() {
 	global $theme_ver;
 
 	if (!is_admin()) {
-		// 替换jQuery为公共cdn库，省点流量吧
-		wp_deregister_script('jquery');
-		wp_register_script('jquery', ('https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js'), false, null);
-
 		// wp5.0+ block css
 		wp_deregister_style('wp-block-library');
 	}
 
 	//################################### 加载……
-	wp_enqueue_script('wndt_functions', $src = WNDT_URL . '/static/js/functions.min.js', $deps = ['jquery'], $theme_ver, $in_footer = false);
-	if (is_singular() and comments_open() and get_option('thread_comments')) {
-		wp_enqueue_script('comment-reply');
-	}
-
-	// wp_enqueue_style('bulma-extensions', '//cdn.jsdelivr.net/npm/bulma-extensions@6.2.4/dist/css/bulma-extensions.min.css');
 	wp_enqueue_style('style', WNDT_URL . '/style.css', [], $theme_ver);
 
 	// 代码高亮
