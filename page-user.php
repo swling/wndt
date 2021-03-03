@@ -26,4 +26,4 @@ $args = [
 	'post_id'   => $_GET['post_id'] ?? 0,
 ];
 
-echo Wnd_User_Page::render($args, true);
+echo Wnd_User_Page::render($args);

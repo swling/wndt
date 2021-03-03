@@ -13,7 +13,6 @@ class Wndt_Admin_Setting extends Wnd_Module_Form {
 		$form = new Wnd_Form_Option('wndt', false);
 		$form->add_image_upload('banner', 0, 0, 'Banner');
 
-		$form->add_html('<div class="field is-horizontal"><div class="field-body">');
 		$form->add_text(
 			[
 				'name'     => 'logo',
@@ -29,9 +28,7 @@ class Wndt_Admin_Setting extends Wnd_Module_Form {
 				'required' => false,
 			]
 		);
-		$form->add_html('</div></div>');
 
-		$form->add_html('<div class="field is-horizontal"><div class="field-body">');
 		$form->add_text(
 			[
 				'name'     => 'icp',
@@ -47,7 +44,6 @@ class Wndt_Admin_Setting extends Wnd_Module_Form {
 				'required' => false,
 			]
 		);
-		$form->add_html('</div></div>');
 
 		$form->add_textarea(
 			[

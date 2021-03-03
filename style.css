@@ -124,6 +124,10 @@ code .number {
 .input::placeholder, .textarea::placeholder { color: #999; }
 .has-background-light { background: #F9F9F9 !important; }
 
+.field-body {
+    flex-grow: 8;
+}
+
 /**
 *
 ********************************************
