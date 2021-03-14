@@ -1,10 +1,10 @@
 <?php
 /**
- *Template Name: 用户中心
+ *Template Name: 前端页面
  *
  */
 
-use Wnd\Module\Wnd_User_Page;
+use Wnd\Module\Wnd_Front_Page;
 
 /**
  * 获取 URL 参数并按格式组合传递给 Wnd_User_Page
@@ -26,4 +26,4 @@ $args = [
 	'post_id'   => $_GET['post_id'] ?? 0,
 ];
 
-echo Wnd_User_Page::render($args);
+echo Wnd_Front_Page::render($args);
