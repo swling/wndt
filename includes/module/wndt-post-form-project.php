@@ -48,7 +48,7 @@ class Wndt_Post_Form_Project extends Wndt_Post_Form {
 
 		$form->add_html('<div class="column is-3">');
 		// 分类
-		$form->add_post_term_select(['taxonomy' => 'project_cat'], '', true, true);
+		$form->add_post_term_select(['taxonomy' => 'project_cat']);
 		$form->add_dynamic_sub_term_select('project_cat', 1, '', false, __('二级分类', 'wnd'));
 		$form->add_dynamic_sub_term_select('project_cat', 2, '', false, __('三级分类', 'wnd'));
 

@@ -3,13 +3,14 @@ Theme Name:Wndt
 Author: swling
 Author URI: https://wndwp.com
 Description: Wnd Theme Based On Wnd-Frontend
-Version: 0.15
+Version: 0.16
 */
 html { height: 100%; }
 body { 
 	font-family: PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif; 
 	background: #F4F4F4; color: #333; font-size: 15px; word-wrap: break-word; word-break: break-all; 
 }
+img {image-rendering: pixelated; image-rendering: -moz-crisp-edges;}
 #site-title a { font-weight: bold; color: #222; }
 #top { border-bottom: 1px solid #EEE; background: #FFF; box-shadow: 0 2px 10px 0 rgba(215,220,233,.5),0 0 7px 0 rgba(199,206,223,.1);}
 #top-bar { padding: 0.5rem 0; border-bottom: 1px solid #EEE; }
@@ -151,7 +152,7 @@ margin-bottom: 20px; padding: 1.25rem;    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 
 
 /*########################################*/
 
-.ajax-message { text-align: center; margin-bottom: 1rem; }
+/*.ajax-message { text-align: center; margin-bottom: 1rem; }*/
 
 /* tags */
 .tags a { line-height: 1.6em; color: #F14668; border-radius: 3px; border: 0px solid #333; margin: 0 5px 0 0; }
@@ -382,3 +383,7 @@ cite.fn { color: #600; margin-right: 5px; color: #F14668; font-weight: 700; }
     /*min-height: calc(100vh/2);*/
      min-height: 200px; 
 }
+
+/*#wnd-6046d44e12fa7-5-text{height:500px;font-size: 2rem;}*/
+.editor-text{min-height:300px;font-size: 1.1rem;}
+/*form{max-width: 900px;margin: 0 auto;}*/
