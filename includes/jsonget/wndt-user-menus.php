@@ -13,6 +13,10 @@ class Wndt_User_Menus extends Wnd_Menus {
 
 	// 导航Tabs
 	protected static function query($args = []): array{
+		if (!is_user_logged_in()) {
+			return [];
+		}
+
 		if (wnd_is_manager()) {
 			$user_menus = static::build_manager_menus();
 		} else {
