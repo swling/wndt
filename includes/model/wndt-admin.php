@@ -50,5 +50,14 @@ class Wndt_Admin {
 			// Force delete.
 			wp_delete_post($delete, true);
 		}
+
+		// 超期七天未完成的赞赏订单
+		$old_posts = $wpdb->get_col(
+			"SELECT ID FROM $wpdb->posts WHERE post_type  = 'reward' AND post_status = 'wnd-processing' AND DATE_SUB(NOW(), INTERVAL 7 DAY) > post_date"
+		);
+		foreach ((array) $old_posts as $delete) {
+			// Force delete.
+			wp_delete_post($delete, true);
+		}
 	}
 }

@@ -144,6 +144,20 @@ class Wndt_Init {
 			'menu_icon'    => 'dashicons-playlist-audio',
 		];
 		register_post_type('product', $args);
+
+		/*用户赞赏（打赏）记录*/
+		$labels = [
+			'name' => __('赞赏', 'wndt'),
+		];
+		$args = [
+			'labels'      => $labels,
+			'description' => __('赞赏', 'wndt'),
+			'public'      => false,
+			'has_archive' => false,
+			'query_var'   => false, //order 为wp_query的排序参数，如果查询参数中包含order排序，会导致冲突，此处需要注销
+			'supports'    => ['title', 'author', 'editor'],
+		];
+		register_post_type('reward', $args);
 	}
 
 	################################################################################ 定义类型分类

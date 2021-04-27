@@ -24,6 +24,13 @@
 
 			// 在内容页放置付费按钮，将自动检测是否包含付费文件
 			echo wnd_pay_button($post, $with_paid_content);
+
+			// 禁止免费文章展示赞赏按钮
+			if (!wnd_get_post_price($post->ID)) {
+				echo '<div class="has-text-centered">';
+				echo wnd_modal_button('赞赏' . wnd_get_post_meta($post->ID, 'reward_count'), 'wndt_reward_form', ['post_id' => $post->ID], 'is-danger');
+				echo '</div>';
+			}
 			?>
 		</div>
 	</div>

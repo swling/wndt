@@ -1,0 +1,63 @@
+<?php
+
+namespace Wndt\Module;
+
+use Wnd\Model\Wnd_Payment_Getway;
+use Wnd\Module\Wnd_Module_Form;
+use Wnd\View\Wnd_Form_WP;
+
+/**
+ *@since 2020.06.30
+ *在线支付订单表单
+ *匿名支付订单默认启用人机验证
+ */
+class Wndt_Reward_Form extends Wnd_Module_Form {
+
+	// 配置表单
+	protected static function configure_form(array $args = []): object{
+		/**
+		 *基础信息
+		 */
+		$post_id         = $args['post_id'] ?? 0;
+		$user_id         = get_current_user_id();
+		$gateway_options = Wnd_Payment_Getway::get_gateway_options();
+		$user_money      = wnd_get_user_money($user_id);
+		$title           = get_the_title($post_id);
+
+		$form = new Wnd_Form_WP(true, !$user_id);
+		$form->set_form_title(__('赞赏', 'wndt'), true);
+		$form->add_html('<div class="has-text-centered field">');
+		$form->add_html('<p>《' . $title . '》</p>');
+
+		$form->add_radio(
+			[
+				'name'     => 'total_amount',
+				'options'  => ['¥ 0.01' => 0.01, '¥ 1' => 1, '¥ 2' => 2, '¥ 5' => 5, '¥ 10' => 10, '¥ 50' => 50, '¥ 100' => 100],
+				'required' => 'required',
+				'class'    => 'is-checkradio is-danger',
+			]
+		);
+
+		$form->add_radio(
+			[
+				'name'     => 'payment_gateway',
+				'options'  => $gateway_options,
+				'required' => 'required',
+				'checked'  => Wnd_Payment_Getway::get_default_gateway(),
+				'class'    => 'is-checkradio is-danger',
+			]
+		);
+		$form->add_html('</div>');
+		$form->set_route('action', 'wndt_reward_post');
+
+		/**
+		 *遍历参数信息并构建表单字段
+		 */
+		foreach ($args as $key => $value) {
+			$form->add_hidden($key, $value);
+		}
+
+		$form->set_submit_button(__('确认赞赏', 'wndt'));
+		return $form;
+	}
+}

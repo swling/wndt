@@ -24,7 +24,11 @@ class Wndt_User_Menus extends Wnd_Menus {
 		if ($args['in_side']) {
 			return [static::post_type_menus(), $user_menus];
 		} else {
-			return [$user_menus];
+			if (wnd_is_manager()) {
+				return [$user_menus, static::wndt_add_menus()];
+			} else {
+				return [$user_menus];
+			}
 		}
 	}
 
@@ -55,6 +59,22 @@ class Wndt_User_Menus extends Wnd_Menus {
 			'label'  => '站点导航',
 			'expand' => false,
 			'items'  => $items,
+		];
+
+		return $menus;
+	}
+
+	/**
+	 *@since 2019.10.11
+	 *自定义类型顶部导航
+	 */
+	protected static function wndt_add_menus(): array{
+		$menus = [
+			'label'  => '主题菜单',
+			'expand' => false,
+			'items'  => [
+				['title' => '赞赏统计', 'href' => static::get_front_page_url() . '#wndt_reward_list'],
+			],
 		];
 
 		return $menus;
