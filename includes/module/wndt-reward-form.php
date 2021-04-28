@@ -31,10 +31,18 @@ class Wndt_Reward_Form extends Wnd_Module_Form {
 
 		$form->add_radio(
 			[
-				'name'     => 'total_amount',
-				'options'  => ['¥ 0.01' => 0.01, '¥ 1' => 1, '¥ 2' => 2, '¥ 5' => 5, '¥ 10' => 10, '¥ 50' => 50, '¥ 100' => 100],
-				'required' => 'required',
-				'class'    => 'is-checkradio is-danger',
+				'name'    => 'amount',
+				'options' => ['¥ 0.01' => 0.01, '¥ 1' => 1, '¥ 2' => 2, '¥ 5' => 5, '¥ 10' => 10, '¥ 50' => 50, '¥ 100' => 100],
+				'class'   => 'is-checkradio is-danger',
+			]
+		);
+
+		$form->add_number(
+			[
+				'name'        => 'custom_amount',
+				'placeholder' => '自定义金额',
+				'min'         => 0.01,
+				'step'        => 0.01,
 			]
 		);
 
