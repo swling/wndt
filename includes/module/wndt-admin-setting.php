@@ -13,6 +13,15 @@ class Wndt_Admin_Setting extends Wnd_Module_Form {
 		$form = new Wnd_Form_Option('wndt', false);
 		$form->add_image_upload('banner', 0, 0, 'Banner');
 
+		$form->add_radio(
+			[
+				'name'    => 'enable_reward',
+				'options' => ['开启赞赏' => 'y', '关闭赞赏' => 'n'],
+				'label'   => '赞赏',
+				'class'   => 'is-checkradio is-danger',
+			]
+		);
+
 		$form->add_text(
 			[
 				'name'     => 'logo',
