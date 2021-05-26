@@ -60,7 +60,7 @@ class Wndt_Init {
 
 		// 固定连接
 		add_filter('post_type_link', [$this, 'filter_post_link'], 11, 2);
-		add_action('init', [$this, 'filter_post_rewrite_rules'], 11);
+		add_filter('rewrite_rules_array', [$this, 'filter_post_rewrite_rules'], 11);
 
 		// 用户链接
 		add_filter('author_link', [$this, 'filter_author_link'], 11, 2);
@@ -226,23 +226,18 @@ class Wndt_Init {
 	 *@since 2019
 	 *重写自定义文章类型伪静态
 	 **/
-	public function filter_post_rewrite_rules() {
+	public function filter_post_rewrite_rules($rules) {
+		$newrules   = [];
 		$post_types = get_post_types(['public' => true, '_builtin' => false], 'names', 'and');
 		foreach ($post_types as $post_type) {
-			add_rewrite_rule(
-				$post_type . '/([0-9]+)?$',
-				'index.php?post_type=' . $post_type . '&p=$matches[1]',
-				'top'
-			);
-
-			//comment 翻页
-			add_rewrite_rule(
-				$post_type . '/([0-9]+)?/comment-page-([0-9]+)?$',
-				'index.php?post_type=' . $post_type . '&p=$matches[1]&cpage=$matches[2]',
-				'top'
-			);
+			$newrules[$post_type . '/?([0-9]{1,})?$']                          = 'index.php?post_type=' . $post_type . '&p=$matches[1]';
+			$newrules[$post_type . '/page/?([0-9]{1,})?$']                     = 'index.php?post_type=' . $post_type . '&paged=$matches[1]';
+			$newrules[$post_type . '/?([0-9]{1,})/comment-page-([0-9]{1,})?$'] = 'index.php?post_type=' . $post_type . '&p=$matches[1]&cpage=$matches[2]';
 		}
 		unset($post_type);
+
+		// 顺序很重要
+		return array_merge($newrules, $rules);
 	}
 
 	/**
