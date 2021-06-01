@@ -144,7 +144,7 @@ function wndt_filter_upload_file($can_array, $post_parent, $meta_key) {
 add_filter('Wnd\Module\Wnd_Login_Form', 'wndt_filter_login_form', 12, 1);
 function wndt_filter_login_form($input_fiels) {
 	try {
-		$oauth_url = Wnd\Utility\Wnd_Login_Social::get_instance('QQ')->build_oauth_url();
+		$oauth_url = Wnd\Getway\Wnd_Login_Social::get_instance('QQ')->build_oauth_url();
 		$html      = '<div class="has-text-centered field is-size-5">';
 		$html .= '<a class="qq" href="' . $oauth_url . '"><i class="fab fa-qq"></i>&nbsp;QQ 登录</a>';
 		$html .= '</div>';
@@ -163,7 +163,7 @@ function wndt_filter_login_form($input_fiels) {
 add_filter('Wnd\Module\Wnd_Reg_Form', 'wndt_filter_reg_form', 12, 1);
 function wndt_filter_reg_form($input_fiels) {
 	try {
-		$oauth_url = Wnd\Utility\Wnd_Login_Social::get_instance('QQ')->build_oauth_url();
+		$oauth_url = Wnd\Getway\Wnd_Login_Social::get_instance('QQ')->build_oauth_url();
 		$html      = '<div class="has-text-centered field is-size-5">';
 		$html .= '<a class="qq" href="' . $oauth_url . '"><i class="fab fa-qq"></i>&nbsp;QQ 注册</a>';
 		$html .= '</div>';
@@ -182,7 +182,7 @@ function wndt_filter_reg_form($input_fiels) {
 add_filter('Wnd\Module\Wnd_Account_Form', 'wndt_filter_account_form', 12, 1);
 function wndt_filter_account_form($input_fiels) {
 	try {
-		$oauth_url = Wnd\Utility\Wnd_Login_Social::get_instance('QQ')->build_oauth_url();
+		$oauth_url = Wnd\Getway\Wnd_Login_Social::get_instance('QQ')->build_oauth_url();
 		$html      = '<div class="has-text-centered field is-size-5">';
 		$html .= '<a class="qq" href="' . $oauth_url . '"><i class="fab fa-qq"></i>&nbsp;绑定 QQ</a>';
 		$html .= '</div>';
