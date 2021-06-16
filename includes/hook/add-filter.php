@@ -207,7 +207,7 @@ add_filter('wnd_menus', function ($menus, $args) {
  *主题新增的赞赏交易类型
  *@since 2021.04.27
  */
-// $instance = apply_filters('wnd_transaction_instance', $instance, $type, $this->object_id);
+// $instance = apply_filters('wnd_transaction_instance', $instance, $type);
 add_filter('wnd_transaction_instance', function ($instance, $type) {
 	if ('reward' == $type) {
 		return new Wndt\Model\Wndt_Reward();

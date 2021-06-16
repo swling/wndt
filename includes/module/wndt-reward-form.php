@@ -1,22 +1,21 @@
 <?php
-
 namespace Wndt\Module;
 
-use Wnd\Model\Wnd_Payment_Getway;
+use Wnd\Getway\Wnd_Payment_Getway;
 use Wnd\Module\Wnd_Module_Form;
 use Wnd\View\Wnd_Form_WP;
 
 /**
- *@since 2020.06.30
- *在线支付订单表单
- *匿名支付订单默认启用人机验证
+ * 在线支付订单表单
+ * 匿名支付订单默认启用人机验证
+ * @since 2020.06.30
  */
 class Wndt_Reward_Form extends Wnd_Module_Form {
 
 	// 配置表单
 	protected static function configure_form(array $args = []): object{
 		/**
-		 *基础信息
+		 * 基础信息
 		 */
 		$post_id         = $args['post_id'] ?? 0;
 		$user_id         = get_current_user_id();
@@ -59,7 +58,7 @@ class Wndt_Reward_Form extends Wnd_Module_Form {
 		$form->set_route('action', 'wndt_reward_post');
 
 		/**
-		 *遍历参数信息并构建表单字段
+		 * 遍历参数信息并构建表单字段
 		 */
 		foreach ($args as $key => $value) {
 			$form->add_hidden($key, $value);
