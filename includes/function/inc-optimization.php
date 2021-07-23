@@ -63,8 +63,8 @@ function disable_emojis_tinymce($plugins) {
 }
 
 // 禁用加载内容时embed 查找，但如果是后台编辑文章中包含url 则仍然会添加 _oembed 类post meta
-remove_filter('the_content', [$GLOBALS['wp_embed'], 'autoembed'], 8);
-remove_action('wp_head', 'wp_oembed_add_host_js');
+// remove_filter('the_content', [$GLOBALS['wp_embed'], 'autoembed'], 8);
+// remove_action('wp_head', 'wp_oembed_add_host_js');
 
 // ################################################################以下为功能型函数
 
@@ -93,7 +93,7 @@ add_filter('post_thumbnail_html', 'remove_width_attribute', 10);
 add_filter('image_send_to_editor', 'remove_width_attribute', 10);
 
 function remove_width_attribute($html) {
-	$html = preg_replace('/(width|height)="\d*"\s/', "", $html);
+	$html = preg_replace('/(width|height)="\d*"\s/', '', $html);
 	return $html;
 }
 
@@ -134,7 +134,7 @@ function wndt_insert_post_action($post_ID, $post, $update) {
 	}
 
 	/**
-	 *文件上传路径
+	 * 文件上传路径
 	 */
 	$uploads_dir = 'uploads.fenbu.net';
 
