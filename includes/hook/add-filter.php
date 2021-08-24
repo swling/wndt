@@ -3,13 +3,13 @@ use Wndt\Permission\Wndt_FSC;
 use Wndt\Permission\Wndt_PPC;
 
 /**
- *@see wndwp/READEME.md
  * ############################################################################ 以下为WndWP插件过滤钩子
+ * @see wndwp/READEME.md
  */
 
 /**
- *插入文章后，返回值过滤
- *@since 2019.01.18 匿名发布
+ * 插入文章后，返回值过滤
+ * @since 2019.01.18 匿名发布
  */
 add_filter('wnd_insert_post_return', 'wndt_filter_insert_post_return', 11, 3);
 function wndt_filter_insert_post_return($can_array, $post_type, $post_id) {
@@ -24,8 +24,8 @@ function wndt_filter_insert_post_return($can_array, $post_type, $post_id) {
 }
 
 /**
- *@since 初始化
  * 写入文章权限检测
+ * @since 初始化
  */
 add_filter('wnd_can_insert_post', 'wndt_filter_can_insert_post', 11, 3);
 function wndt_filter_can_insert_post($can_array, $post_type, $update_id) {
@@ -50,8 +50,8 @@ function wndt_filter_can_insert_post($can_array, $post_type, $update_id) {
 }
 
 /**
- *@since 12.22
- *表单提交控制
+ * 表单提交控制
+ * @since 12.22
  */
 add_filter('wnd_request_controller', 'wndt_filter_can_submit_form', 11, 2);
 function wndt_filter_can_submit_form($can_array, $request) {
@@ -65,7 +65,7 @@ function wndt_filter_can_submit_form($can_array, $request) {
 }
 
 /**
- *@since 初始化 是否可以更新状态
+ * @since 初始化 是否可以更新状态
  */
 add_filter('wnd_can_update_post_status', 'wndt_filter_can_update_post_status', 11, 3);
 function wndt_filter_can_update_post_status($can_array, $before_post, $after_status) {
@@ -83,7 +83,7 @@ function wndt_filter_can_update_post_status($can_array, $before_post, $after_sta
 }
 
 /**
- *@since 2019.02.13
+ * @since 2019.02.13
  */
 // return apply_filters('wnd_post_price', $price, $post_id);
 add_filter('wnd_get_post_price', 'wndt_filter_get_post_price', 11, 2);
@@ -92,7 +92,7 @@ function wndt_filter_get_post_price($price, $post_id) {
 }
 
 /**
- *@since 2019.02.19 过滤用户面板 post types
+ * @since 2019.02.19 过滤用户面板 post types
  */
 add_filter('wnd_user_panel_post_types', 'wndt_filter_user_panel_post_types', 11, 1);
 function wndt_filter_user_panel_post_types($post_types) {
@@ -100,10 +100,8 @@ function wndt_filter_user_panel_post_types($post_types) {
 }
 
 /**
- *@since 2019.03.19
- *
- *过滤表单提交数据
- *
+ * 过滤表单提交数据
+ * @since 2019.03.19
  */
 add_filter('wnd_request', 'wndt_filter_request', 11, 1);
 function wndt_filter_request($request) {
@@ -124,7 +122,7 @@ function wndt_filter_request($request) {
 }
 
 /**
- *@since 2019.04.16 文件上传权限
+ * @since 2019.04.16 文件上传权限
  */
 add_filter('wnd_can_upload_file', 'wndt_filter_upload_file', 11, 3);
 function wndt_filter_upload_file($can_array, $post_parent, $meta_key) {
@@ -139,8 +137,8 @@ function wndt_filter_upload_file($can_array, $post_parent, $meta_key) {
 }
 
 /**
- *@since 2019.07.11 新增社交登录
- **/
+ * @since 2019.07.11 新增社交登录
+ */
 add_filter('Wnd\Module\Wnd_Login_Form', 'wndt_filter_login_form', 12, 1);
 function wndt_filter_login_form($input_fiels) {
 	try {
@@ -158,8 +156,8 @@ function wndt_filter_login_form($input_fiels) {
 }
 
 /**
- *@since 2019.07.11 新增社交注册
- **/
+ * @since 2019.07.11 新增社交注册
+ */
 add_filter('Wnd\Module\Wnd_Reg_Form', 'wndt_filter_reg_form', 12, 1);
 function wndt_filter_reg_form($input_fiels) {
 	try {
@@ -177,8 +175,8 @@ function wndt_filter_reg_form($input_fiels) {
 }
 
 /**
- *@since 2019.07.11 绑定QQ
- **/
+ * @since 2019.07.11 绑定QQ
+ */
 add_filter('Wnd\Module\Wnd_Account_Form', 'wndt_filter_account_form', 12, 1);
 function wndt_filter_account_form($input_fiels) {
 	try {
@@ -196,7 +194,7 @@ function wndt_filter_account_form($input_fiels) {
 }
 
 /**
- *自定义用户菜单
+ * 自定义用户菜单
  *
  */
 add_filter('wnd_menus', function ($menus, $args) {
@@ -204,8 +202,24 @@ add_filter('wnd_menus', function ($menus, $args) {
 }, 12, 2);
 
 /**
- *主题新增的赞赏交易类型
- *@since 2021.04.27
+ * 侧边栏菜单后续
+ */
+add_filter('wnd_menus_side_after', function ($menus_after) {
+	if (!is_user_logged_in()) {
+		return $menus_after;
+	}
+
+	try {
+		return $menus_after . Wndt\Module\Wndt_User_Overview::render();
+	} catch (\Exception $e) {
+		return $menus_after;
+	}
+
+}, 11, 1);
+
+/**
+ * 主题新增的赞赏交易类型
+ * @since 2021.04.27
  */
 // $instance = apply_filters('wnd_transaction_instance', $instance, $type);
 add_filter('wnd_transaction_instance', function ($instance, $type) {
