@@ -1,11 +1,18 @@
 <?php
 use Wndt\Permission\Wndt_FSC;
-use Wndt\Permission\Wndt_PPC;
 
 /**
- * ############################################################################ 以下为WndWP插件过滤钩子
- * @see wndwp/READEME.md
+ * 内容权限控制
  */
+add_filter('wnd_ppc_instance', function ($instance, $post_type) {
+	$ppc_class_name = 'Wndt\\Permission\\Wndt_PPC_' . $post_type;
+	if (class_exists($ppc_class_name)) {
+		return new $ppc_class_name($post_type);
+	}
+
+	return $instance;
+
+}, 11, 2);
 
 /**
  * 插入文章后，返回值过滤
@@ -24,32 +31,6 @@ function wndt_filter_insert_post_return($can_array, $post_type, $post_id) {
 }
 
 /**
- * 写入文章权限检测
- * @since 初始化
- */
-add_filter('wnd_can_insert_post', 'wndt_filter_can_insert_post', 11, 3);
-function wndt_filter_can_insert_post($can_array, $post_type, $update_id) {
-	try {
-		$ppc = Wndt_PPC::get_instance($post_type);
-
-		// 可能会校验标题是否重复
-		$ppc->set_post_title($_POST['_post_post_title'] ?? '');
-
-		// 定义更新：已指定post id，且排除自动草稿
-		if ($update_id and get_post_status($update_id) != 'auto-draft') {
-			$ppc->set_post_id($update_id);
-			$ppc->check_update();
-		} else {
-			$ppc->check_insert();
-		}
-	} catch (Exception $e) {
-		return ['status' => 0, 'msg' => $e->getMessage()];
-	}
-
-	return $can_array;
-}
-
-/**
  * 表单提交控制
  * @since 12.22
  */
@@ -61,24 +42,6 @@ function wndt_filter_can_submit_form($can_array, $request) {
 		return ['status' => 0, 'msg' => $e->getMessage()];
 	}
 
-	return $can_array;
-}
-
-/**
- * @since 初始化 是否可以更新状态
- */
-add_filter('wnd_can_update_post_status', 'wndt_filter_can_update_post_status', 11, 3);
-function wndt_filter_can_update_post_status($can_array, $before_post, $after_status) {
-	try {
-		$ppc = Wndt_PPC::get_instance($before_post->post_type);
-		$ppc->set_post_id($before_post->ID);
-		$ppc->set_post_status($after_status);
-		$ppc->check_status_update();
-	} catch (Exception $e) {
-		return ['status' => 0, 'msg' => $e->getMessage()];
-	}
-
-	// 返回默认值
 	return $can_array;
 }
 
@@ -119,21 +82,6 @@ function wndt_filter_request($request) {
 	}
 
 	return $request;
-}
-
-/**
- * @since 2019.04.16 文件上传权限
- */
-add_filter('wnd_can_upload_file', 'wndt_filter_upload_file', 11, 3);
-function wndt_filter_upload_file($can_array, $post_parent, $meta_key) {
-	try {
-		$upc = new Wndt_PPC();
-		$upc->check_file_upload($post_parent, $meta_key);
-	} catch (Exception $e) {
-		return ['status' => 0, 'msg' => $e->getMessage()];
-	}
-	// 返回未经修改的默认值
-	return $can_array;
 }
 
 /**

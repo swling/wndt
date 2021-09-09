@@ -1,12 +1,15 @@
 <?php
 namespace Wndt\Module;
 
+use Wnd\Module\Wnd_Post_Form;
 use Wnd\View\Wnd_Form_Post;
 
 /**
- *@since 2019.01.31 项目内容表单
+ * @since 2019.01.31 项目内容表单
  */
-class Wndt_Post_Form_Project extends Wndt_Post_Form {
+class Wndt_Post_Form_Project extends Wnd_Post_Form {
+
+	public static $post_type = 'project';
 
 	protected static function configure_form(array $args = []): object{
 		$defaults = [
@@ -21,7 +24,7 @@ class Wndt_Post_Form_Project extends Wndt_Post_Form {
 		$is_free     = (bool) $args['is_free'];
 
 		/**
-		 *@since 2019.03.11 表单类
+		 * @since 2019.03.11 表单类
 		 */
 		$form = new Wnd_Form_Post('project', $post_id);
 		$form->set_post_parent($post_parent);
@@ -39,7 +42,7 @@ class Wndt_Post_Form_Project extends Wndt_Post_Form {
 		}
 
 		/**
-		 *@since 2019.04 富媒体编辑器仅在非ajax请求中有效
+		 * @since 2019.04 富媒体编辑器仅在非ajax请求中有效
 		 */
 		$form->add_html(wnd_notification('设置价格后，使用more标签（Shift+Alt+T），区分免费内容与付费内容', 'is-primary'));
 		$form->add_post_content(true);

@@ -1,12 +1,15 @@
 <?php
 namespace Wndt\Module;
 
+use Wnd\Module\Wnd_Post_Form;
 use Wnd\View\Wnd_Form_Post;
 
 /**
- *@since 2019.01.31 产品表单
+ * @since 2019.01.31 产品表单
  */
-class Wndt_Post_Form_product extends Wndt_Post_Form {
+class Wndt_Post_Form_product extends Wnd_Post_Form {
+
+	public static $post_type = 'product';
 
 	protected static function configure_form(array $args = []): object{
 		$defaults = [
@@ -19,7 +22,7 @@ class Wndt_Post_Form_product extends Wndt_Post_Form {
 		$post_parent = (int) $args['post_parent'];
 
 		/**
-		 *@since 2019.03.11 表单类
+		 * @since 2019.03.11 表单类
 		 */
 		$form = new Wnd_Form_Post('product', $post_id);
 		$form->set_post_parent($post_parent);
