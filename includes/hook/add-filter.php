@@ -34,10 +34,10 @@ function wndt_filter_insert_post_return($can_array, $post_type, $post_id) {
  * 表单提交控制
  * @since 12.22
  */
-add_filter('wnd_request_controller', 'wndt_filter_can_submit_form', 11, 2);
-function wndt_filter_can_submit_form($can_array, $request) {
+add_filter('wnd_request_controller', 'wndt_filter_can_submit_form', 11, 3);
+function wndt_filter_can_submit_form($can_array, $request, $route) {
 	try {
-		Wndt_FSC::check($request);
+		Wndt_FSC::check($request, $route);
 	} catch (Exception $e) {
 		return ['status' => 0, 'msg' => $e->getMessage()];
 	}
