@@ -55,6 +55,7 @@ class Wndt_Reward_Form extends Wnd_Module_Form {
 			]
 		);
 		$form->add_html('</div>');
+		$form->add_hidden('type', 'reward');
 		$form->set_route('action', 'wndt_reward_post');
 
 		/**
