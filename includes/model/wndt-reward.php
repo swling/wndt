@@ -1,6 +1,7 @@
 <?php
 namespace Wndt\Model;
 
+use Wnd\Getway\Wnd_Payment_Getway;
 use Wnd\Model\Wnd_Transaction;
 
 /**
@@ -50,12 +51,19 @@ class Wndt_Reward extends Wnd_Transaction {
 	 */
 	protected function complete(): int{
 		// 定义变量 本类中，标题方法添加了站点名称，用于支付平台。故此调用父类方法用于站内记录
-		$ID        = $this->get_transaction_id();
-		$object_id = $this->get_object_id();
+		$ID           = $this->get_transaction_id();
+		$user_id      = $this->get_user_id();
+		$total_amount = $this->get_total_amount();
+		$object_id    = $this->get_object_id();
 
 		// 更新统计
 		if ($object_id) {
 			wnd_inc_wnd_post_meta($object_id, 'reward_count', 1);
+		}
+
+		// 站内直接消费，无需支付平台支付校验，记录扣除账户余额、在线支付则不影响当前余额
+		if (Wnd_Payment_Getway::is_internal_payment($ID)) {
+			wnd_inc_user_money($user_id, $total_amount * -1, false);
 		}
 
 		return $ID;

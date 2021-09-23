@@ -19,9 +19,12 @@ class Wndt_Reward_Form extends Wnd_Module_Form {
 		 */
 		$post_id         = $args['post_id'] ?? 0;
 		$user_id         = get_current_user_id();
-		$gateway_options = Wnd_Payment_Getway::get_gateway_options();
 		$user_money      = wnd_get_user_money($user_id);
 		$title           = get_the_title($post_id);
+		$gateway_options = Wnd_Payment_Getway::get_gateway_options();
+		if ($user_money > 0) {
+			$gateway_options = array_merge(['余额支付' => 'internal'], $gateway_options);
+		}
 
 		$form = new Wnd_Form_WP(true, !$user_id);
 		$form->set_form_title(__('赞赏', 'wndt'), true);
