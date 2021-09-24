@@ -33,7 +33,7 @@ class Wndt_Reward_Form extends Wnd_Module_Form {
 
 		$form->add_radio(
 			[
-				'name'    => 'amount',
+				'name'    => 'total_amount',
 				'options' => ['¥ 0.01' => 0.01, '¥ 1' => 1, '¥ 2' => 2, '¥ 5' => 5, '¥ 10' => 10, '¥ 50' => 50, '¥ 100' => 100],
 				'class'   => 'is-checkradio is-danger',
 			]
@@ -41,7 +41,7 @@ class Wndt_Reward_Form extends Wnd_Module_Form {
 
 		$form->add_number(
 			[
-				'name'        => 'custom_amount',
+				'name'        => 'custom_total_amount',
 				'placeholder' => '自定义金额',
 				'min'         => 0.01,
 				'step'        => 0.01,
@@ -59,7 +59,7 @@ class Wndt_Reward_Form extends Wnd_Module_Form {
 		);
 		$form->add_html('</div>');
 		$form->add_hidden('type', 'reward');
-		$form->set_route('action', 'wndt_reward_post');
+		$form->set_route('action', 'wnd_do_payment');
 
 		/**
 		 * 遍历参数信息并构建表单字段
@@ -68,7 +68,7 @@ class Wndt_Reward_Form extends Wnd_Module_Form {
 			$form->add_hidden($key, $value);
 		}
 
-		$form->set_submit_button(__('确认赞赏', 'wndt'));
+		$form->set_submit_button('确认赞赏');
 		return $form;
 	}
 }
