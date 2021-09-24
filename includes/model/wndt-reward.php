@@ -53,7 +53,7 @@ class Wndt_Reward extends Wnd_Transaction {
 	 * @param  object		$this->transaction 	required 	WP Post Object
 	 * @return int                        		WP Post ID
 	 */
-	protected function complete(): int{
+	protected function complete_transaction(): int{
 		// 定义变量 本类中，标题方法添加了站点名称，用于支付平台。故此调用父类方法用于站内记录
 		$ID           = $this->get_transaction_id();
 		$user_id      = $this->get_user_id();
