@@ -31,6 +31,10 @@ class Wndt_Reward extends Wnd_Transaction {
 	 * @since 0.9.32
 	 */
 	protected function generate_transaction_data() {
+		if (!$this->object_id) {
+			throw new Exception('Object ID 无效');
+		}
+
 		if (!$this->total_amount) {
 			throw new Exception('获取金额失败');
 		}
@@ -39,11 +43,6 @@ class Wndt_Reward extends Wnd_Transaction {
 		 * 订单标题
 		 */
 		$this->subject = $this->subject ?: (__('赞赏：', 'wndt') . get_the_title($this->object_id));
-
-		/**
-		 * @since 2019.03.31 查询符合当前条件，但尚未完成的付款订单
-		 */
-		$this->transaction_id = $this->get_reusable_transaction_id();
 	}
 
 	/**
@@ -65,9 +64,14 @@ class Wndt_Reward extends Wnd_Transaction {
 			wnd_inc_wnd_post_meta($object_id, 'reward_count', 1);
 		}
 
-		// 站内直接消费，无需支付平台支付校验，记录扣除账户余额、在线支付则不影响当前余额
-		if (Wnd_Payment_Getway::is_internal_payment($ID)) {
-			wnd_inc_user_money($user_id, $total_amount * -1, false);
+		if ($user_id) {
+			// 写入消费记录
+			wnd_inc_user_expense($user_id, $total_amount);
+
+			// 站内直接消费，无需支付平台支付校验，记录扣除账户余额、在线支付则不影响当前余额
+			if (Wnd_Payment_Getway::is_internal_payment($ID)) {
+				wnd_inc_user_money($user_id, $total_amount * -1, false);
+			}
 		}
 
 		return $ID;
