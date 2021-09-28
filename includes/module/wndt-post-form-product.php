@@ -26,10 +26,8 @@ class Wndt_Post_Form_product extends Wnd_Post_Form {
 		 */
 		$form = new Wnd_Form_Post('product', $post_id);
 		$form->set_post_parent($post_parent);
-		$form->add_step(__('产品描述', 'wnd'));
 		$form->add_post_title();
 		$form->add_post_content(true);
-		$form->add_step(__('产品属性', 'wnd'));
 		$form->add_post_excerpt(__('摘要', 'wnd'));
 
 		// 标签
