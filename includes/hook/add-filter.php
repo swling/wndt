@@ -147,7 +147,7 @@ function wndt_filter_account_form($input_fiels) {
  */
 add_filter('wnd_menus', function ($menus, $args) {
 	return \Wndt\Jsonget\Wndt_User_Menus::get($args);
-}, 12, 2);
+}, 11, 2);
 
 /**
  * 侧边栏菜单后续
@@ -177,4 +177,10 @@ add_filter('wnd_transaction_instance', function ($instance, $type) {
 
 	return $instance;
 
-}, 12, 2);
+}, 11, 2);
+
+// 赞赏记录加入财务类 post types
+add_filter('wnd_fin_types', function (array $types): array{
+	$types[] = 'reward';
+	return $types;
+}, 11, 1);
