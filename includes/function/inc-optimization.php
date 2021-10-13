@@ -98,7 +98,7 @@ function remove_width_attribute($html) {
 }
 
 // 更新文章时，删除已不在文章中的图片
-add_action('post_updated', 'wndt_clean_attached', 10, 3);
+// add_action('post_updated', 'wndt_clean_attached', 10, 3);
 function wndt_clean_attached($post_ID, $post_after, $post_before) {
 
 	// 排除profile类型
