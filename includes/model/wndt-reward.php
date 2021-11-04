@@ -14,6 +14,12 @@ class Wndt_Reward extends Wnd_Transaction {
 	protected $transaction_type = 'reward';
 
 	/**
+	 * 检测创建权限
+	 * @since 0.9.51
+	 */
+	protected function check_create() {}
+
+	/**
 	 * 此方法用于补充、修改、核查外部通过方法设定的交易数据，组成最终写入数据库的数据。完整的交易记录构造如下所示：
 	 *
 	 * $post_arr = [
