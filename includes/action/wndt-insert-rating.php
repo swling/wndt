@@ -11,7 +11,7 @@ use Wnd\Action\Wnd_Action;
  */
 class Wndt_Insert_Rating extends Wnd_Action {
 
-	public function execute(): array{
+	protected function execute(): array{
 		// 获取数据
 		$post_id = $this->data['_post_ID'] ?? 0;
 		$rating  = $this->data['rating'] ?? '';
