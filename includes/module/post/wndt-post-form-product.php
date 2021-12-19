@@ -1,7 +1,7 @@
 <?php
-namespace Wndt\Module;
+namespace Wndt\Module\Post;
 
-use Wnd\Module\Wnd_Post_Form;
+use Wnd\Module\Post\Wnd_Post_Form;
 use Wnd\View\Wnd_Form_Post;
 
 /**
