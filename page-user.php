@@ -1,10 +1,10 @@
 <?php
 /**
- *Template Name: 前端页面
+ * Template Name: 前端页面
  *
  */
 
-use Wnd\Module\Wnd_Front_Page;
+use Wnd\Module\User\Wnd_Front_Page;
 
 /**
  * 获取 URL 参数并按格式组合传递给 Wnd_User_Page
