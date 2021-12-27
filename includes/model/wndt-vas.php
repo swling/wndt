@@ -21,7 +21,7 @@ abstract class Wndt_VAS {
 		if (!$this->user_id) {
 			throw new Exception('请登录');
 		}
-		$this->user_money = wnd_get_user_money($this->user_id);
+		$this->user_money = wnd_get_user_balance($this->user_id);
 	}
 
 	/**

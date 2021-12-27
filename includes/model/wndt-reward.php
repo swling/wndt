@@ -76,7 +76,7 @@ class Wndt_Reward extends Wnd_Transaction {
 
 			// 站内直接消费，无需支付平台支付校验，记录扣除账户余额、在线支付则不影响当前余额
 			if (Wnd_Payment_Getway::is_internal_payment($ID)) {
-				wnd_inc_user_money($user_id, $total_amount * -1, false);
+				wnd_inc_user_balance($user_id, $total_amount * -1, false);
 			}
 		}
 

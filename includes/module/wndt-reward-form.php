@@ -19,7 +19,7 @@ class Wndt_Reward_Form extends Wnd_Module_Form {
 		 */
 		$post_id         = $args['post_id'] ?? 0;
 		$user_id         = get_current_user_id();
-		$user_money      = wnd_get_user_money($user_id);
+		$user_money      = wnd_get_user_balance($user_id);
 		$title           = get_the_title($post_id);
 		$gateway_options = Wnd_Payment_Getway::get_gateway_options();
 		if ($user_money > 0) {

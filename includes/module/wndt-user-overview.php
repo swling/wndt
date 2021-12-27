@@ -18,7 +18,7 @@ class Wndt_User_Overview extends Wnd_Module_Html {
 		$html .= '<div class="level-item">';
 		$html .= '<div>';
 		$html .= '<p class="heading">余额</p>';
-		$html .= '<p>' . wnd_get_user_money($user_id, true) . '</p>';
+		$html .= '<p>' . wnd_get_user_balance($user_id, true) . '</p>';
 		$html .= '</div>';
 		$html .= '</div>';
 
