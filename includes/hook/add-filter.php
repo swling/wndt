@@ -87,7 +87,7 @@ function wndt_filter_request($request) {
 /**
  * @since 2019.07.11 新增社交登录
  */
-add_filter('Wnd\Module\Wnd_Login_Form', 'wndt_filter_login_form', 12, 1);
+add_filter('Wnd\Module\User\Wnd_Login_Form', 'wndt_filter_login_form', 12, 1);
 function wndt_filter_login_form($input_fiels) {
 	try {
 		$oauth_url = Wnd\Getway\Wnd_Login_Social::get_instance('QQ')->build_oauth_url();
@@ -106,7 +106,7 @@ function wndt_filter_login_form($input_fiels) {
 /**
  * @since 2019.07.11 新增社交注册
  */
-add_filter('Wnd\Module\Wnd_Reg_Form', 'wndt_filter_reg_form', 12, 1);
+add_filter('Wnd\Module\User\Wnd_Reg_Form', 'wndt_filter_reg_form', 12, 1);
 function wndt_filter_reg_form($input_fiels) {
 	try {
 		$oauth_url = Wnd\Getway\Wnd_Login_Social::get_instance('QQ')->build_oauth_url();
@@ -125,7 +125,7 @@ function wndt_filter_reg_form($input_fiels) {
 /**
  * @since 2019.07.11 绑定QQ
  */
-add_filter('Wnd\Module\Wnd_Account_Form', 'wndt_filter_account_form', 12, 1);
+add_filter('Wnd\Module\User\Wnd_Account_Form', 'wndt_filter_account_form', 12, 1);
 function wndt_filter_account_form($input_fiels) {
 	try {
 		$oauth_url = Wnd\Getway\Wnd_Login_Social::get_instance('QQ')->build_oauth_url();
