@@ -10,8 +10,9 @@ use Wnd\Module\Wnd_Module_Html;
 class Wndt_User_Overview extends Wnd_Module_Html {
 
 	protected static function build($args = []): string{
-		$user_id = get_current_user_id();
-		$html    = '';
+		$user_id       = get_current_user_id();
+		$vip_timestamp = wndt_get_vip_timestamp($user_id);
+		$html          = '';
 
 		// 用户余额
 		$html .= '<div class="level is-mobile has-text-centered mt-5">';
@@ -32,7 +33,7 @@ class Wndt_User_Overview extends Wnd_Module_Html {
 		$html .= '<div class="level-item">';
 		$html .= '<div>';
 		$html .= '<p class="heading">VIP会员</p>';
-		$html .= '<p>' . wnd_get_user_meta($user_id, 'vip') ? date('Y-m-d', wnd_get_user_meta($user_id, 'vip')) : '非VIP' . '</p>';
+		$html .= '<p>' . $vip_timestamp ? date('Y-m-d', $vip_timestamp) : '非VIP' . '</p>';
 		$html .= '</div>';
 		$html .= '</div>';
 		$html .= '</div>';

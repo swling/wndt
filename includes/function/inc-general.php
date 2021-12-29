@@ -1,7 +1,7 @@
 <?php
 /**
- *@since 2020.4.13
- *获取配置选项
+ * 获取配置选项
+ * @since 2020.4.13
  */
 function wndt_get_config($config_key) {
 	return Wndt\Utility\Wndt_Config::get($config_key);
@@ -22,8 +22,8 @@ function wndt_get_post_count($user_id, $post_type) {
 }
 
 /**
- *@since 2019.10.10
- *logo副标题
+ * logo副标题
+ * @since 2019.10.10
  */
 function wndt_get_sub_title($sep = '') {
 	if (is_singular('post')) {
@@ -51,4 +51,11 @@ function wndt_get_sub_title($sep = '') {
 	}
 
 	return false;
+}
+
+/**
+ * 获取用户 vip 有效期时间戳
+ */
+function wndt_get_vip_timestamp(int $user_id): int {
+	return (int) (wnd_get_user_meta($user_id, 'vip') ?: 0);
 }
