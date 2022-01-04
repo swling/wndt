@@ -57,7 +57,7 @@ if (is_home()) {
 									$html .= '<div class="is-hidden-mobile"><span class="icon"><i class="fas fa-map-marker-alt"></i></span>' . get_the_term_list($post->ID, 'region', $before = '', $sep = '', $after = ' ') . wnd_get_post_meta($post->ID, 'address') . '</div>';
 									$html .= '<div class="is-hidden-mobile"><span class="icon"><i class="fas fa-link"></i></span><a href ="' . $website . '">' . $website . '</a></div>';
 									$html .= '<div class="tags">' . get_the_term_list($post->ID, $post->post_type . '_tag', '<span class="icon"><i class="fas fa-hashtag"></i></span>', '<span class="icon"><i class="fas fa-hashtag"></i></span>', '') . '</div>';
-									$html .= '<div class="content">' . wp_trim_words($post->post_excerpt, 100) . '</div>';
+									$html .= '<div class="content">' . wnd_trim_words($post->post_excerpt, 100) . '</div>';
 									echo $html;
 									?>
 								</div>

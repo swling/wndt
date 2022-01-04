@@ -36,7 +36,7 @@ class Wndt_List {
 		$html .= wndt_post_thumbnail($post->ID, '200', '150');
 		$html .= '</div>';
 
-		$html .= '<div class="column is-hidden-mobile">' . wp_trim_words($post->post_excerpt ?: $post->post_content, 160) . '</div>';
+		$html .= '<div class="column is-hidden-mobile">' . wnd_trim_words($post->post_excerpt ?: $post->post_content, 160) . '</div>';
 
 		$html .= '</div>';
 		$html .= '</div>';
@@ -76,7 +76,7 @@ class Wndt_List {
 		);
 
 		$html .= '<div class="excerpt content">';
-		$html .= wp_trim_words($post->post_excerpt ?: $post->post_content, 100);
+		$html .= wnd_trim_words($post->post_excerpt ?: $post->post_content, 100);
 		$html .= '</div>';
 		$html .= '</div>';
 
