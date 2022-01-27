@@ -7,7 +7,7 @@
 			the_content();
 
 			// 产品购买
-			echo Wnd\Module\Wnd_Order_Form::render(['post_id' => $post->ID, 'ajax' => false]);
+			echo Wnd\Module\Common\Wnd_Order_Form::render(['post_id' => $post->ID, 'ajax' => false]);
 			?>
 		</div>
 	</div>
