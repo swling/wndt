@@ -59,7 +59,7 @@ class Wndt_Reward_Form extends Wnd_Module_Form {
 		);
 		$form->add_html('</div>');
 		$form->add_hidden('type', 'reward');
-		$form->set_route('action', 'wnd_do_payment');
+		$form->set_route('action', 'common/wnd_do_payment');
 
 		/**
 		 * 遍历参数信息并构建表单字段
