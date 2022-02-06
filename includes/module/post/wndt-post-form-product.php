@@ -36,13 +36,11 @@ class Wndt_Post_Form_product extends Wnd_Post_Form {
 		$form->add_html('
 <div class="field is-horizontal">
 <div class="field-label is-normal"><label class="label is-hidden-mobile">' . __('产品属性', 'wnd') . '</label></div>
-<div class="field-body"><div class="field">' . wnd_modal_button(__('产品 SKU', 'wnd'), 'wnd_sku_form', ['post_id' => $form->get_post()->ID ?? 0]) . '</div></div>
+<div class="field-body"><div class="field">' . wnd_modal_button(__('产品 SKU', 'wnd'), 'common/wnd_sku_form', ['post_id' => $form->get_post()->ID ?? 0]) . '</div></div>
 </div>');
 
 		// 分类
 		$form->add_post_term_select(['taxonomy' => 'product_cat']);
-		// $form->add_dynamic_sub_term_select('product_cat', 1, '', false, __('二级分类', 'wnd'));
-		// $form->add_dynamic_sub_term_select('product_cat', 2, '', false, __('三级分类', 'wnd'));
 
 		// 缩略图
 		// $form->set_thumbnail_size(200, 150);
