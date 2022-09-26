@@ -18,8 +18,8 @@ if (is_home()) {
 					<h2 class="subtitle">
 						<?php bloginfo('description'); ?>
 					</h2>
-					<a class="button is-black" onclick="wnd_ajax_modal('wnd_user_center')">免费注册</a>
-					<a class="button is-danger is-outlined" onclick="wnd_ajax_modal('wnd_login_form')">立即登录</a>
+					<a class="button is-black" onclick="wnd_ajax_modal('user/wnd_user_center')">免费注册</a>
+					<a class="button is-danger is-outlined" onclick="wnd_ajax_modal('user/wnd_login_form')">立即登录</a>
 				</div>
 			</div>
 		</div>
