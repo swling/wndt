@@ -1,7 +1,7 @@
 <?php
-namespace Wndt\Jsonget;
+namespace Wndt\Query;
 
-use Wnd\Jsonget\Wnd_Menus;
+use Wnd\Query\Wnd_Menus;
 
 /**
  *@since 2021.02.27

@@ -146,7 +146,7 @@ function wndt_filter_account_form($input_fiels) {
  *
  */
 add_filter('wnd_menus', function ($menus, $args) {
-	return \Wndt\Jsonget\Wndt_User_Menus::get($args);
+	return \Wndt\Query\Wndt_User_Menus::get($args);
 }, 11, 2);
 
 /**
