@@ -26,8 +26,7 @@ $user_identity = $user->exists() ? $user->display_name : '';
 ?>
 <div id="comments" class="comments">
 	<header class="comments-header">
-		<?php if (comments_open()) {
-		?>
+		<?php if (comments_open()) { ?>
 			<?php if ($post_type != 'topic') { ?>
 				<h3 class="comments-heading">
 					<a href="#comments">
@@ -38,8 +37,7 @@ $user_identity = $user->exists() ? $user->display_name : '';
 						); ?>
 					</a>
 				</h3>
-			<?php } else {
-			?>
+			<?php } else { ?>
 				<h3 class="comments-heading">
 					<a href="#comments">
 						<?php comments_number(
@@ -55,17 +53,12 @@ $user_identity = $user->exists() ? $user->display_name : '';
 		<?php } ?>
 	</header>
 	<?php
-	if ($post_type != 'topic') {
-		$comment_field = '<textarea class="textarea" id="comment" name="comment" maxlength="1000" required="required" placeholder="' . __('评论', 'wndt') . '"></textarea>';
-	} else {
-		$comment_field = '<textarea class="textarea" id="comment" name="comment" maxlength="1000" required="required" placeholder="' . __('回帖', 'wndt') . '"></textarea>';
-	}
-
 	$comments_args = [
 		'must_log_in'   => '<div class="has-text-centered">' . wnd_modal_link(__('登录', 'wndt'), 'wnd_user_center') . '</div>',
-		'comment_field' => $comment_field,
-		'logged_in_as'  => '<p class="logged-in-as mb-3">logged is as：' . $user_identity . '</p>',
+		'comment_field' => '<textarea id="comment" name="comment" maxlength="1000" required="required" placeholder="评论、意见或反馈"></textarea>',
+		'logged_in_as'  => '<p class="logged-in-as">logged is as：' . $user_identity . '</p>',
 		'submit_button' => '<button type="submit" class="button is-' . wnd_get_config('primary_color') . '">提交</button>',
+		'action'        => '',
 	];
 	if (is_user_logged_in() and !$user->user_email) {
 		echo '<div class="has-text-centered content">';
