@@ -17,7 +17,7 @@ if (!defined('WND_VER')) {
 }
 
 // 本地不显示错误奇怪故补充之
-if (WP_DEBUG) {
+if (is_super_admin()) {
 	ini_set('display_errors', 'On');
 }
 
