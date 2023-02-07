@@ -73,7 +73,10 @@ function wndt_seo_title($title) {
 
 	foreach ($_GET as $key => $value) {
 		if (strpos($key, '_term_') === 0) {
-			$title['title'] .= ' - ' . get_term($value)->name;
+			$term = get_term($value);
+			if($term){
+				$title['title'] .= ' - ' . $term->name;
+			}
 			continue;
 		}
 
