@@ -17,7 +17,7 @@ if (!defined('WND_VER')) {
 }
 
 // 本地不显示错误奇怪故补充之
-if (is_super_admin()) {
+if (is_super_admin() and !is_admin()) {
 	ini_set('display_errors', 'On');
 }
 
@@ -74,7 +74,7 @@ function wndt_seo_title($title) {
 	foreach ($_GET as $key => $value) {
 		if (strpos($key, '_term_') === 0) {
 			$term = get_term($value);
-			if($term){
+			if ($term) {
 				$title['title'] .= ' - ' . $term->name;
 			}
 			continue;
