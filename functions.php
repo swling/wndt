@@ -74,7 +74,7 @@ function wndt_seo_title($title) {
 	foreach ($_GET as $key => $value) {
 		if (strpos($key, '_term_') === 0) {
 			$term = get_term($value);
-			if ($term) {
+			if ($term and !is_wp_error($term)) {
 				$title['title'] .= ' - ' . $term->name;
 			}
 			continue;
