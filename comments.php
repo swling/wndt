@@ -62,7 +62,7 @@ $user_identity = $user->exists() ? $user->display_name : '';
 	];
 	if (is_user_logged_in() and !$user->user_email) {
 		echo '<div class="has-text-centered content">';
-		echo wnd_modal_button(__('请绑定邮箱后评论', 'wndt'), 'wnd_bind_email_form', [], 'is-danger');
+		echo wnd_modal_button(__('请绑定邮箱后评论', 'wndt'), 'user/wnd_bind_email_form', [], 'is-danger');
 		echo '</div>';
 	} else {
 		comment_form($comments_args);
