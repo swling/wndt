@@ -84,24 +84,24 @@ function wndt_post_type_nav_items() {
 	$html = '';
 	foreach (wndt_get_post_type() as $post_type) {
 		switch ($post_type) {
-		case 'company':
-			$icon = '<span class="icon"><i class="fa fa-building"></i></span>';
-			break;
-		case 'supply':
-			$icon = '<span class="icon"><i class="fa fa-bullhorn"></i></span>';
-			break;
+			case 'company':
+				$icon = '<span class="icon"><i class="fa fa-building"></i></span>';
+				break;
+			case 'supply':
+				$icon = '<span class="icon"><i class="fa fa-bullhorn"></i></span>';
+				break;
 
-		case 'demand':
-			$icon = '<span class="icon"><i class="fa fa-file-alt"></i></span>';
-			break;
+			case 'demand':
+				$icon = '<span class="icon"><i class="fa fa-file-alt"></i></span>';
+				break;
 
-		case 'people':
-			$icon = '<span class="icon"><i class="fa fa-address-card"></i></span>';
-			break;
+			case 'people':
+				$icon = '<span class="icon"><i class="fa fa-address-card"></i></span>';
+				break;
 
-		default:
-			$icon = '';
-			break;
+			default:
+				$icon = '';
+				break;
 		}
 
 		$class = (is_post_type_archive($post_type) or is_singular($post_type)) ? 'navbar-item is-active' : 'navbar-item';
@@ -164,24 +164,24 @@ function get_post_type_tabs() {
 	$html .= '<ul>';
 	foreach (wndt_get_post_type() as $post_type) {
 		switch ($post_type) {
-		case 'company':
-			$icon = '<span class="icon"><i class="fa fa-building"></i></span>';
-			break;
-		case 'supply':
-			$icon = '<span class="icon"><i class="fa fa-bullhorn"></i></span>';
-			break;
+			case 'company':
+				$icon = '<span class="icon"><i class="fa fa-building"></i></span>';
+				break;
+			case 'supply':
+				$icon = '<span class="icon"><i class="fa fa-bullhorn"></i></span>';
+				break;
 
-		case 'demand':
-			$icon = '<span class="icon"><i class="fa fa-file-alt"></i></span>';
-			break;
+			case 'demand':
+				$icon = '<span class="icon"><i class="fa fa-file-alt"></i></span>';
+				break;
 
-		case 'people':
-			$icon = '<span class="icon"><i class="fa fa-address-card"></i></span>';
-			break;
+			case 'people':
+				$icon = '<span class="icon"><i class="fa fa-address-card"></i></span>';
+				break;
 
-		default:
-			$icon = '';
-			break;
+			default:
+				$icon = '';
+				break;
 		}
 
 		$class = (is_post_type_archive($post_type) or is_singular($post_type)) ? ' is-active' : '';
@@ -246,15 +246,18 @@ function wndt_menu($theme_location) {
 		$parent      = $menu_item->menu_item_parent ?? 0;
 		$next_parent = $menu_items[$count + 1]->menu_item_parent ?? 0;
 
+		// 当前菜单 class
+		$is_active = (str_contains(wnd_get_current_url(), $link)) ? ' is-active' : '';
+
 		// 一级菜单
 		if (!$parent) {
 			$parent_id = $menu_item->ID;
 			if ($next_parent == $menu_item->ID) {
 				// 开启下拉菜单容器
 				$menu_list .= '<div class="navbar-item has-dropdown is-hoverable is-mega">';
-				$menu_list .= '<a href="' . $link . '" class="navbar-link">' . $title . '</a>' . "\n";
+				$menu_list .= '<a href="' . $link . '" class="navbar-link' . $is_active . '">' . $title . '</a>' . "\n";
 			} else {
-				$menu_list .= '<a href="' . $link . '" class="navbar-item">' . $title . '</a>' . "\n";
+				$menu_list .= '<a href="' . $link . '" class="navbar-item' . $is_active . '">' . $title . '</a>' . "\n";
 			}
 		}
 
