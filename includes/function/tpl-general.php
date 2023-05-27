@@ -269,7 +269,7 @@ function wndt_menu($theme_location) {
 				$menu_list .= '<div class="container is-fluid">';
 				$menu_list .= '<div class="columns is-marginless is-multiline">';
 			}
-			$menu_list .= '<div class="column is-3"><a href="' . $link . '" class="navbar-item">' . $title . '</a></div>' . "\n";
+			$menu_list .= '<div class="column is-3"><a href="' . $link . '" class="navbar-item' . $is_active . '">' . $title . '</a></div>' . "\n";
 
 			// 最后一个子菜单
 			if ($next_parent != $parent_id && $submenu) {
