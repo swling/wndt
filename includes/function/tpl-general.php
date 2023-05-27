@@ -247,7 +247,7 @@ function wndt_menu($theme_location) {
 		$next_parent = $menu_items[$count + 1]->menu_item_parent ?? 0;
 
 		// 当前菜单 class
-		$is_active = (str_contains(wnd_get_current_url(), $link)) ? ' is-active' : '';
+		$is_active = ($link == strtok(wnd_get_current_url(), '?')) ? ' is-active' : '';
 
 		// 一级菜单
 		if (!$parent) {
