@@ -146,7 +146,12 @@ function wndt_filter_account_form($input_fiels) {
  *
  */
 add_filter('wnd_menus', function ($menus, $args) {
-	return \Wndt\Query\Wndt_User_Menus::get($args);
+	if ($args['in_side'] or !wnd_is_manager()) {
+		return $menus;
+	}
+
+	$menus[0]['items'][] = ['title' => '赞赏', 'href' => '#wndt_reward_list'];
+	return $menus;
 }, 11, 2);
 
 /**
