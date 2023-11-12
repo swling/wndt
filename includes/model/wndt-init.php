@@ -84,18 +84,18 @@ class Wndt_Init {
 	 */
 	private function load_file() {
 		// hook
-		require TEMPLATEPATH . '/includes/hook/add-action-wp.php'; //WordPress动作
-		require TEMPLATEPATH . '/includes/hook/add-action.php'; //自定义动作
-		require TEMPLATEPATH . '/includes/hook/add-filter-wp.php'; //WordPress钩子
-		require TEMPLATEPATH . '/includes/hook/add-filter.php'; //自定义钩子
+		require WNDT_PATH . '/includes/hook/add-action-wp.php'; //WordPress动作
+		require WNDT_PATH . '/includes/hook/add-action.php'; //自定义动作
+		require WNDT_PATH . '/includes/hook/add-filter-wp.php'; //WordPress钩子
+		require WNDT_PATH . '/includes/hook/add-filter.php'; //自定义钩子
 
 		// functions
-		require TEMPLATEPATH . '/includes/function/inc-general.php'; //通用函数定义
-		require TEMPLATEPATH . '/includes/function/inc-optimization.php'; //优化
-		require TEMPLATEPATH . '/includes/function/inc-comment.php'; //评论
+		require WNDT_PATH . '/includes/function/inc-general.php'; //通用函数定义
+		require WNDT_PATH . '/includes/function/inc-optimization.php'; //优化
+		require WNDT_PATH . '/includes/function/inc-comment.php'; //评论
 
 		// temples
-		require TEMPLATEPATH . '/includes/function/tpl-general.php'; //通用模板
+		require WNDT_PATH . '/includes/function/tpl-general.php'; //通用模板
 	}
 
 	################################################################################ 自定义文章类型

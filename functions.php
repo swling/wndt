@@ -21,6 +21,9 @@ if (is_super_admin() and !is_admin()) {
 	ini_set('display_errors', 'On');
 }
 
+// 定义当前主题路径（替换被 WP6.4 废弃的 TEMPLATEPATH）
+define('WNDT_PATH', get_template_directory());
+
 // 定义当前主题 外网 url 取代 get_template_directory_uri ，因其会导致 options 不断自增：_site_transient_theme_roots
 define('WNDT_URL', get_option('home') . '/wp-content/themes/' . basename(dirname(__FILE__)));
 
