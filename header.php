@@ -40,14 +40,14 @@
 						</a>
 
 						<div class="navbar-item has-dropdown is-hoverable">
-							<a class="navbar-link" href="<?php echo home_url('ucenter') ?>">
+							<a class="navbar-link" href="<?php echo home_url('dashboard') ?>">
 								<span class="icon is-small"><i class="fa fa-cog"></i></span>
 								<span <?php echo wnd_get_mail_count() ? 'data-badge="' . wnd_get_mail_count() . '"' : 0; ?>>&nbsp;发布</span>
 							</a>
 							<div class="navbar-dropdown is-right">
-								<a class="navbar-item" href="<?php echo home_url('ucenter/?action=submit&type=post'); ?>">发布文章</a>
+								<a class="navbar-item" href="<?php echo home_url('dashboard/?action=submit&type=post'); ?>">发布文章</a>
 								<?php if (is_super_admin()) { ?>
-									<a class="navbar-item" href="<?php echo home_url('ucenter/?action=submit&type=product'); ?>">发布产品</a>
+									<a class="navbar-item" href="<?php echo home_url('dashboard/?action=submit&type=product'); ?>">发布产品</a>
 								<?php } ?>
 							</div>
 						</div>
@@ -55,15 +55,15 @@
 							<a class="navbar-item" onclick="wnd_ajax_modal('user/wnd_user_center',{'do':'login'})"><span class="icon"><i class="fa fa-user"></i></span> 登录 / 注册</a>
 						<?php } else { ?>
 							<div class="navbar-item has-dropdown is-hoverable">
-								<a class="navbar-link" href="<?php echo home_url('ucenter') ?>">
+								<a class="navbar-link" href="<?php echo home_url('dashboard') ?>">
 									<span class="icon is-small"><i class="fa fa-cog"></i></span>
 									<span <?php echo wnd_get_mail_count() ? 'data-badge="' . wnd_get_mail_count() . '"' : 0; ?>>&nbsp;管理</span>
 								</a>
 								<div class="navbar-dropdown is-right">
-									<a class="navbar-item" href="<?php echo home_url('ucenter'); ?>">用户中心</a>
-									<a class="navbar-item" href="<?php echo home_url('ucenter?module=wndt_admin_setting'); ?>">控制面板</a>
+									<a class="navbar-item" href="<?php echo home_url('dashboard'); ?>">用户中心</a>
+									<a class="navbar-item" href="<?php echo home_url('dashboard?module=wndt_admin_setting'); ?>">控制面板</a>
 									<?php if (is_super_admin()) { ?>
-										<a class="navbar-item" href="<?php echo home_url('ucenter/?action=submit&type=post'); ?>">发布文章</a>
+										<a class="navbar-item" href="<?php echo home_url('dashboard/?action=submit&type=post'); ?>">发布文章</a>
 									<?php } ?>
 									<a class="navbar-item" href="<?php echo wp_logout_url(home_url()); ?>">退出账户</a>
 								</div>
