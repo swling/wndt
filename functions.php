@@ -113,3 +113,7 @@ function wndt_rel_canonical() {
 	}
 }
 add_action('wp_head', 'wndt_rel_canonical');
+
+########################################
+
+add_action('init', 'Wndt\Model\Wndt_Keys::hook');
