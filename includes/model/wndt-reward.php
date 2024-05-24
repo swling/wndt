@@ -58,7 +58,7 @@ class Wndt_Reward extends Wnd_Transaction {
 	 * @param  object		$this->transaction 	required 	WP Post Object
 	 * @return int                        		WP Post ID
 	 */
-	protected function complete_transaction(): int{
+	protected function complete_transaction(): int {
 		// 定义变量 本类中，标题方法添加了站点名称，用于支付平台。故此调用父类方法用于站内记录
 		$ID           = $this->get_transaction_id();
 		$user_id      = $this->get_user_id();
@@ -71,12 +71,11 @@ class Wndt_Reward extends Wnd_Transaction {
 		}
 
 		if ($user_id) {
-			// 写入消费记录
-			wnd_inc_user_expense($user_id, $total_amount);
-
-			// 站内直接消费，无需支付平台支付校验，记录扣除账户余额、在线支付则不影响当前余额
+			// 注册用户：站内订单：扣除余额、更新消费；站外订单：仅更新消费
 			if (Wnd_Payment_Getway::is_internal_payment($ID)) {
 				wnd_inc_user_balance($user_id, $total_amount * -1, false);
+			} else {
+				wnd_inc_user_expense($user_id, $total_amount);
 			}
 		}
 
