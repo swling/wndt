@@ -150,7 +150,7 @@ add_filter('wnd_menus', function ($menus, $args) {
 		return $menus;
 	}
 
-	$menus[0]['items'][] = ['title' => '赞赏', 'href' => '#wndt_reward_list'];
+	$menus[0]['items'][] = ['title' => '赞赏', 'href' => 'wndt_reward_list'];
 	return $menus;
 }, 11, 2);
 
