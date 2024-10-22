@@ -4,7 +4,7 @@
 <!--wrap-->
 <footer id="footer" class="footer">
 	<div class="container">
-		<?php if (1) { ?>
+		<?php if (is_home()) { ?>
 			<div class="columns">
 				<div class="column is-narrow">
 					<div class="logo is-size-5">
@@ -28,9 +28,8 @@
 				</div>
 				<div class="column is-narrow content">
 					<h3>联系方式</h3>
-					<!-- <p>电话：13075490410</p> -->
-					<p>邮件：root@sanks.org</p>
-					<p>地址：重庆市南岸区三块石科技有限公司</p>
+					<p>邮件：245484493@qq.com</p>
+					<p>地址：重庆三块石科技有限公司</p>
 				</div>
 			</div>
 		<?php } ?>
