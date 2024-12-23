@@ -1,2 +1,26 @@
-*.zip
-/.*/
+# macOS 系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Icon?
+.Spotlight-V100
+.Trashes
+
+# IDE 和编辑器
+.vscode/
+xcuserdata/
+DerivedData/
+*.xcworkspace
+
+# 依赖项
+node_modules/
+.venv/
+.bundle/
+
+# 日志和临时文件
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
