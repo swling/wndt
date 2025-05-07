@@ -51,7 +51,7 @@ class Wndt_API {
 
 		// 获取文章附件
 		$attachment_id = wnd_get_post_meta($post_id, 'file') ?: 0;
-		$file_url      = wp_get_attachment_url($attachment_id);
+		$file_url      = wnd_get_attachment_url($attachment_id);
 
 		// 更新包信息
 		$data = [
