@@ -40,7 +40,7 @@ class Wndt_User_Overview extends Wnd_Module_Html {
 
 		$html .= '<div class="level is-mobile">';
 		$html .= '<div class="level-item">';
-		$html .= wnd_modal_button(__('余额充值', 'wndt'), 'common/wnd_user_recharge_form');
+		$html .= wnd_modal_button(__('余额充值', 'wndt'), 'common/wnd_recharge_form');
 		$html .= '</div>';
 
 		if (is_super_admin()) {

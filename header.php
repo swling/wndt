@@ -45,9 +45,9 @@
 								<span <?php echo wnd_get_mail_count() ? 'data-badge="' . wnd_get_mail_count() . '"' : 0; ?>>&nbsp;发布</span>
 							</a>
 							<div class="navbar-dropdown is-right">
-								<a class="navbar-item" href="<?php echo home_url('dashboard/?action=submit&type=post'); ?>">发布文章</a>
+								<a class="navbar-item" href="<?php echo home_url('dashboard/#module=post_form&type=post'); ?>">发布文章</a>
 								<?php if (is_super_admin()) { ?>
-									<a class="navbar-item" href="<?php echo home_url('dashboard/?action=submit&type=product'); ?>">发布产品</a>
+									<a class="navbar-item" href="<?php echo home_url('dashboard/#module=post_form&type=product'); ?>">发布产品</a>
 								<?php } ?>
 							</div>
 						</div>
@@ -63,7 +63,7 @@
 									<a class="navbar-item" href="<?php echo home_url('dashboard'); ?>">用户中心</a>
 									<a class="navbar-item" href="<?php echo home_url('dashboard?module=wndt_admin_setting'); ?>">控制面板</a>
 									<?php if (is_super_admin()) { ?>
-										<a class="navbar-item" href="<?php echo home_url('dashboard/?action=submit&type=post'); ?>">发布文章</a>
+										<a class="navbar-item" href="<?php echo home_url('dashboard/#module=post_form&type=post'); ?>">发布文章</a>
 									<?php } ?>
 									<a class="navbar-item" href="<?php echo wp_logout_url(home_url()); ?>">退出账户</a>
 								</div>
