@@ -13,7 +13,7 @@ use Wnd\View\Wnd_Form_WP;
 class Wndt_Reward_Form extends Wnd_Module_Form {
 
 	// 配置表单
-	protected static function configure_form(array $args = []): object{
+	protected static function configure_form(array $args = []): object {
 		/**
 		 * 基础信息
 		 */
@@ -22,8 +22,14 @@ class Wndt_Reward_Form extends Wnd_Module_Form {
 		$user_money      = wnd_get_user_balance($user_id);
 		$title           = get_the_title($post_id);
 		$gateway_options = Wnd_Payment_Getway::get_gateway_options();
+
+		$options = [];
+		foreach ($gateway_options as $payment) {
+			$options[$payment['label']] = $payment['value'];
+		}
+
 		if ($user_money > 0) {
-			$gateway_options = array_merge(['余额支付' => 'internal'], $gateway_options);
+			$options['余额支付'] = 'internal';
 		}
 
 		$form = new Wnd_Form_WP(true, !$user_id);
@@ -51,7 +57,7 @@ class Wndt_Reward_Form extends Wnd_Module_Form {
 		$form->add_radio(
 			[
 				'name'     => 'payment_gateway',
-				'options'  => $gateway_options,
+				'options'  => $options,
 				'required' => 'required',
 				'checked'  => Wnd_Payment_Getway::get_default_gateway(),
 				'class'    => 'is-checkradio is-danger',
