@@ -3,13 +3,13 @@ Theme Name:Wndt
 Author: swling
 Author URI: https://wndwp.com
 Description: Wnd Theme Based On Wnd-Frontend
-Version: 0.16.2
+Version: 0.16.3
 */
 html { height: 100%; }
 body { 
 	font-family: PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif; 
 	background: #F4F4F4; color: #333; font-size: 15px; word-wrap: break-word; word-break: break-all; 
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 img {image-rendering: pixelated; image-rendering: -moz-crisp-edges;}
 #site-title a { font-weight: bold; color: #222; }

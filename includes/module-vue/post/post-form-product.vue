@@ -106,8 +106,8 @@
 
             get_term_data() {
                 return {
-                    _term_category: this.category_selected,
-                    _term_post_tag: this.tag_selected,
+                    _term_product_cat: this.category_selected,
+                    _term_product_tag: this.tag_selected,
                 };
             }
         }
