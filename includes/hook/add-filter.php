@@ -150,7 +150,11 @@ add_filter('wnd_menus', function ($menus, $args) {
 		return $menus;
 	}
 
-	$menus[0]['items'][] = ['title' => '赞赏', 'href' => 'wndt_reward_list'];
+	$menus[] = [
+		'name' => '赞赏',
+		'hash' => 'wndt_reward_list',
+		'icon' => '<i class="fas fa-paperclip"></i>', // 附件
+	];
 	return $menus;
 }, 11, 2);
 
@@ -183,9 +187,3 @@ add_filter('wnd_transaction_instance', function ($instance, $type) {
 	return $instance;
 
 }, 11, 2);
-
-// 赞赏记录加入财务类 post types
-add_filter('wnd_fin_types', function (array $types): array{
-	$types[] = 'reward';
-	return $types;
-}, 11, 1);

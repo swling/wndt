@@ -93,7 +93,7 @@
                 this.category_options = categoryData.options;
                 this.category_selected = categoryData.selected;
 
-                const tagData = this.processTagOptions(data.term_options.produc_tag, data.terms.product_tag);
+                const tagData = this.processTagOptions(data.term_options.product_tag, data.terms.product_tag);
                 this.tag_options = tagData.options;
                 this.tag_selected = tagData.selected;
             }
