@@ -24,18 +24,4 @@ $args = [
 	'post_id'   => $_GET['post_id'] ?? 0,
 ];
 
-// 匿名充值返回
-$from = $_GET['from'] ?? '';
-if (!is_user_logged_in() and 'recharge_successful' == $from) {
-	get_header();
-	$html = '<main id="user-page-container" class="column has-text-centered content">';
-	$html .= '<div class="box">';
-	$html .= wnd_notification('<h3>匿名充值成功：' . wnd_get_anon_user_balance() . '</h3><p>请返回充值前的业务页面，【24小时内】完成对应操作！</p>', 'is-primary');
-	$html .= '</div>';
-	$html .= '</main>';
-	echo $html;
-	get_footer();
-	return;
-}
-
 echo Wnd_Dashboard::render($args);
