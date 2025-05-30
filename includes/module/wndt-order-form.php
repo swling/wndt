@@ -34,7 +34,7 @@ class Wndt_Order_Form extends Wnd_Module_Form {
 		if ($ajax) {
 			$form->set_route('module', 'common/wnd_payment_form');
 		} else {
-			$form->set_action(wnd_get_front_page_url(), 'GET');
+			$form->set_action(wnd_get_dashboard_url(), 'GET');
 			$form->add_hidden('module', 'common/wnd_payment_form');
 		}
 
