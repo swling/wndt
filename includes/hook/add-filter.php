@@ -145,18 +145,18 @@ function wndt_filter_account_form($input_fiels) {
  * 自定义用户菜单
  *
  */
-add_filter('wnd_menus', function ($menus, $args) {
-	if ($args['in_side'] or !wnd_is_manager()) {
-		return $menus;
-	}
+// add_filter('wnd_menus', function ($menus, $args) {
+// 	if ($args['in_side'] or !wnd_is_manager()) {
+// 		return $menus;
+// 	}
 
-	$menus[] = [
-		'name' => '赞赏',
-		'hash' => 'wndt_reward_list',
-		'icon' => '<i class="fas fa-paperclip"></i>', // 附件
-	];
-	return $menus;
-}, 11, 2);
+// 	$menus[] = [
+// 		'name' => '赞赏',
+// 		'hash' => 'wndt_reward_list',
+// 		'icon' => '<i class="fas fa-paperclip"></i>', // 附件
+// 	];
+// 	return $menus;
+// }, 11, 2);
 
 /**
  * 侧边栏菜单后续
