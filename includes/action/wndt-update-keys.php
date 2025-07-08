@@ -19,6 +19,12 @@ class Wndt_Update_Keys extends Wnd_Action {
 		// 使用换行符切分文本为数组
 		$keys_array = explode("\n", $keys);
 		$keys_array = array_map('trim', $keys_array);
+
+		// 过滤掉空值
+		$keys_array = array_filter($keys_array, function ($key) {
+			return !empty($key);
+		});
+
 		$aciton  = update_post_meta($post_id, 'secret_keys', $keys_array);
 		if ($aciton) {
 			return ['status' => 1, 'msg' => 'keys 更新成功'];

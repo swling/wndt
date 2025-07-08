@@ -2,6 +2,7 @@
 
 namespace Wndt\Module;
 
+use Exception;
 use Wnd\Model\Wnd_Order_Props;
 use Wnd\Module\Wnd_Module_Form;
 use Wnd\View\Wnd_Form_WP;
@@ -24,7 +25,7 @@ class Wndt_Order_Form extends Wnd_Module_Form {
 
 		$post = get_post($post_id);
 		if (!$post) {
-			return __('ID 无效', 'wnd');
+			throw new Exception("ID 无效");
 		}
 
 		// 构建表单
@@ -57,6 +58,7 @@ class Wndt_Order_Form extends Wnd_Module_Form {
 				'addon_left' => '<button class="button is-static">邮箱</button>',
 			]
 		);
+		$form->add_hidden('is_virtual', 1);
 		$form->set_submit_button('立即购买');
 		return $form;
 	}
