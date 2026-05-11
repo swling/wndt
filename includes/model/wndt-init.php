@@ -23,21 +23,8 @@ class Wndt_Init {
 
 	use Wnd_Singleton_Trait;
 
-	public $people_label;
-	public $supply_label;
-	public $demand_label;
-	public $enable_people;
-	public $enable_company;
-
 	private function __construct() {
 		$this->load_file();
-
-		$this->company_label  = wndt_get_config('company_label') ?: '公司';
-		$this->people_label   = wndt_get_config('people_label') ?: '名片';
-		$this->supply_label   = wndt_get_config('supply_label') ?: '供应';
-		$this->demand_label   = wndt_get_config('demand_label') ?: '需求';
-		$this->enable_people  = wndt_get_config('enable_people');
-		$this->enable_company = wndt_get_config('enable_company');
 
 		$this->init();
 
@@ -263,8 +250,8 @@ class Wndt_Init {
 		$author_rewrite = [];
 
 		// 用户id类
-		$author_rewrite["user/([0-9]+)/page/?([0-9]+)/?$"] = 'index.php?author=$matches[1]&paged=$matches[2]';
-		$author_rewrite["user/([0-9]+)/?$"]                = 'index.php?author=$matches[1]';
+		$author_rewrite['user/([0-9]+)/page/?([0-9]+)/?$'] = 'index.php?author=$matches[1]&paged=$matches[2]';
+		$author_rewrite['user/([0-9]+)/?$']                = 'index.php?author=$matches[1]';
 		// 别名类
 		$author_rewrite['user/(.*)/page/?([0-9]+)/?$'] = 'index.php?author_name=$matches[1]&paged=$matches[2]';
 		$author_rewrite['user/(.*)/?$']                = 'index.php?author_name=$matches[1]';
