@@ -11,7 +11,7 @@ use Wnd\Model\Wnd_Transaction;
  */
 class Wndt_Reward extends Wnd_Transaction {
 
-	protected $transaction_type = 'reward';
+	protected string $transaction_type = 'reward';
 
 	/**
 	 * 检测创建权限
